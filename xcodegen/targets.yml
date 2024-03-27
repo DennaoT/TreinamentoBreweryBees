@@ -1,6 +1,6 @@
 # Targets
 targets:
-  CoraDesafio:
+  TreinamentoBreweryBees:
     platform: iOS
     type: application
 

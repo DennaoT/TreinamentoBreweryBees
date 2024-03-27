@@ -1,6 +1,6 @@
 # Schemes
 schemes:
-  CoraDesafio:
+  TreinamentoBreweryBees:
     build:
       targets:
         TreinamentoBreweryBees: [run, test]
