@@ -1,0 +1,23 @@
+# Schemes
+schemes:
+  CoraDesafio:
+    build:
+      targets:
+        TreinamentoBreweryBees: [run, test]
+        TreinamentoBreweryBeesTests: [test]
+      parallelizedBuild: true
+      buildImplicitDependencies: true
+    
+    run:
+      config: Debug
+
+    environmentVariables:
+      IDEPreferLogStreaming: false
+
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - TreinamentoBreweryBees
+      targets:
+        - TreinamentoBreweryBeesTests

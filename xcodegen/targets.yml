@@ -1,0 +1,72 @@
+# Targets
+targets:
+  CoraDesafio:
+    platform: iOS
+    type: application
+
+    preBuildScripts:
+      - script: "${PODS_ROOT}/SwiftGen/bin/swiftgen"
+        name: SwiftGen
+
+    sources:
+      - path: ../TreinamentoBreweryBees
+
+    resources:
+      fonts:
+        - name: "Lato-Regular.ttf"
+          tags: ["regular"]
+          path: ../TreinamentoBreweryBees/Resources/Fonts
+
+        - name: "Lato-Bold.ttf"
+          tags: ["bold"]
+          path: ../TreinamentoBreweryBees/Resources/Fonts
+
+    info:
+      path: ../TreinamentoBreweryBees/Resources/Info.plist
+      properties:
+        ServerUrl: "${API_URL}"
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        LSRequiresIPhoneOS: YES
+        UIApplicationSupportsIndirectInputEvents: YES
+        UILaunchStoryboardName: "LaunchScreen"
+        UIApplicationSceneManifest: 
+          UIApplicationSupportsMultipleScenes: NO
+          UISceneConfigurations: 
+            UIWindowSceneSessionRoleApplication: 
+              - UISceneConfigurationName: "Default Configuration" 
+                UISceneDelegateClassName: "$(PRODUCT_MODULE_NAME).SceneDelegate"
+        UISupportedInterfaceOrientations~iphone: [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait]
+        UIAppFonts:
+          - Lato-Bold.ttf
+          - Lato-Regular.ttf
+     
+  TreinamentoBreweryBeesTests:
+    platform: iOS
+    type: bundle.unit-test
+      
+    sources:
+      - path: ../TreinamentoBreweryBeesTests
+    
+    dependencies:
+      - target: TreinamentoBreweryBees
+      - package: SnapshotTesting
+    
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER:  br.com.Cora.TreinamentoBreweryBeesTests
+      
+    info:
+      path: ../TreinamentoBreweryBeesTests/Info.plist
+      properties:
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        LSRequiresIPhoneOS: YES
+        UILaunchScreen: ""
+        UIApplicationSupportsIndirectInputEvents: YES
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: YES
+        UISupportedInterfaceOrientations~iphone:
+          [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations~ipad:
+          [UIInterfaceOrientationPortrait]

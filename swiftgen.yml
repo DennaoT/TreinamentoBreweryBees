@@ -1,0 +1,16 @@
+strings:
+  inputs: TreinamentoBreweryBees/Resources/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      params:
+        enumName: BreweryBeesStrings
+      output: TreinamentoBreweryBees/Resources/Generated/BreweryBeesStrings.swift
+
+xcassets:
+  inputs:
+    - TreinamentoBreweryBees/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      params:
+        enumName: BreweryBeesAssets
+      output: TreinamentoBreweryBees/Resources/Generated/BreweryBeesAssets.swift
