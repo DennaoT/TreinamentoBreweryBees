@@ -1,0 +1,6 @@
+framework module Pods_TreinamentoBreweryBees {
+  umbrella header "Pods-TreinamentoBreweryBees-umbrella.h"
+
+  export *
+  module * { export * }
+}
