@@ -1,5 +1,23 @@
 # SETUP TERMINAL
 
+### Xcodegen
+
+1. Gerar arquivos de projeto:
+
+`xcodegen generate`
+
+### Podfile
+
+1. Se necessário, iniciar o gerenciador de dependências:
+
+`pod init`
+
+2. Baixar dependências listadas:
+
+`pod install`
+
+### Swiftgen
+
 1. Se você ainda não tiver o Homebrew instalado, você pode instalá-lo com o seguinte comando:
 
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
