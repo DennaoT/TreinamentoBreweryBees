@@ -3,17 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		25694BD533D1F62E0F474292 /* Pods_TreinamentoBreweryBees.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73190DB7986C10B4DD1A42E /* Pods_TreinamentoBreweryBees.framework */; };
 		2C4AC39E6E0EC9C3145DEC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C59AAFC7FF85DEC02FD7860 /* Assets.xcassets */; };
 		3AB74E90D59CB568CA91BD30 /* Pods_TreinamentoBreweryBeesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57906717FA7E7C2DBA9E93F9 /* Pods_TreinamentoBreweryBeesTests.framework */; };
-		449740AE559ED4CEBEAFF3C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82ABD928259C70B9B0AB52E3 /* Main.storyboard */; };
 		51056CFDDCEE3D0769B38220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC4608A14B08D2A7BAC9D34 /* AppDelegate.swift */; };
+		51A89F452BBB714E00896396 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A89F442BBB714E00896396 /* AppCoordinator.swift */; };
+		51A89F472BBB71A100896396 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A89F462BBB71A100896396 /* Coordinator.swift */; };
 		58647DECA97FE6F45096B05E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C160C2F1D231C06CEAD811BF /* LaunchScreen.storyboard */; };
-		946D24F4EDEE3DAA6D9950CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73778F78F15D12443069D551 /* Info.plist */; };
 		ACFE8E11423F0D03049E7B55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D61863951F840BDDEA7835 /* ViewController.swift */; };
 		AEE84F2F2B65E71CE4C3888D /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 5EE2D33FA46A808B35D049B0 /* SnapshotTesting */; };
 		DA5FA8AD3D613EDF6A78C54B /* TreinamentoBreweryBeesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276356D7D540803A9E417BD8 /* TreinamentoBreweryBeesTests.swift */; };
@@ -33,13 +33,13 @@
 /* Begin PBXFileReference section */
 		220D0E722256474D58EF815D /* Pods-TreinamentoBreweryBees.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBees.release.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees.release.xcconfig"; sourceTree = "<group>"; };
 		276356D7D540803A9E417BD8 /* TreinamentoBreweryBeesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinamentoBreweryBeesTests.swift; sourceTree = "<group>"; };
-		2A64D13C0948BFEFC0659A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2A64D13C0948BFEFC0659A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36E280B21B5486C3BC49A52B /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.release.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.release.xcconfig"; sourceTree = "<group>"; };
+		51A89F442BBB714E00896396 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		51A89F462BBB71A100896396 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5728A49BDE93DA87940ADEE4 /* TreinamentoBreweryBees.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TreinamentoBreweryBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57906717FA7E7C2DBA9E93F9 /* Pods_TreinamentoBreweryBeesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreinamentoBreweryBeesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64F95F81D974DAFFBFEF182C /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; sourceTree = "<group>"; };
-		73778F78F15D12443069D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		75A98551340281D259D2EE91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EC4608A14B08D2A7BAC9D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C59AAFC7FF85DEC02FD7860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A73190DB7986C10B4DD1A42E /* Pods_TreinamentoBreweryBees.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreinamentoBreweryBees.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,16 +83,86 @@
 			);
 			sourceTree = "<group>";
 		};
+		51A89F3B2BBB6F2B00896396 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2A64D13C0948BFEFC0659A2B /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		51A89F3C2BBB6FDA00896396 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9C59AAFC7FF85DEC02FD7860 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		51A89F3D2BBB6FE200896396 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		51A89F3E2BBB707900896396 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				51A89F3F2BBB708700896396 /* Infraestructure */,
+				51A89F402BBB709F00896396 /* Features */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		51A89F3F2BBB708700896396 /* Infraestructure */ = {
+			isa = PBXGroup;
+			children = (
+				C144F351DF18C407D023F182 /* SceneDelegate.swift */,
+				7EC4608A14B08D2A7BAC9D34 /* AppDelegate.swift */,
+				51A89F422BBB70C300896396 /* Coordinator */,
+				51A89F412BBB70B900896396 /* LaunchScreen */,
+			);
+			path = Infraestructure;
+			sourceTree = "<group>";
+		};
+		51A89F402BBB709F00896396 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C2D61863951F840BDDEA7835 /* ViewController.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		51A89F412BBB70B900896396 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C160C2F1D231C06CEAD811BF /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		51A89F422BBB70C300896396 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				51A89F442BBB714E00896396 /* AppCoordinator.swift */,
+				51A89F432BBB70CE00896396 /* Protocol */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		51A89F432BBB70CE00896396 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				51A89F462BBB71A100896396 /* Coordinator.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		627F9030BE2164C28025D53C /* TreinamentoBreweryBees */ = {
 			isa = PBXGroup;
 			children = (
-				7EC4608A14B08D2A7BAC9D34 /* AppDelegate.swift */,
-				9C59AAFC7FF85DEC02FD7860 /* Assets.xcassets */,
-				73778F78F15D12443069D551 /* Info.plist */,
-				C160C2F1D231C06CEAD811BF /* LaunchScreen.storyboard */,
-				82ABD928259C70B9B0AB52E3 /* Main.storyboard */,
-				C144F351DF18C407D023F182 /* SceneDelegate.swift */,
-				C2D61863951F840BDDEA7835 /* ViewController.swift */,
+				51A89F3E2BBB707900896396 /* Source */,
 				C707C1A3D1BA6E947A10431F /* Resources */,
 			);
 			path = TreinamentoBreweryBees;
@@ -110,7 +180,9 @@
 		C707C1A3D1BA6E947A10431F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2A64D13C0948BFEFC0659A2B /* Info.plist */,
+				51A89F3C2BBB6FDA00896396 /* Assets */,
+				51A89F3D2BBB6FE200896396 /* Localizable */,
+				51A89F3B2BBB6F2B00896396 /* SupportingFiles */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -123,7 +195,6 @@
 				64F95F81D974DAFFBFEF182C /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */,
 				36E280B21B5486C3BC49A52B /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -195,8 +266,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1530;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = D3A79EEC775C309407354E99 /* Build configuration list for PBXProject "TreinamentoBreweryBees" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -226,9 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4AC39E6E0EC9C3145DEC46 /* Assets.xcassets in Resources */,
-				946D24F4EDEE3DAA6D9950CA /* Info.plist in Resources */,
 				58647DECA97FE6F45096B05E /* LaunchScreen.storyboard in Resources */,
-				449740AE559ED4CEBEAFF3C4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +379,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51A89F452BBB714E00896396 /* AppCoordinator.swift in Sources */,
 				51056CFDDCEE3D0769B38220 /* AppDelegate.swift in Sources */,
+				51A89F472BBB71A100896396 /* Coordinator.swift in Sources */,
 				DE9739965CA5325A391935A8 /* SceneDelegate.swift in Sources */,
 				ACFE8E11423F0D03049E7B55 /* ViewController.swift in Sources */,
 			);
@@ -329,14 +398,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		82ABD928259C70B9B0AB52E3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				75A98551340281D259D2EE91 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C160C2F1D231C06CEAD811BF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

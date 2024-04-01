@@ -1,5 +1,5 @@
 strings:
-  inputs: TreinamentoBreweryBees/Resources/Localizable.strings
+  inputs: TreinamentoBreweryBees/Resources/Localizable/Localizable.strings
   outputs:
     - templateName: structured-swift5
       params:
@@ -8,7 +8,7 @@ strings:
 
 xcassets:
   inputs:
-    - TreinamentoBreweryBees/Resources/Assets.xcassets
+    - TreinamentoBreweryBees/Resources/Assets/Assets.xcassets
   outputs:
     - templateName: swift5
       params:

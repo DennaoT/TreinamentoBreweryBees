@@ -11,18 +11,8 @@ targets:
     sources:
       - path: ../TreinamentoBreweryBees
 
-    resources:
-      fonts:
-        - name: "Lato-Regular.ttf"
-          tags: ["regular"]
-          path: ../TreinamentoBreweryBees/Resources/Fonts
-
-        - name: "Lato-Bold.ttf"
-          tags: ["bold"]
-          path: ../TreinamentoBreweryBees/Resources/Fonts
-
     info:
-      path: ../TreinamentoBreweryBees/Resources/Info.plist
+      path: ../TreinamentoBreweryBees/Resources/SupportingFiles/Info.plist
       properties:
         ServerUrl: "${API_URL}"
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
@@ -54,7 +44,7 @@ targets:
       - package: SnapshotTesting
     
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER:  br.com.Cora.TreinamentoBreweryBeesTests
+      PRODUCT_BUNDLE_IDENTIFIER:  br.com.TreinamentoBreweryBees.TreinamentoBreweryBeesTests
       
     info:
       path: ../TreinamentoBreweryBeesTests/Info.plist
