@@ -1,8 +1,8 @@
 strings:
   inputs:
-    - TreinamentoBreweryBees/Resources/Localizable/Localizable_EN-US.strings
-    - TreinamentoBreweryBees/Resources/Localizable/Localizable_FR-CA.strings
-    - TreinamentoBreweryBees/Resources/Localizable/Localizable_PT-BR.strings
+    - TreinamentoBreweryBees/Resources/Localizable/en.lproj/Localizable_EN-US.strings
+    - TreinamentoBreweryBees/Resources/Localizable/fr-CA.lproj/Localizable_FR-CA.strings
+    - TreinamentoBreweryBees/Resources/Localizable/pt-BR.lproj/Localizable_PT-BR.strings
   outputs:
     - templateName: structured-swift5
       params:

@@ -39,9 +39,9 @@
 		1F8C70CBFC001DB66E5F7F77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		276356D7D540803A9E417BD8 /* TreinamentoBreweryBeesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinamentoBreweryBeesTests.swift; sourceTree = "<group>"; };
 		51A89F542BBB776B00896396 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Localizable_EN-US.strings"; sourceTree = "<group>"; };
-		51A89F572BBB779900896396 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Localizable_FR-CA.strings"; sourceTree = "<group>"; };
-		51A89F5A2BBB77F900896396 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Localizable_PT-BR.strings"; sourceTree = "<group>"; };
 		51A89F5D2BBB78F900896396 /* TreinamentoBreweryBeesLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinamentoBreweryBeesLocalizable.swift; sourceTree = "<group>"; };
+		51A89F5F2BBB79A600896396 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable_FR-CA.strings"; sourceTree = "<group>"; };
+		51A89F602BBB79AF00896396 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable_PT-BR.strings"; sourceTree = "<group>"; };
 		5728A49BDE93DA87940ADEE4 /* TreinamentoBreweryBees.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TreinamentoBreweryBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAFFAE3110A1EFEC4DA8CDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BF7A639F12B0719B9FA25E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -343,12 +343,13 @@
 				51A89F542BBB776B00896396 /* en */,
 			);
 			name = "Localizable_EN-US.strings";
-			sourceTree = "<group>";
+			path = TreinamentoBreweryBees/Resources/Localizable;
+			sourceTree = SOURCE_ROOT;
 		};
 		51A89F562BBB779900896396 /* Localizable_FR-CA.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				51A89F572BBB779900896396 /* en */,
+				51A89F5F2BBB79A600896396 /* fr-CA */,
 			);
 			name = "Localizable_FR-CA.strings";
 			sourceTree = "<group>";
@@ -356,7 +357,7 @@
 		51A89F592BBB77F900896396 /* Localizable_PT-BR.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				51A89F5A2BBB77F900896396 /* en */,
+				51A89F602BBB79AF00896396 /* pt-BR */,
 			);
 			name = "Localizable_PT-BR.strings";
 			sourceTree = "<group>";
