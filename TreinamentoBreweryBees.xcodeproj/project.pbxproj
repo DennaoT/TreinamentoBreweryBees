@@ -13,13 +13,13 @@
 		313DB88AA6FCDE3B6C3F000F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD5ABF733CB4E35F8BF12F /* ViewController.swift */; };
 		31B0F01FB47931A5DFC4EEF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C70CBFC001DB66E5F7F77 /* AppDelegate.swift */; };
 		3D75330E335937BCFDDDA8E1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D90DD7F65B88BD89470EB4 /* Coordinator.swift */; };
+		5675DF2E270FE7457138834B /* Pods_TreinamentoBreweryBees.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85B5D79753EF0640AF2BAB2 /* Pods_TreinamentoBreweryBees.framework */; };
 		58C16241A7C75E3CB424CD61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 692949FD115D148623145CEE /* Localizable.strings */; };
 		AB9DACFB95A9246602D25FAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C332279D21A0045CF1E5E18A /* LaunchScreen.storyboard */; };
 		AEE84F2F2B65E71CE4C3888D /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 5EE2D33FA46A808B35D049B0 /* SnapshotTesting */; };
 		B6D129CE8D034A3B85477652 /* BreweryBeesAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046AB9294EBA0E10C43512B3 /* BreweryBeesAssets.swift */; };
-		CAAEE7ABFC5FAC640ACE5BA4 /* Pods_TreinamentoBreweryBees.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282EF18C492225B1BB24D367 /* Pods_TreinamentoBreweryBees.framework */; };
+		BEFC22829F57B4DAD0E2DCC7 /* Pods_TreinamentoBreweryBeesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C439BB2DE979F32B2B646A5F /* Pods_TreinamentoBreweryBeesTests.framework */; };
 		DA5FA8AD3D613EDF6A78C54B /* TreinamentoBreweryBeesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276356D7D540803A9E417BD8 /* TreinamentoBreweryBeesTests.swift */; };
-		DD068C28A13F8E782211E416 /* Pods_TreinamentoBreweryBeesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 426DB6D9FCC766C3CF2775DF /* Pods_TreinamentoBreweryBeesTests.framework */; };
 		E3764C95EC02ACBED04D5A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED35BEB66C662252EA239DD6 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		027EEEB5EF484DB560C76750 /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.release.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.release.xcconfig"; sourceTree = "<group>"; };
 		046AB9294EBA0E10C43512B3 /* BreweryBeesAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBeesAssets.swift; sourceTree = "<group>"; };
 		0730E56FE4008D53E1B46A8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		083FBE5A38BE0AFE622A196D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -41,20 +42,19 @@
 		14DD5ABF733CB4E35F8BF12F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F8C70CBFC001DB66E5F7F77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		276356D7D540803A9E417BD8 /* TreinamentoBreweryBeesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinamentoBreweryBeesTests.swift; sourceTree = "<group>"; };
-		282EF18C492225B1BB24D367 /* Pods_TreinamentoBreweryBees.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreinamentoBreweryBees.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		426DB6D9FCC766C3CF2775DF /* Pods_TreinamentoBreweryBeesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreinamentoBreweryBeesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5728A49BDE93DA87940ADEE4 /* TreinamentoBreweryBees.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TreinamentoBreweryBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		582DADEDDA2102DC7F49E1D8 /* TreinamentoBreweryBeesLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinamentoBreweryBeesLocalizable.swift; sourceTree = "<group>"; };
-		74EB2E987799FF36A38C4DFD /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.release.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.release.xcconfig"; sourceTree = "<group>"; };
+		8A538897EFB4918F6D0EEE88 /* Pods-TreinamentoBreweryBees.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBees.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees.debug.xcconfig"; sourceTree = "<group>"; };
 		9817EA39A7D83AC2E1E26085 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		B7E9F9C7D8D3EE6AC92D33EF /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B1F7B915DE8BAB4E1C07726E /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAFFAE3110A1EFEC4DA8CDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BF7A639F12B0719B9FA25E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BFA236A686FA82A07374AFD9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		EB5335D30A83823C843FBEAD /* Pods-TreinamentoBreweryBees.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBees.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees.debug.xcconfig"; sourceTree = "<group>"; };
+		C439BB2DE979F32B2B646A5F /* Pods_TreinamentoBreweryBeesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreinamentoBreweryBeesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E85B5D79753EF0640AF2BAB2 /* Pods_TreinamentoBreweryBees.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreinamentoBreweryBees.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED35BEB66C662252EA239DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EFCC6C3065759090D13BD145 /* Pods-TreinamentoBreweryBees.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBees.release.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees.release.xcconfig"; sourceTree = "<group>"; };
 		F17469B92C179938A379D355 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		F28D28FF5860BA9CEFAF6C5E /* Pods-TreinamentoBreweryBees.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBees.release.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees.release.xcconfig"; sourceTree = "<group>"; };
 		F738D0729FE0462F31447EE9 /* TreinamentoBreweryBeesTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TreinamentoBreweryBeesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D90DD7F65B88BD89470EB4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,15 +65,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEE84F2F2B65E71CE4C3888D /* SnapshotTesting in Frameworks */,
-				DD068C28A13F8E782211E416 /* Pods_TreinamentoBreweryBeesTests.framework in Frameworks */,
+				BEFC22829F57B4DAD0E2DCC7 /* Pods_TreinamentoBreweryBeesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C1066306C2CB05F8981D060F /* Frameworks */ = {
+		AB198BFBABB96C34E0794624 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAAEE7ABFC5FAC640ACE5BA4 /* Pods_TreinamentoBreweryBees.framework in Frameworks */,
+				5675DF2E270FE7457138834B /* Pods_TreinamentoBreweryBees.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,8 +86,8 @@
 				627F9030BE2164C28025D53C /* TreinamentoBreweryBees */,
 				F5CF615BA01A6907B274C003 /* TreinamentoBreweryBeesTests */,
 				E7E7B00E22A97A05B4B7551A /* Products */,
-				C357820E6566C9FDFE7291B0 /* Pods */,
-				883E75A8AD86BE256C3B3DFB /* Frameworks */,
+				62F01FD90664B6190EE58021 /* Pods */,
+				F935F759ADFF0B1C4331DFC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,21 +137,23 @@
 			path = TreinamentoBreweryBees;
 			sourceTree = "<group>";
 		};
+		62F01FD90664B6190EE58021 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A538897EFB4918F6D0EEE88 /* Pods-TreinamentoBreweryBees.debug.xcconfig */,
+				F28D28FF5860BA9CEFAF6C5E /* Pods-TreinamentoBreweryBees.release.xcconfig */,
+				B1F7B915DE8BAB4E1C07726E /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */,
+				027EEEB5EF484DB560C76750 /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		82D10984B8B034CA6B64D90D /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
 				C332279D21A0045CF1E5E18A /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreen;
-			sourceTree = "<group>";
-		};
-		883E75A8AD86BE256C3B3DFB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				282EF18C492225B1BB24D367 /* Pods_TreinamentoBreweryBees.framework */,
-				426DB6D9FCC766C3CF2775DF /* Pods_TreinamentoBreweryBeesTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8DD08948E8975EB3F8216CB7 /* Localize */ = {
@@ -185,17 +187,6 @@
 				ED35BEB66C662252EA239DD6 /* Assets.xcassets */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		C357820E6566C9FDFE7291B0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EB5335D30A83823C843FBEAD /* Pods-TreinamentoBreweryBees.debug.xcconfig */,
-				EFCC6C3065759090D13BD145 /* Pods-TreinamentoBreweryBees.release.xcconfig */,
-				B7E9F9C7D8D3EE6AC92D33EF /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */,
-				74EB2E987799FF36A38C4DFD /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		C707C1A3D1BA6E947A10431F /* Resources */ = {
@@ -235,6 +226,15 @@
 			path = TreinamentoBreweryBeesTests;
 			sourceTree = "<group>";
 		};
+		F935F759ADFF0B1C4331DFC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E85B5D79753EF0640AF2BAB2 /* Pods_TreinamentoBreweryBees.framework */,
+				C439BB2DE979F32B2B646A5F /* Pods_TreinamentoBreweryBeesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FFDAF58ED5128F7C7D0FA45C /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,11 +250,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 840A4DDFEDDC8F1ED18D0F7C /* Build configuration list for PBXNativeTarget "TreinamentoBreweryBees" */;
 			buildPhases = (
-				4293960DBFD35DC3E3A09581 /* [CP] Check Pods Manifest.lock */,
+				A08AAAE3E577F4D89DFC94E1 /* [CP] Check Pods Manifest.lock */,
 				A1ABF71B59797E586C0FAE61 /* SwiftGen */,
 				86850BD8AAC2B550E3910B6B /* Sources */,
 				B142E7830361E9F84AB7F93E /* Resources */,
-				C1066306C2CB05F8981D060F /* Frameworks */,
+				AB198BFBABB96C34E0794624 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -269,7 +269,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 783D8FDA0CE632036244C1D1 /* Build configuration list for PBXNativeTarget "TreinamentoBreweryBeesTests" */;
 			buildPhases = (
-				4075E313A6451D1E410934A4 /* [CP] Check Pods Manifest.lock */,
+				BDED5332EB9CA7E3752FAE3E /* [CP] Check Pods Manifest.lock */,
 				27FB7E9A5E02F0345738CF8B /* Sources */,
 				411E468C4F57DA181CB9ABFA /* Frameworks */,
 			);
@@ -332,29 +332,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4075E313A6451D1E410934A4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TreinamentoBreweryBeesTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4293960DBFD35DC3E3A09581 /* [CP] Check Pods Manifest.lock */ = {
+		A08AAAE3E577F4D89DFC94E1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -393,6 +371,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen";
+		};
+		BDED5332EB9CA7E3752FAE3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TreinamentoBreweryBeesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -453,7 +453,7 @@
 /* Begin XCBuildConfiguration section */
 		27D652AE0B0F8DDD72BCA5AB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74EB2E987799FF36A38C4DFD /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */;
+			baseConfigurationReference = 027EEEB5EF484DB560C76750 /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TreinamentoBreweryBeesTests/Info.plist;
@@ -600,7 +600,7 @@
 		};
 		6179D159DB65C20F0BBB5216 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7E9F9C7D8D3EE6AC92D33EF /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */;
+			baseConfigurationReference = B1F7B915DE8BAB4E1C07726E /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TreinamentoBreweryBeesTests/Info.plist;
@@ -618,7 +618,7 @@
 		};
 		6F5DDA9B6B95D4DFE3078801 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB5335D30A83823C843FBEAD /* Pods-TreinamentoBreweryBees.debug.xcconfig */;
+			baseConfigurationReference = 8A538897EFB4918F6D0EEE88 /* Pods-TreinamentoBreweryBees.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -635,7 +635,7 @@
 		};
 		FC4D1CC08A8F39C73D5EBCBC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFCC6C3065759090D13BD145 /* Pods-TreinamentoBreweryBees.release.xcconfig */;
+			baseConfigurationReference = F28D28FF5860BA9CEFAF6C5E /* Pods-TreinamentoBreweryBees.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
