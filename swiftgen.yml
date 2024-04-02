@@ -1,25 +1,3 @@
-strings:
-  inputs:
-    - TreinamentoBreweryBees/Resources/Localizable/en.lproj/Localizable.strings
-    - TreinamentoBreweryBees/Resources/Localizable/fr-CA.lproj/Localizable.strings
-    - TreinamentoBreweryBees/Resources/Localizable/pt-BR.lproj/Localizable.strings
-  outputs:
-    - templateName: structured-swift5
-      params:
-        enumName: BreweryBeesStrings_EN_US
-      output: TreinamentoBreweryBees/Resources/Generated/BreweryBeesStrings_EN_US.swift
-
-    - templateName: structured-swift5
-      params:
-        enumName: BreweryBeesStrings_FR_CA
-      output: TreinamentoBreweryBees/Resources/Generated/BreweryBeesStrings_FR_CA.swift
-
-    - templateName: structured-swift5
-      params:
-        enumName: BreweryBeesStrings_PT_BR
-      output: TreinamentoBreweryBees/Resources/Generated/BreweryBeesStrings_PT_BR.swift
-
-
 xcassets:
   inputs:
     - TreinamentoBreweryBees/Resources/Assets/Assets.xcassets

@@ -10,6 +10,21 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<dict>
+			<key>en-US</key>
+			<string>../TreinamentoBreweryBees/Resources/Localizable/en.lproj/Localizable_EN_US.strings</string>
+		</dict>
+		<dict>
+			<key>fr-CA</key>
+			<string>../TreinamentoBreweryBees/Resources/Localizable/fr-CA.lproj/Localizable_FR_CA.strings</string>
+		</dict>
+		<dict>
+			<key>pt-BR</key>
+			<string>../TreinamentoBreweryBees/Resources/Localizable/pt-BR.lproj/Localizable_PT_BR.strings</string>
+		</dict>
+	</array>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
