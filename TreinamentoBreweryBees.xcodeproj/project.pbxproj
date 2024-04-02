@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,8 +15,8 @@
 		313DB88AA6FCDE3B6C3F000F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD5ABF733CB4E35F8BF12F /* ViewController.swift */; };
 		31B0F01FB47931A5DFC4EEF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C70CBFC001DB66E5F7F77 /* AppDelegate.swift */; };
 		3D75330E335937BCFDDDA8E1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D90DD7F65B88BD89470EB4 /* Coordinator.swift */; };
-		51A89F632BBB84C200896396 /* Localizable_FR_CA.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51A89F622BBB84C200896396 /* Localizable_FR_CA.strings */; };
-		51A89F662BBB84C900896396 /* Localizable_PT_BR.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51A89F652BBB84C900896396 /* Localizable_PT_BR.strings */; };
+		51A89F672BBB855500896396 /* Localizable_FR_CA.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51A89F622BBB84C200896396 /* Localizable_FR_CA.strings */; };
+		51A89F682BBB855500896396 /* Localizable_PT_BR.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51A89F652BBB84C900896396 /* Localizable_PT_BR.strings */; };
 		79E1B01EE6CF74BFA187693F /* BreweryBeesStrings_PT_BR.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB6D9642AD0344C2358DC65 /* BreweryBeesStrings_PT_BR.swift */; };
 		932B0EF4838C60EC2324059D /* BreweryBeesStrings_EN_US.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22FB588FC4E525B36F2BB5 /* BreweryBeesStrings_EN_US.swift */; };
 		AB9DACFB95A9246602D25FAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C332279D21A0045CF1E5E18A /* LaunchScreen.storyboard */; };
@@ -308,7 +308,7 @@
 				LastUpgradeCheck = 1530;
 			};
 			buildConfigurationList = D3A79EEC775C309407354E99 /* Build configuration list for PBXProject "TreinamentoBreweryBees" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -336,11 +336,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CA2945D888D6A98E9874235 /* Localizable_EN_US.strings in Resources */,
+				51A89F672BBB855500896396 /* Localizable_FR_CA.strings in Resources */,
+				51A89F682BBB855500896396 /* Localizable_PT_BR.strings in Resources */,
 				E3764C95EC02ACBED04D5A6D /* Assets.xcassets in Resources */,
 				AB9DACFB95A9246602D25FAA /* LaunchScreen.storyboard in Resources */,
-				1CA2945D888D6A98E9874235 /* Localizable_EN_US.strings in Resources */,
-				51A89F632BBB84C200896396 /* Localizable_FR_CA.strings in Resources */,
-				51A89F662BBB84C900896396 /* Localizable_PT_BR.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

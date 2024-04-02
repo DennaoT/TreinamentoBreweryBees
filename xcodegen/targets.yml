@@ -14,7 +14,6 @@ targets:
     info:
       path: ../TreinamentoBreweryBees/Resources/SupportingFiles/Info.plist
       properties:
-        ServerUrl: "${API_URL}"
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         CFBundleShortVersionString: $(MARKETING_VERSION)
         LSRequiresIPhoneOS: YES
@@ -28,9 +27,6 @@ targets:
                 UISceneDelegateClassName: "$(PRODUCT_MODULE_NAME).SceneDelegate"
         UISupportedInterfaceOrientations~iphone: [UIInterfaceOrientationPortrait]
         UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait]
-        UIAppFonts:
-          - Lato-Bold.ttf
-          - Lato-Regular.ttf
      
   TreinamentoBreweryBeesTests:
     platform: iOS
