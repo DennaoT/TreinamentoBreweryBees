@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "BeesMapIcon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
