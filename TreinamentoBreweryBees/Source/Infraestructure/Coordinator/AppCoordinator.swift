@@ -7,27 +7,44 @@
 
 import UIKit
 
-class AppCoordinator: Coordinator {
+class AppCoordinator: MainCoordinator {
+    
+    // MARK: - Properties
+    
     var navigationController: UINavigationController
     
-    ///Verifica se já esta logado no celular
-    var isLoggedIn: Bool = true
+    // MARK: - Private Properties
     
-    init(navigationController: UINavigationController) {
+    private var architecture: ArchitectureType
+    
+    init(navigationController: UINavigationController, architecture: ArchitectureType = .mvvmc) {
         self.navigationController = navigationController
+        self.architecture = architecture
     }
     
     func start() {
-        isLoggedIn ? showHome() : showLogin()
+        switch architecture {
+        case .mvvmc:
+            startMVVMC()
+        case .vip:
+            startVIP()
+        case .viper:
+            startVIPER()
+        }
+    }
+}
+
+extension AppCoordinator: ArchitectureConfig {
+    func startMVVMC() {
+        let homeCoordinator = HomeCoordinator(navigationController: navigationController)
+        homeCoordinator.start()
     }
     
-    private func showLogin() {
-        let vc = ViewController()
-        navigationController.pushViewController(vc, animated: true)
+    func startVIP() {
+        /* Intentionally unimplemented */
     }
     
-    private func showHome() {
-        let vc = ViewController()
-        navigationController.pushViewController(vc, animated: true)
+    func startVIPER() {
+        /* Intentionally unimplemented */
     }
 }
