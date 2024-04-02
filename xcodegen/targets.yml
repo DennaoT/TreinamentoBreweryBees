@@ -27,6 +27,11 @@ targets:
                 UISceneDelegateClassName: "$(PRODUCT_MODULE_NAME).SceneDelegate"
         UISupportedInterfaceOrientations~iphone: [UIInterfaceOrientationPortrait]
         UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait]
+        CFBundleLocalizations:
+          - en-US: ../TreinamentoBreweryBees/Resources/Localizable/en.lproj/Localizable_EN_US.strings
+          - fr-CA: ../TreinamentoBreweryBees/Resources/Localizable/fr-CA.lproj/Localizable_FR_CA.strings
+          - pt-BR: ../TreinamentoBreweryBees/Resources/Localizable/pt-BR.lproj/Localizable_PT_BR.strings
+
      
   TreinamentoBreweryBeesTests:
     platform: iOS
