@@ -10,43 +10,43 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum BreweryBeesStrings_FR_CA {
-  /// Localizable_FR-CA.strings
+  /// Localizable_FR_CA.strings
   ///   TreinamentoBreweryBees
   /// 
   ///   Created by Dennis Torres on 01/04/24.
-  internal static let appDennao = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "appDennao", fallback: "App Dennao")
+  internal static let appDennao = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "appDennao", fallback: "App Dennao")
   /// %@ de %@ de %@
   internal static func dateFormat(_ p1: Any, _ p2: Any, _ p3: Any) -> String {
-    return BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "dateFormat", String(describing: p1), String(describing: p2), String(describing: p3), fallback: "%@ de %@ de %@")
+    return BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "dateFormat", String(describing: p1), String(describing: p2), String(describing: p3), fallback: "%@ de %@ de %@")
   }
   /// Avril
-  internal static let monthApril = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthApril", fallback: "Avril")
+  internal static let monthApril = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthApril", fallback: "Avril")
   /// Août
-  internal static let monthAugust = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthAugust", fallback: "Août")
+  internal static let monthAugust = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthAugust", fallback: "Août")
   /// Décembre
-  internal static let monthDecember = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthDecember", fallback: "Décembre")
+  internal static let monthDecember = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthDecember", fallback: "Décembre")
   /// Février
-  internal static let monthFebruary = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthFebruary", fallback: "Février")
+  internal static let monthFebruary = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthFebruary", fallback: "Février")
   /// Janvier
-  internal static let monthJanuary = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthJanuary", fallback: "Janvier")
+  internal static let monthJanuary = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthJanuary", fallback: "Janvier")
   /// Juillet
-  internal static let monthJuly = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthJuly", fallback: "Juillet")
+  internal static let monthJuly = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthJuly", fallback: "Juillet")
   /// Juin
-  internal static let monthJune = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthJune", fallback: "Juin")
+  internal static let monthJune = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthJune", fallback: "Juin")
   /// Mars
-  internal static let monthMarch = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthMarch", fallback: "Mars")
+  internal static let monthMarch = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthMarch", fallback: "Mars")
   /// Mai
-  internal static let monthMay = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthMay", fallback: "Mai")
+  internal static let monthMay = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthMay", fallback: "Mai")
   /// Novembre
-  internal static let monthNovember = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthNovember", fallback: "Novembre")
+  internal static let monthNovember = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthNovember", fallback: "Novembre")
   /// Octobre
-  internal static let monthOctober = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthOctober", fallback: "Octobre")
+  internal static let monthOctober = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthOctober", fallback: "Octobre")
   /// Septembre
-  internal static let monthSeptember = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "monthSeptember", fallback: "Septembre")
+  internal static let monthSeptember = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "monthSeptember", fallback: "Septembre")
   /// Mot de passe
-  internal static let password = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "password", fallback: "Mot de passe")
+  internal static let password = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "password", fallback: "Mot de passe")
   /// Nom d'utilisateur
-  internal static let userName = BreweryBeesStrings_FR_CA.tr("Localizable_FR-CA", "userName", fallback: "Nom d'utilisateur")
+  internal static let userName = BreweryBeesStrings_FR_CA.tr("Localizable_FR_CA", "userName", fallback: "Nom d'utilisateur")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
