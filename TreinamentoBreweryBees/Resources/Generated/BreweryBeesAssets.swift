@@ -25,7 +25,15 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum BreweryBeesAssets {
   internal static let accentColor = ColorAsset(name: "AccentColor")
-  internal static let beesBeerIcon = ImageAsset(name: "BeesBeerIcon")
+  internal static let beesArrowLeftIcon = ImageAsset(name: "BeesArrowLeftIcon")
+  internal static let beesBeerBlackIcon = ImageAsset(name: "BeesBeerBlackIcon")
+  internal static let beesBeerYellowIcon = ImageAsset(name: "BeesBeerYellowIcon")
+  internal static let beesCircleMenuIcon = ImageAsset(name: "BeesCircleMenuIcon")
+  internal static let beesFailedBeerIcon = ImageAsset(name: "BeesFailedBeerIcon")
+  internal static let beesMapIcon = ImageAsset(name: "BeesMapIcon")
+  internal static let beesStarOutlinedIcon = ImageAsset(name: "BeesStarOutlinedIcon")
+  internal static let beesStartFilledIcon = ImageAsset(name: "BeesStartFilledIcon")
+  internal static let beesSuccessBeerIcon = ImageAsset(name: "BeesSuccessBeerIcon")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
