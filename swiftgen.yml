@@ -1,27 +1,24 @@
 strings:
-  - inputs:
-      - TreinamentoBreweryBees/Resources/Localizable/en.lproj/Localizable_EN_US.strings
-    outputs:
-      - templateName: structured-swift5
-        params:
-          enumName: BreweryBeesStrings_EN_US
-        output: TreinamentoBreweryBees/Resources/Generated/BreweryBeesStrings_EN_US.swift
+  inputs:
+    - TreinamentoBreweryBees/Resources/Localizable/en.lproj/Localizable.strings
+    - TreinamentoBreweryBees/Resources/Localizable/fr-CA.lproj/Localizable.strings
+    - TreinamentoBreweryBees/Resources/Localizable/pt-BR.lproj/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      params:
+        enumName: BreweryBeesStrings_EN_US
+      output: TreinamentoBreweryBees/Resources/Generated/BreweryBeesStrings_EN_US.swift
 
-  - inputs:
-      - TreinamentoBreweryBees/Resources/Localizable/fr-CA.lproj/Localizable_FR_CA.strings
-    outputs:
-      - templateName: structured-swift5
-        params:
-          enumName: BreweryBeesStrings_FR_CA
-        output: TreinamentoBreweryBees/Resources/Generated/BreweryBeesStrings_FR_CA.swift
+    - templateName: structured-swift5
+      params:
+        enumName: BreweryBeesStrings_FR_CA
+      output: TreinamentoBreweryBees/Resources/Generated/BreweryBeesStrings_FR_CA.swift
 
-  - inputs:
-      - TreinamentoBreweryBees/Resources/Localizable/pt-BR.lproj/Localizable_PT_BR.strings
-    outputs:
-      - templateName: structured-swift5
-        params:
-          enumName: BreweryBeesStrings_PT_BR
-        output: TreinamentoBreweryBees/Resources/Generated/BreweryBeesStrings_PT_BR.swift
+    - templateName: structured-swift5
+      params:
+        enumName: BreweryBeesStrings_PT_BR
+      output: TreinamentoBreweryBees/Resources/Generated/BreweryBeesStrings_PT_BR.swift
+
 
 xcassets:
   inputs:

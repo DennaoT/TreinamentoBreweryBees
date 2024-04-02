@@ -1,0 +1,29 @@
+/* 
+  Localizable_EN_US.strings
+  TreinamentoBreweryBees
+
+  Created by Dennis Torres on 01/04/24.
+  
+*/
+
+// MARK: - App Dennao
+
+"appDennao" = "App Dennao";
+"userName" = "Username";
+"password" = "Password";
+
+// MARK: - Date
+
+"monthJanuary" = "January";
+"monthFebruary" = "February";
+"monthMarch" = "March";
+"monthApril" = "April";
+"monthMay" = "May";
+"monthJune" = "June";
+"monthJuly" = "July";
+"monthAugust" = "August";
+"monthSeptember" = "September";
+"monthOctober" = "October";
+"monthNovember" = "November";
+"monthDecember" = "December";
+"dateFormat" = "%@ %@, %@";

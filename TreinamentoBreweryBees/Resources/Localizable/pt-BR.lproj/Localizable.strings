@@ -9,8 +9,8 @@
 // MARK: - App Dennao
 
 "appDennao" = "App Dennao";
-"userName" = "Nome de usuário";
-"password" = "Senha";
+"userName" = "Username";
+"password" = "Password";
 
 // MARK: - Date
 
@@ -26,4 +26,4 @@
 "monthOctober" = "Outubro";
 "monthNovember" = "Novembro";
 "monthDecember" = "Dezembro";
-"dateFormat" = "%@ de %@ de %@";
+"dateFormat" = "%@ %@, %@";
