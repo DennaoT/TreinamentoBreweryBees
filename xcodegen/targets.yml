@@ -11,6 +11,11 @@ targets:
     sources:
       - path: ../TreinamentoBreweryBees
 
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER:  br.com.TreinamentoBreweryBees.TreinamentoBreweryBees
+      CODE_SIGN_STYLE: 'Automatic'
+      PROVISIONING_PROFILE: "Dennis Torres"
+
     info:
       path: ../TreinamentoBreweryBees/Resources/SupportingFiles/Info.plist
       properties:
@@ -18,7 +23,7 @@ targets:
         CFBundleShortVersionString: $(MARKETING_VERSION)
         LSRequiresIPhoneOS: YES
         UIApplicationSupportsIndirectInputEvents: YES
-        UILaunchStoryboardName: "LaunchScreen"
+        UILaunchStoryboardName: "LaunchScreen.storyboard"
         UIApplicationSceneManifest: 
           UIApplicationSupportsMultipleScenes: NO
           UISceneConfigurations: 
@@ -28,9 +33,9 @@ targets:
         UISupportedInterfaceOrientations~iphone: [UIInterfaceOrientationPortrait]
         UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait]
         CFBundleLocalizations:
-          - en-US: ../TreinamentoBreweryBees/Resources/Localizable/en.lproj/Localizable_EN_US.strings
-          - fr-CA: ../TreinamentoBreweryBees/Resources/Localizable/fr-CA.lproj/Localizable_FR_CA.strings
-          - pt-BR: ../TreinamentoBreweryBees/Resources/Localizable/pt-BR.lproj/Localizable_PT_BR.strings
+          - en: ../TreinamentoBreweryBees/Resources/Localizable/en.lproj/Localizable.strings
+          - fr-CA: ../TreinamentoBreweryBees/Resources/Localizable/fr-CA.lproj/Localizable.strings
+          - pt-BR: ../TreinamentoBreweryBees/Resources/Localizable/pt-BR.lproj/Localizable.strings
 
      
   TreinamentoBreweryBeesTests:

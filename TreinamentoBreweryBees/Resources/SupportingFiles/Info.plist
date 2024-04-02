@@ -13,16 +13,16 @@
 	<key>CFBundleLocalizations</key>
 	<array>
 		<dict>
-			<key>en-US</key>
-			<string>../TreinamentoBreweryBees/Resources/Localizable/en.lproj/Localizable_EN_US.strings</string>
+			<key>en</key>
+			<string>../TreinamentoBreweryBees/Resources/Localizable/en.lproj/Localizable.strings</string>
 		</dict>
 		<dict>
 			<key>fr-CA</key>
-			<string>../TreinamentoBreweryBees/Resources/Localizable/fr-CA.lproj/Localizable_FR_CA.strings</string>
+			<string>../TreinamentoBreweryBees/Resources/Localizable/fr-CA.lproj/Localizable.strings</string>
 		</dict>
 		<dict>
 			<key>pt-BR</key>
-			<string>../TreinamentoBreweryBees/Resources/Localizable/pt-BR.lproj/Localizable_PT_BR.strings</string>
+			<string>../TreinamentoBreweryBees/Resources/Localizable/pt-BR.lproj/Localizable.strings</string>
 		</dict>
 	</array>
 	<key>CFBundleName</key>
@@ -55,7 +55,7 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>LaunchScreen.storyboard</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
