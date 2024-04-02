@@ -24,10 +24,16 @@
 
 ### Swiftgen
 
-1. Após a instalação do Homebrew, você pode instalar o SwiftGen com o seguinte comando:
+1. Instalar o SwiftGen com o seguinte comando:
 
 `brew install swiftgen`
 
 2. Depois que a instalação for concluída, execute o comando **swiftgen config**:
 
 `swiftgen config`
+
+# SETUP IDE
+
+1. Em **TARGETS** -> **Build Phases** -> **SwiftGen**, comente com `#` o seguinte código:
+
+`${PODS_ROOT}/SwiftGen/bin/swiftgen`
