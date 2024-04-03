@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BeesBeerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="m2p-r8-mfi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BeesBeerBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="m2p-r8-mfi">
                                 <rect key="frame" x="118" y="356" width="157" height="165"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="165" id="Cf2-Nu-yE3"/>
@@ -38,7 +38,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BeesBeerIcon" width="732" height="844"/>
+        <image name="BeesBeerBlackIcon" width="732" height="844"/>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

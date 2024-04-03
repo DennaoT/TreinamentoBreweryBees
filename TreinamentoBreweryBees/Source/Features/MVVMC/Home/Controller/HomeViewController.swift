@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class HomeViewController: UIViewController {
     
@@ -26,6 +27,13 @@ class HomeViewController: UIViewController {
         stackView.spacing = Constants.defaultSpacing
         stackView.backgroundColor = .white
         return stackView
+    }()
+    
+    private lazy var imagemAna: UIImageView = {
+        let img = UIImageView()
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.image = UIImage(asset: BreweryBeesAssets.beesCircleMenuIcon)
+        return img
     }()
 
     // MARK: - Instantiate
@@ -51,5 +59,12 @@ class HomeViewController: UIViewController {
         view.backgroundColor = Constants.mainViewColor
         
         title = "\(TreinamentoBreweryBeesLocalizable.userName.localized): Dennis"
+        
+        view.addSubview(imagemAna)
+        imagemAna.snp.makeConstraints { make in
+            make.height.equalTo(100)
+            make.width.equalTo(70)
+            make.center.equalToSuperview()
+        }
     }
 }
