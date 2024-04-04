@@ -40,7 +40,10 @@ class HomeViewModel: HomeViewModelProtocol {
         do {
             guard let documentSnapshot = try await documentRef?.getDocument(),
                   let data = documentSnapshot.data() 
-            else { return }
+            else {
+                breweryModel.value = .error
+                return
+            }
             
             let breweryListData = try Firestore.Decoder().decode(BreweryListData.self, from: data)
             breweryModel.value = .success(breweryListData)
