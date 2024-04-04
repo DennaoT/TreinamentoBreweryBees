@@ -6,15 +6,20 @@ def setup_libs
   pod 'SwiftGen', '~> 6.0'
 end
 
+def firebase_libs
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/RemoteConfig'
+end
+
 def external_libs
   pod 'SnapKit', '~> 5.6.0'
 end
 
 target 'TreinamentoBreweryBees' do
-  # Comment the next line if you don't want to use dynamic frameworks
   setup_libs
+  firebase_libs
   external_libs
-  
 end
 
 # Pods for TreinamentoBreweryBees
