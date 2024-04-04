@@ -14,6 +14,8 @@
 		4BD701A22B6D47CB3286446D /* Pods_TreinamentoBreweryBeesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B61567869CFCD1B6B8E4E02 /* Pods_TreinamentoBreweryBeesTests.framework */; };
 		511A5CE52BBEEB8F00A425A1 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511A5CE42BBEEB8F00A425A1 /* Dynamic.swift */; };
 		511A5CE82BBF019200A425A1 /* HomeCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511A5CE72BBF019200A425A1 /* HomeCoordinatorDelegate.swift */; };
+		511A5CEA2BBF45E700A425A1 /* HomeDataPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511A5CE92BBF45E700A425A1 /* HomeDataPath.swift */; };
+		511A5CEC2BBF541200A425A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 511A5CEB2BBF541200A425A1 /* GoogleService-Info.plist */; };
 		5795B8486C092D8D843B01E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747F8D745D4C19109B91823 /* SceneDelegate.swift */; };
 		58C16241A7C75E3CB424CD61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 692949FD115D148623145CEE /* Localizable.strings */; };
 		65D9EA0872BE52B159C335CD /* Pods_TreinamentoBreweryBees.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEB02B0D91087EBD2893598 /* Pods_TreinamentoBreweryBees.framework */; };
@@ -54,7 +56,9 @@
 		4D1C738C736DC7EA9AC37C2D /* Pods-TreinamentoBreweryBees.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBees.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees.debug.xcconfig"; sourceTree = "<group>"; };
 		511A5CE42BBEEB8F00A425A1 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		511A5CE72BBF019200A425A1 /* HomeCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorDelegate.swift; sourceTree = "<group>"; };
-		5728A49BDE93DA87940ADEE4 /* TreinamentoBreweryBees.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TreinamentoBreweryBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		511A5CE92BBF45E700A425A1 /* HomeDataPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataPath.swift; sourceTree = "<group>"; };
+		511A5CEB2BBF541200A425A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5728A49BDE93DA87940ADEE4 /* TreinamentoBreweryBees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreinamentoBreweryBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		582DADEDDA2102DC7F49E1D8 /* TreinamentoBreweryBeesLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinamentoBreweryBeesLocalizable.swift; sourceTree = "<group>"; };
 		773C269137E8578D87D2C742 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		830CEDDA99D980DF429A6896 /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				BAFFAE3110A1EFEC4DA8CDC5 /* Info.plist */,
+				511A5CEB2BBF541200A425A1 /* GoogleService-Info.plist */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				773C269137E8578D87D2C742 /* HomeModel.swift */,
+				511A5CE92BBF45E700A425A1 /* HomeDataPath.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3764C95EC02ACBED04D5A6D /* Assets.xcassets in Resources */,
+				511A5CEC2BBF541200A425A1 /* GoogleService-Info.plist in Resources */,
 				AB9DACFB95A9246602D25FAA /* LaunchScreen.storyboard in Resources */,
 				58C16241A7C75E3CB424CD61 /* Localizable.strings in Resources */,
 			);
@@ -560,6 +567,7 @@
 				00C8236FD42C4EC1B47BD271 /* HomeTopBarView.swift in Sources */,
 				87723A37F0F4D5ACDB873A45 /* HomeViewController.swift in Sources */,
 				C9197D261FF6D8CC53EB7E42 /* HomeViewModel.swift in Sources */,
+				511A5CEA2BBF45E700A425A1 /* HomeDataPath.swift in Sources */,
 				5795B8486C092D8D843B01E7 /* SceneDelegate.swift in Sources */,
 				13D2FB4AA4B9707F545A82AB /* TreinamentoBreweryBeesLocalizable.swift in Sources */,
 			);

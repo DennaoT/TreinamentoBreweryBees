@@ -5,6 +5,8 @@
 //  Created by Dennis Torres on 02/04/24.
 //
 
+import FirebaseCore
+import FirebaseFirestore
 import UIKit
 
 // MARK: - Protocol
@@ -24,20 +26,27 @@ class HomeViewModel: HomeViewModelProtocol {
     // MARK: - Private Properties
     
     private weak var flowDelegate: HomeCoordinatorDelegate?
+    private var documentRef: DocumentReference?
     
     // MARK: - Public Methods
     
     init(delegate: HomeCoordinatorDelegate?) {
         self.flowDelegate = delegate
+        
+        documentRef = Firestore.firestore().document(HomeDataPath.breweryListDocumentPath)
     }
     
     func fetchHomeData() async {
-        //???
+        do {
+            guard let documentSnapshot = try await documentRef?.getDocument(),
+                  let data = documentSnapshot.data() 
+            else { return }
+            
+            let breweryListData = try Firestore.Decoder().decode(BreweryListData.self, from: data)
+            breweryModel.value = .success(breweryListData)
+            
+        } catch {
+            breweryModel.value = .error
+        }
     }
-}
-
-// MARK: - Private Methods
-
-extension HomeViewModel {
-    
 }
