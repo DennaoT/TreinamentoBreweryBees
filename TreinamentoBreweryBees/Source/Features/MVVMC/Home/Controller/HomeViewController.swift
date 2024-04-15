@@ -10,30 +10,44 @@ import SnapKit
 
 class HomeViewController: UIViewController {
     
-    // MARK: - Constants
+    // MARK: - Enums
     
     private enum Constants {
+        static let navigationBarElementsColor: UIColor = .yellow
+        static let navigationBarColor: UIColor = .black
         static let mainViewColor: UIColor = .white
         static let titleHeight: CGFloat = 28
         static let defaultSpacing: CGFloat = 16
     }
     
+    private enum Images {
+        static let magnifyingGlass = UIImage(systemName: "magnifyingglass")
+        static let circleMenu = UIImage(asset: BreweryBeesAssets.beesCircleMenuIcon)
+        static let beerYellow = UIImage(asset: BreweryBeesAssets.beesBeerYellowIcon)
+        static let arrowLeft = UIImage(asset: BreweryBeesAssets.beesArrowLeftIcon)
+    }
+    
+    // MARK: - Views
+    
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.alignment = .center
         stackView.spacing = Constants.defaultSpacing
-        stackView.backgroundColor = .white
+        stackView.backgroundColor = Constants.mainViewColor
         return stackView
     }()
     
-    private lazy var imagemAna: UIImageView = {
-        let img = UIImageView()
-        img.translatesAutoresizingMaskIntoConstraints = false
-        img.image = UIImage(asset: BreweryBeesAssets.beesCircleMenuIcon)
-        return img
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.font = .boldSystemFont(ofSize: Constants.titleHeight)
+        label.textAlignment = .center
+        label.contentMode = .scaleAspectFit
+        return label
     }()
     
     // MARK: - Properties
@@ -75,6 +89,7 @@ class HomeViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupViews() {
+        setupNavBar()
         setupMainView()
         setupTopBar()
         setupSearch()
@@ -100,17 +115,45 @@ class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - Setup Navigation Bar
+
+extension HomeViewController {
+    private func setupNavBar() {
+        navigationItem.title = "Detalhes da cervejaria"
+        
+        navigationController?.navigationBar.barTintColor = Constants.navigationBarColor
+        navigationController?.navigationBar.tintColor = Constants.navigationBarElementsColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Constants.navigationBarElementsColor]
+        
+        let optionBeer = UIBarButtonItem(image: Images.beerYellow, style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationItem.leftBarButtonItem = optionBeer
+        
+        let optionMenuList = UIBarButtonItem(image: Images.circleMenu, style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationItem.rightBarButtonItem = optionMenuList
+    }
+    
+    @objc private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
 // MARK: - Setup Views
 
 extension HomeViewController {
     private func setupMainView() {
-        view.backgroundColor = Constants.mainViewColor
-        
-        title = "\(TreinamentoBreweryBeesLocalizable.userName.localized): Dennis"
+        view.addSubview(mainStackView)
+        mainStackView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
     }
     
     private func setupTopBar() {
-        
+        titleLabel.text = "TESTEEEEE"
+        mainStackView.addArrangedSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.height.equalTo(Constants.titleHeight)
+        }
     }
     
     private func setupSearch() {

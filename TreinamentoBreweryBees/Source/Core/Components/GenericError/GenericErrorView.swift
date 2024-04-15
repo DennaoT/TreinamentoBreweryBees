@@ -31,7 +31,7 @@ class GenericErrorView: UIView {
         }
     }
     
-    // MARK: - Constants
+    // MARK: - Enum
     
     private enum Constants {
         static let mainViewColor: UIColor = .yellow
@@ -47,7 +47,7 @@ class GenericErrorView: UIView {
         static let spacingToButton: CGFloat = 40
     }
     
-    // MARK: - Outlets
+    // MARK: - Views
     
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView()
