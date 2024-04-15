@@ -104,8 +104,7 @@ extension HomeViewModel {
     }
     
     private func decodeBreweryListData(from data: [String: Any]) throws -> BreweryListData {
-        guard //let jsonData = try? JSONSerialization.data(withJSONObject: data),
-              let breweryListData = try? Firestore.Decoder().decode(BreweryListData.self, from: data) //jsonData
+        guard let breweryListData = try? Firestore.Decoder().decode(BreweryListData.self, from: data)
         else {
             throw FirestoreError.dataCorrupted
         }

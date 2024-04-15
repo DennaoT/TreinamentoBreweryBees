@@ -21,10 +21,10 @@ class HomeViewController: UIViewController {
     }
     
     private enum Images {
-        static let magnifyingGlass = UIImage(systemName: "magnifyingglass")
-        static let circleMenu = UIImage(asset: BreweryBeesAssets.beesCircleMenuIcon)
-        static let beerYellow = UIImage(asset: BreweryBeesAssets.beesBeerYellowIcon)
-        static let arrowLeft = UIImage(asset: BreweryBeesAssets.beesArrowLeftIcon)
+        static let magnifyingGlass: UIImage? = UIImage(systemName: "magnifyingglass")
+        static let circleMenu: UIImage? = UIImage(asset: BreweryBeesAssets.beesCircleMenuIcon)
+        static let beerYellow: UIImage? = UIImage(asset: BreweryBeesAssets.beesBeerYellowIcon)
+        static let arrowLeft: UIImage? = UIImage(asset: BreweryBeesAssets.beesArrowLeftIcon)
     }
     
     // MARK: - Views
@@ -103,13 +103,17 @@ class HomeViewController: UIViewController {
     private func bindElements() {
         viewModel?.breweryModel.bind { [weak self] status in
             guard let self = self else { return }
-            switch status {
-            case .success(let model):
-                self.stopLoading()
-            case .error(let model):
-                self.stopLoading()
-            case .loading:
-                self.startLoading()
+            DispatchQueue.main.async {
+                switch status {
+                case .success(let model):
+                    guard let textModel = model?.breweriesList.first?.name else { return }
+                    self.titleLabel.text = "\(textModel)"
+                    self.stopLoading()
+                case .error(let model):
+                    self.stopLoading()
+                case .loading:
+                    self.startLoading()
+                }
             }
         }
     }
