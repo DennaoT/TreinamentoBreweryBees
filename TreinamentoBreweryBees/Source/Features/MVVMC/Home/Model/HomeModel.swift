@@ -9,9 +9,9 @@ import Foundation
 
 // MARK: - Status
 
-enum HomeInfoStatus<T> {
+enum HomeInfoStatus<T,E> {
     case success(T)
-    case error
+    case error(E)
     case loading
 }
 

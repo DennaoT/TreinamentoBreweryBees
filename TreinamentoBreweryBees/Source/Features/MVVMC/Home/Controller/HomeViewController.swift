@@ -35,36 +35,105 @@ class HomeViewController: UIViewController {
         img.image = UIImage(asset: BreweryBeesAssets.beesCircleMenuIcon)
         return img
     }()
+    
+    // MARK: - Properties
+    
+    private var screenError: GenericErrorView?
+    private var viewModel: HomeViewModelProtocol?
 
     // MARK: - Instantiate
     
-    /*public static func instantiate(viewModel: HomeViewModelProtocol) -> HomeViewController {
+    public static func instantiate(viewModel: HomeViewModelProtocol) -> HomeViewController {
         let controller = HomeViewController()
         controller.viewModel = viewModel
         return controller
-    }*/
+    }
     
-    // MARK: - Life Cycles/
+    // MARK: - Life Cycles
+    
+    override func loadView() {
+        super.loadView()
+        
+        screenError = GenericErrorView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        setupView()
+        setupViews()
+        bindElements()
+        fetchViewModel()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        screenError = nil
+        viewModel = nil
     }
     
     // MARK: - Private methods
     
-    private func setupView() {
+    private func setupViews() {
+        setupMainView()
+        setupTopBar()
+        setupSearch()
+        setupList()
+    }
+    
+    private func fetchViewModel() {
+        viewModel?.fetchHomeData()
+    }
+    
+    private func bindElements() {
+        viewModel?.breweryModel.bind { [weak self] status in
+            guard let self = self else { return }
+            switch status {
+            case .success(let model):
+                self.stopLoading()
+            case .error(let model):
+                self.stopLoading()
+            case .loading:
+                self.startLoading()
+            }
+        }
+    }
+}
+
+// MARK: - Setup Views
+
+extension HomeViewController {
+    private func setupMainView() {
         view.backgroundColor = Constants.mainViewColor
         
         title = "\(TreinamentoBreweryBeesLocalizable.userName.localized): Dennis"
+    }
+    
+    private func setupTopBar() {
         
-        view.addSubview(imagemAna)
-        imagemAna.snp.makeConstraints { make in
-            make.height.equalTo(100)
-            make.width.equalTo(70)
-            make.center.equalToSuperview()
-        }
+    }
+    
+    private func setupSearch() {
+        
+    }
+    
+    private func setupList() {
+        
+    }
+    
+    private func setupError() {
+        
+    }
+}
+
+// MARK: - Loading
+
+extension HomeViewController {
+    private func startLoading() {
+        
+    }
+    
+    private func stopLoading() {
+        
     }
 }
