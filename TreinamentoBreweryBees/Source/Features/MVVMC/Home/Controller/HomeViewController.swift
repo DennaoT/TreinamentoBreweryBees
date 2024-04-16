@@ -94,6 +94,7 @@ class HomeViewController: UIViewController {
         setupTopBar()
         setupSearch()
         setupList()
+        setupError()
     }
     
     private func fetchViewModel() {
@@ -104,12 +105,15 @@ class HomeViewController: UIViewController {
         viewModel?.breweryModel.bind { [weak self] status in
             guard let self = self else { return }
             DispatchQueue.main.async {
+                self.screenError?.isHidden = true
                 switch status {
                 case .success(let model):
                     guard let textModel = model?.breweriesList.first?.name else { return }
                     self.titleLabel.text = "\(textModel)"
                     self.stopLoading()
                 case .error(let model):
+                    self.screenError?.setup(with: model)
+                    self.screenError?.isHidden = false
                     self.stopLoading()
                 case .loading:
                     self.startLoading()
@@ -153,7 +157,6 @@ extension HomeViewController {
     }
     
     private func setupTopBar() {
-        titleLabel.text = "TESTEEEEE"
         mainStackView.addArrangedSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.height.equalTo(Constants.titleHeight)
@@ -169,7 +172,13 @@ extension HomeViewController {
     }
     
     private func setupError() {
-        
+        guard let screenError = screenError else { return }
+        view.addSubview(screenError)
+        screenError.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(Constants.defaultSpacing)
+            $0.leading.trailing.equalToSuperview().inset(Constants.defaultSpacing)
+            $0.bottom.equalToSuperview().inset(50)
+        }
     }
 }
 

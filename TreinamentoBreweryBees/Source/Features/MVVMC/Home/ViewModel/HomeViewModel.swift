@@ -27,6 +27,10 @@ class HomeViewModel: HomeViewModelProtocol {
     
     private weak var flowDelegate: HomeCoordinatorDelegate?
     private var documentRef: DocumentReference?
+    
+    //private var tasks: [Task<Void, Never>] = []
+    private var activeTasksCount = 0
+    
     private var errorModel: GenericErrorView.Model?
     
     // MARK: - Public Methods
@@ -38,9 +42,24 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     func fetchHomeData() {
-        Task {
-            await fetchCurrentData()
+//        guard tasks.count < 4 else {
+//            tasks.forEach({ $0.cancel() })
+//            tasks = []
+//            return
+//        }
+        
+        guard activeTasksCount < 3 else { return }
+        
+        let task = Task(priority: activeTasksCount > 1 ? .medium : .background) {
+            self.activeTasksCount += 1
+            do {
+                await self.fetchCurrentData()
+            } catch {
+                self.handleError(title: "Ocorreu um erro", description: error.localizedDescription, buttonText: "Tentar novamente")
+            }
+            self.activeTasksCount -= 1
         }
+        //tasks.append(task)
     }
 }
 
@@ -61,45 +80,21 @@ extension HomeViewModel {
             breweryModel.value = .success(breweryListData)
             
         } catch FirestoreError.notFound {
-            let errorModel = GenericErrorView.Model(
-                titleText: "Documento não encontrado",
-                descriptionText: "Não foi possivel encontrar dados do Firebase.",
-                buttonText: "Tentar novamente",
-                buttonAction: { [weak self] in
-                    self?.fetchHomeData()
-                }
-            )
-            breweryModel.value = .error(errorModel)
+            handleError(title: "Documento não encontrado",
+                        description: "Não foi possível encontrar dados do Firebase.",
+                        buttonText: "Tentar novamente")
         } catch FirestoreError.emptyData {
-            let errorModel = GenericErrorView.Model(
-                titleText: "Documento não encontrado",
-                descriptionText: "Dados do documento estão vazios ou ausentes!",
-                buttonText: "Tentar novamente",
-                buttonAction: { [weak self] in
-                    self?.fetchHomeData()
-                }
-            )
-            breweryModel.value = .error(errorModel)
+            handleError(title: "Documento não encontrado",
+                        description: "Dados do documento estão vazios ou ausentes!",
+                        buttonText: "Tentar novamente")
         } catch FirestoreError.dataCorrupted {
-            let errorModel = GenericErrorView.Model(
-                titleText: "Dados corrompidos",
-                descriptionText: "Os dados estão corrompidos durante a decodificação.",
-                buttonText: "Tentar novamente",
-                buttonAction: { [weak self] in
-                    self?.fetchHomeData()
-                }
-            )
-            breweryModel.value = .error(errorModel)
+            handleError(title: "Dados corrompidos",
+                        description: "Os dados estão corrompidos durante a decodificação.",
+                        buttonText: "Tentar novamente")
         } catch {
-            let errorModel = GenericErrorView.Model(
-                titleText: "Ocorreu um erro inesperado",
-                descriptionText: "Erro: \(error.localizedDescription)",
-                buttonText: "Tentar novamente",
-                buttonAction: { [weak self] in
-                    self?.fetchHomeData()
-                }
-            )
-            breweryModel.value = .error(errorModel)
+            handleError(title: "Ocorreu um erro inesperado",
+                        description: "Erro: \(error.localizedDescription)",
+                        buttonText: "Tentar novamente")
         }
     }
     
@@ -109,5 +104,22 @@ extension HomeViewModel {
             throw FirestoreError.dataCorrupted
         }
         return breweryListData
+    }
+    
+    private func handleError(title: String, description: String, buttonText: String) {
+        let errorModel = GenericErrorView.Model(
+            titleText: title,
+            descriptionText: description,
+            buttonText: buttonText,
+            buttonAction: { [weak self] in
+//                guard let currentTasks = self?.tasks, currentTasks.count < 4 else {
+//                    self?.tasks.forEach({ $0.cancel() })
+//                    self?.tasks = []
+//                    return
+//                }
+                self?.fetchHomeData()
+            }
+        )
+        breweryModel.value = .error(errorModel)
     }
 }

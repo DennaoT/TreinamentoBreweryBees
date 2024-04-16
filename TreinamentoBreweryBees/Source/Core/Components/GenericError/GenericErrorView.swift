@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import SnapKit
+import SnapKit
 
 class GenericErrorView: UIView {
     
@@ -34,20 +34,34 @@ class GenericErrorView: UIView {
     // MARK: - Enum
     
     private enum Constants {
+        static let shadowColor: UIColor = .lightGray.withAlphaComponent(0.3)
         static let mainViewColor: UIColor = .yellow
-        static let spacingSides: CGFloat = 16
-        static let spacingTop: CGFloat = 20
-        static let widgetRadius: CGFloat = 8
-        static let titleColor: UIColor = .white
+        static let mainViewRadius: CGFloat = 16
+        static let spacingSides: CGFloat = .measurement(.initialMedium)
+        static let spacingTexts: CGFloat = .measurement(.large)
+        static let titleColor: UIColor = .black
         static let titleHeight: CGFloat = 28
-        static let buttonHeight: CGFloat = 35
+        static let descriptionColor: UIColor = .black
+        static let descriptionHeight: CGFloat = .measurement(.initialMedium)
+        static let buttonHeight: CGFloat = .measurement(.giga)
         static let buttonColor: UIColor = .white
-        static let buttonTextColor: UIColor = .white
-        static let buttonRadius: CGFloat = 4
-        static let spacingToButton: CGFloat = 40
+        static let buttonTextColor: UIColor = .black
+        static let buttonRadius: CGFloat = 12
+        static let spacingToButton: CGFloat = 170
+        static let borderSides: CGFloat = 2
+        static let borderBottom: CGFloat = 5
+        static let scaleAnimation: CGFloat = 0.95
     }
     
     // MARK: - Views
+    
+    private lazy var mainBackground: UIView = {
+        let backgroundView = UIView()
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.backgroundColor = Constants.mainViewColor
+        backgroundView.layer.cornerRadius = Constants.mainViewRadius
+        return backgroundView
+    }()
     
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView()
@@ -55,8 +69,8 @@ class GenericErrorView: UIView {
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
-        stackView.spacing = Constants.spacingSides
-        stackView.backgroundColor = .clear
+        stackView.spacing = Constants.spacingTexts
+        stackView.backgroundColor = Constants.mainViewColor
         return stackView
     }()
     
@@ -65,6 +79,19 @@ class GenericErrorView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.titleColor
         label.font = .boldSystemFont(ofSize: Constants.titleHeight)
+        label.textAlignment = .center
+        label.contentMode = .scaleAspectFit
+        return label
+    }()
+    
+    private lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Constants.descriptionColor
+        label.font = .systemFont(ofSize: Constants.descriptionHeight)
+        label.contentMode = .scaleAspectFit
+        label.textAlignment = .left
+        label.numberOfLines = 0
         return label
     }()
     
@@ -74,11 +101,13 @@ class GenericErrorView: UIView {
         button.backgroundColor = Constants.buttonColor
         button.layer.cornerRadius = Constants.buttonRadius
         button.setTitleColor(Constants.buttonTextColor, for: .normal)
+        button.contentMode = .center
         return button
     }()
     
     // MARK: - Properties
     
+    private var activeTasksCount = 0
     private var model: GenericErrorView.Model?
     
     // MARK: - Public methods
@@ -91,7 +120,7 @@ class GenericErrorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with model: GenericErrorView.Model?, action: @escaping ActionHandler) {
+    func setup(with model: GenericErrorView.Model?) {
         guard let model = model else { return }
         self.model = model
         
@@ -103,22 +132,52 @@ class GenericErrorView: UIView {
     private func buildComponents() {
         buildMain()
         buildTitle()
+        buildDescription()
         buildButton()
     }
     
     private func buildMain() {
-        self.backgroundColor = Constants.mainViewColor
+        self.backgroundColor = Constants.shadowColor
+        self.layer.cornerRadius = Constants.mainViewRadius
         self.clipsToBounds = true
-        self.layer.cornerRadius = Constants.widgetRadius
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(mainBackground)
+        mainBackground.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(Constants.borderSides)
+            $0.bottom.equalToSuperview().inset(Constants.borderBottom)
+        }
+        
+        mainBackground.addSubview(mainStackView)
+        mainStackView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
     }
     
     private func buildTitle() {
         titleLabel.text = model?.titleText
-        self.addSubview(titleLabel)
+        mainStackView.addArrangedSubview(titleLabel)
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(Constants.spacingTop)
-            $0.leading.equalToSuperview().inset(Constants.spacingSides)
+            $0.top.leading.equalToSuperview().inset(Constants.spacingSides)
+            $0.trailing.equalToSuperview().inset(-Constants.spacingSides)
             $0.height.equalTo(Constants.titleHeight)
+        }
+    }
+    
+    private func buildDescription() {
+        guard let descriptionText = model?.descriptionText,
+              !descriptionText.isEmpty
+        else { return }
+        
+        descriptionLabel.text = descriptionText
+        mainStackView.addArrangedSubview(descriptionLabel)
+        descriptionLabel.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
+            $0.trailing.equalToSuperview().inset(-Constants.spacingSides)
+            $0.height.equalTo(70)
         }
     }
     
@@ -129,15 +188,35 @@ class GenericErrorView: UIView {
         
         mainStackView.setCustomSpacing(Constants.spacingToButton, after: lastElement)
         
-        let action = UIAction { _ in
+        let action = UIAction { [weak self] _ in
+            
+            guard let activeTasksCount = self?.activeTasksCount, activeTasksCount < 3 else { return }
+            
+            UIView.animate(withDuration: 0.1) {
+                self?.tryAgainButton.transform = CGAffineTransform(scaleX: Constants.scaleAnimation, y: Constants.scaleAnimation)
+                self?.tryAgainButton.backgroundColor = .gray.withAlphaComponent(0.4)
+                self?.tryAgainButton.isUserInteractionEnabled = false
+                self?.activeTasksCount += 1
+            }
+            
             buttonAction()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                UIView.animate(withDuration: 0.4) {
+                    self?.tryAgainButton.transform = CGAffineTransform.identity
+                    self?.tryAgainButton.backgroundColor = Constants.buttonColor
+                    self?.tryAgainButton.isUserInteractionEnabled = true
+                    self?.activeTasksCount -= 1
+                }
+            }
         }
         tryAgainButton.addAction(action, for: .primaryActionTriggered)
         tryAgainButton.setTitle(model?.buttonText, for: .normal)
         
-        tryAgainButton.snp.makeConstraints { make in
-            make.height.equalTo(Constants.buttonHeight)
-            //make.leading.trailing.equalToSuperview()
+        mainStackView.addArrangedSubview(tryAgainButton)
+        tryAgainButton.snp.makeConstraints {
+            $0.height.equalTo(Constants.buttonHeight)
+            $0.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
         }
     }
 }
@@ -147,9 +226,13 @@ class GenericErrorView: UIView {
 extension GenericErrorView {
     public func startGenericErrorLoading() {
         backgroundColor = .green
+        
+        mainStackView.isHidden = true
     }
     
     public func stopGenericErrorLoading() {
         backgroundColor = Constants.mainViewColor
+        
+        mainStackView.isHidden = false
     }
 }
