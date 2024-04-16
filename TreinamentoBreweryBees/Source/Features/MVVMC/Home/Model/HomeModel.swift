@@ -31,7 +31,7 @@ struct BreweryData: Decodable {
     let identifier: String
     let name: String
     let type: String?
-    let rating: Int?
+    let rating: String?
     let numRating: String?
     let address: String
     let website: String

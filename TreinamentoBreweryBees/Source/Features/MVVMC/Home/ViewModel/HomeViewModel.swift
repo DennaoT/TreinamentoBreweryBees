@@ -27,8 +27,6 @@ class HomeViewModel: HomeViewModelProtocol {
     
     private weak var flowDelegate: HomeCoordinatorDelegate?
     private var documentRef: DocumentReference?
-    
-    //private var tasks: [Task<Void, Never>] = []
     private var activeTasksCount = 0
     
     private var errorModel: GenericErrorView.Model?
@@ -41,16 +39,15 @@ class HomeViewModel: HomeViewModelProtocol {
         documentRef = Firestore.firestore().document(HomeDataPath.breweryListDocumentPath)
     }
     
+    /// TODO
+    /// - usar -> semaphore: criar uma fila de concorrencia
+    /// - limitar o numero de threads
+    /// - semaforo await q espera o proximo slot disponivel
     func fetchHomeData() {
-//        guard tasks.count < 4 else {
-//            tasks.forEach({ $0.cancel() })
-//            tasks = []
-//            return
-//        }
-        
+        breweryModel.value = .loading
         guard activeTasksCount < 3 else { return }
         
-        let task = Task(priority: activeTasksCount > 1 ? .medium : .background) {
+        Task(priority: activeTasksCount > 1 ? .medium : .background) {
             self.activeTasksCount += 1
             do {
                 await self.fetchCurrentData()
@@ -59,7 +56,6 @@ class HomeViewModel: HomeViewModelProtocol {
             }
             self.activeTasksCount -= 1
         }
-        //tasks.append(task)
     }
 }
 
@@ -112,11 +108,6 @@ extension HomeViewModel {
             descriptionText: description,
             buttonText: buttonText,
             buttonAction: { [weak self] in
-//                guard let currentTasks = self?.tasks, currentTasks.count < 4 else {
-//                    self?.tasks.forEach({ $0.cancel() })
-//                    self?.tasks = []
-//                    return
-//                }
                 self?.fetchHomeData()
             }
         )

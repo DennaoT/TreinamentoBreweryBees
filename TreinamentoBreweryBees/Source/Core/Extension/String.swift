@@ -56,4 +56,15 @@ public extension String {
         return String(format: TreinamentoBreweryBeesLocalizable.dateFormat.localized,
                       String(returnDay), monthDate, String(returnYear))
     }
+    
+    static func getFormatURL(_ fullURL: String?, removeSufix: Bool = false) -> String? {
+        let prefixesToRemove = ["https://", "http://", "www/"]
+
+        var host = fullURL
+        for prefix in prefixesToRemove {
+            host = host?.replacingOccurrences(of: prefix, with: "")
+        }
+        
+        return removeSufix ? host?.components(separatedBy: "/").first : host
+    }
 }

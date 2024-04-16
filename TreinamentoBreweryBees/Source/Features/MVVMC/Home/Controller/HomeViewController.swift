@@ -21,10 +21,10 @@ class HomeViewController: UIViewController {
     }
     
     private enum Images {
-        static let magnifyingGlass: UIImage? = UIImage(systemName: "magnifyingglass")
-        static let circleMenu: UIImage? = UIImage(asset: BreweryBeesAssets.beesCircleMenuIcon)
-        static let beerYellow: UIImage? = UIImage(asset: BreweryBeesAssets.beesBeerYellowIcon)
-        static let arrowLeft: UIImage? = UIImage(asset: BreweryBeesAssets.beesArrowLeftIcon)
+        static let magnifyingGlass = UIImage(systemName: "magnifyingglass")
+        static let circleMenu = UIImage(asset: BreweryBeesAssets.beesCircleMenuIcon)
+        static let beerYellow = UIImage(asset: BreweryBeesAssets.beesBeerYellowIcon)
+        static let arrowLeft = UIImage(asset: BreweryBeesAssets.beesArrowLeftIcon)
     }
     
     // MARK: - Views
@@ -52,6 +52,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
+    private var searchView: HomeSearchView?
     private var screenError: GenericErrorView?
     private var viewModel: HomeViewModelProtocol?
 
@@ -69,6 +70,7 @@ class HomeViewController: UIViewController {
         super.loadView()
         
         screenError = GenericErrorView()
+        searchView = HomeSearchView()
     }
     
     override func viewDidLoad() {
@@ -83,6 +85,7 @@ class HomeViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         screenError = nil
+        searchView = nil
         viewModel = nil
     }
     
@@ -108,8 +111,8 @@ class HomeViewController: UIViewController {
                 self.screenError?.isHidden = true
                 switch status {
                 case .success(let model):
-                    guard let textModel = model?.breweriesList.first?.name else { return }
-                    self.titleLabel.text = "\(textModel)"
+                    guard let textModel: String? = model?.breweriesList.first?.website else { return }
+                    self.searchView?.setup(with: HomeSearchView.Model(), delegate: self)
                     self.stopLoading()
                 case .error(let model):
                     self.screenError?.setup(with: model)
@@ -149,22 +152,29 @@ extension HomeViewController {
 
 extension HomeViewController {
     private func setupMainView() {
-        view.addSubview(mainStackView)
-        mainStackView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
+//        view.addSubview(mainStackView)
+//        mainStackView.snp.makeConstraints {
+//            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+//            $0.leading.trailing.bottom.equalToSuperview()
+//        }
     }
     
     private func setupTopBar() {
-        mainStackView.addArrangedSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.height.equalTo(Constants.titleHeight)
-        }
+//        mainStackView.addArrangedSubview(titleLabel)
+//        titleLabel.snp.makeConstraints {
+//            $0.height.equalTo(Constants.titleHeight)
+//        }
     }
     
     private func setupSearch() {
+        guard let searchView = searchView else { return }
         
+        view.addSubview(searchView)
+        searchView.snp.makeConstraints {
+            $0.height.equalTo(280)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.trailing.equalToSuperview()
+        }
     }
     
     private func setupList() {
@@ -186,10 +196,38 @@ extension HomeViewController {
 
 extension HomeViewController {
     private func startLoading() {
-        
+        mainStackView.backgroundColor = .red
     }
     
     private func stopLoading() {
-        
+        mainStackView.backgroundColor = Constants.mainViewColor
+    }
+}
+
+// MARK: - Loading
+
+extension HomeViewController: HomeSearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if let clearButton = searchBar.value(forKey: "clearButton") as? UIButton {
+//            clearButton.isHidden = searchBar.text?.isEmpty ?? true
+//        }
+    }
+    
+//    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+//        searchBar.resignFirstResponder()
+//        return true
+//    }
+//    
+//    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.resignFirstResponder()
+//    }
+//    
+//    func searchBar(_ searchBar: UISearchBar, searchText: String) {
+//        searchBar.resignFirstResponder()
+//    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard let touchedView = touch.view else { return true }
+        return !(touchedView is UISearchBar)
     }
 }

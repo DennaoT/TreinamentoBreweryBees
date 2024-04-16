@@ -51,6 +51,7 @@ class GenericErrorView: UIView {
         static let borderSides: CGFloat = 2
         static let borderBottom: CGFloat = 5
         static let scaleAnimation: CGFloat = 0.95
+        static let timeAnimation: CGFloat = 0.4
     }
     
     // MARK: - Views
@@ -134,6 +135,7 @@ class GenericErrorView: UIView {
         buildTitle()
         buildDescription()
         buildButton()
+        setupButtonAction()
     }
     
     private func buildMain() {
@@ -161,8 +163,7 @@ class GenericErrorView: UIView {
         titleLabel.text = model?.titleText
         mainStackView.addArrangedSubview(titleLabel)
         titleLabel.snp.makeConstraints {
-            $0.top.leading.equalToSuperview().inset(Constants.spacingSides)
-            $0.trailing.equalToSuperview().inset(-Constants.spacingSides)
+            $0.top.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
             $0.height.equalTo(Constants.titleHeight)
         }
     }
@@ -176,41 +177,15 @@ class GenericErrorView: UIView {
         mainStackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
-            $0.trailing.equalToSuperview().inset(-Constants.spacingSides)
             $0.height.equalTo(70)
         }
     }
     
     private func buildButton() {
-        guard let buttonAction = model?.buttonAction,
-              let lastElement = mainStackView.subviews.last
-        else { return }
+        guard let lastElement = mainStackView.subviews.last else { return }
         
         mainStackView.setCustomSpacing(Constants.spacingToButton, after: lastElement)
         
-        let action = UIAction { [weak self] _ in
-            
-            guard let activeTasksCount = self?.activeTasksCount, activeTasksCount < 3 else { return }
-            
-            UIView.animate(withDuration: 0.1) {
-                self?.tryAgainButton.transform = CGAffineTransform(scaleX: Constants.scaleAnimation, y: Constants.scaleAnimation)
-                self?.tryAgainButton.backgroundColor = .gray.withAlphaComponent(0.4)
-                self?.tryAgainButton.isUserInteractionEnabled = false
-                self?.activeTasksCount += 1
-            }
-            
-            buttonAction()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                UIView.animate(withDuration: 0.4) {
-                    self?.tryAgainButton.transform = CGAffineTransform.identity
-                    self?.tryAgainButton.backgroundColor = Constants.buttonColor
-                    self?.tryAgainButton.isUserInteractionEnabled = true
-                    self?.activeTasksCount -= 1
-                }
-            }
-        }
-        tryAgainButton.addAction(action, for: .primaryActionTriggered)
         tryAgainButton.setTitle(model?.buttonText, for: .normal)
         
         mainStackView.addArrangedSubview(tryAgainButton)
@@ -218,6 +193,35 @@ class GenericErrorView: UIView {
             $0.height.equalTo(Constants.buttonHeight)
             $0.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
         }
+    }
+    
+    private func setupButtonAction() {
+        guard let buttonAction = model?.buttonAction else { return }
+        
+        let action = UIAction { [weak self] _ in
+            
+            guard let activeTasksCount = self?.activeTasksCount, activeTasksCount < 3 else { return }
+            
+            UIView.animate(withDuration: 0.1) {
+                self?.tryAgainButton.transform = CGAffineTransform(scaleX: Constants.scaleAnimation, y: Constants.scaleAnimation)
+                self?.tryAgainButton.backgroundColor = .gray.withAlphaComponent(Constants.timeAnimation)
+                self?.tryAgainButton.isUserInteractionEnabled = false
+                self?.activeTasksCount += 1
+            }
+            
+            buttonAction()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + Constants.timeAnimation) {
+                UIView.animate(withDuration: Constants.timeAnimation) {
+                    self?.tryAgainButton.transform = CGAffineTransform.identity
+                    self?.tryAgainButton.backgroundColor = Constants.buttonColor
+                    self?.tryAgainButton.isUserInteractionEnabled = true
+                    self?.activeTasksCount -= 1
+                }
+            }
+        }
+        
+        tryAgainButton.addAction(action, for: .primaryActionTriggered)
     }
 }
 
