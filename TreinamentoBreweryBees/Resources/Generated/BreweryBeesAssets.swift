@@ -31,6 +31,7 @@ internal enum BreweryBeesAssets {
   internal static let beesCircleMenuIcon = ImageAsset(name: "BeesCircleMenuIcon")
   internal static let beesFailedBeerIcon = ImageAsset(name: "BeesFailedBeerIcon")
   internal static let beesMapIcon = ImageAsset(name: "BeesMapIcon")
+  internal static let beesMicrophoneIcon = ImageAsset(name: "BeesMicrophoneIcon")
   internal static let beesStarOutlinedIcon = ImageAsset(name: "BeesStarOutlinedIcon")
   internal static let beesStartFilledIcon = ImageAsset(name: "BeesStartFilledIcon")
   internal static let beesSuccessBeerIcon = ImageAsset(name: "BeesSuccessBeerIcon")
