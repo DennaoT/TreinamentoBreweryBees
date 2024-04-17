@@ -16,8 +16,9 @@ class HomeViewController: UIViewController {
         static let navigationBarElementsColor: UIColor = .yellow
         static let navigationBarColor: UIColor = .black
         static let mainViewColor: UIColor = .white
-        static let titleHeight: CGFloat = 28
-        static let defaultSpacing: CGFloat = 16
+        static let searchViewHeight: CGFloat = 240
+        static let defaultSpacing: CGFloat = .measurement(.small)
+        static let errorBottomSpacing: CGFloat = 50
     }
     
     private enum Images {
@@ -38,16 +39,6 @@ class HomeViewController: UIViewController {
         stackView.spacing = Constants.defaultSpacing
         stackView.backgroundColor = Constants.mainViewColor
         return stackView
-    }()
-    
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        label.font = .boldSystemFont(ofSize: Constants.titleHeight)
-        label.textAlignment = .center
-        label.contentMode = .scaleAspectFit
-        return label
     }()
     
     // MARK: - Properties
@@ -93,8 +84,6 @@ class HomeViewController: UIViewController {
     
     private func setupViews() {
         setupNavBar()
-        setupMainView()
-        setupTopBar()
         setupSearch()
         setupList()
         setupError()
@@ -151,34 +140,19 @@ extension HomeViewController {
 // MARK: - Setup Views
 
 extension HomeViewController {
-    private func setupMainView() {
-//        view.addSubview(mainStackView)
-//        mainStackView.snp.makeConstraints {
-//            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-//            $0.leading.trailing.bottom.equalToSuperview()
-//        }
-    }
-    
-    private func setupTopBar() {
-//        mainStackView.addArrangedSubview(titleLabel)
-//        titleLabel.snp.makeConstraints {
-//            $0.height.equalTo(Constants.titleHeight)
-//        }
-    }
-    
     private func setupSearch() {
         guard let searchView = searchView else { return }
         
         view.addSubview(searchView)
         searchView.snp.makeConstraints {
-            $0.height.equalTo(240)
+            $0.height.equalTo(Constants.searchViewHeight)
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview()
         }
     }
     
     private func setupList() {
-        view.backgroundColor = .green
+        //To do...
     }
     
     private func setupError() {
@@ -187,7 +161,7 @@ extension HomeViewController {
         screenError.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(Constants.defaultSpacing)
             $0.leading.trailing.equalToSuperview().inset(Constants.defaultSpacing)
-            $0.bottom.equalToSuperview().inset(50)
+            $0.bottom.equalToSuperview().inset(Constants.errorBottomSpacing)
         }
     }
 }
@@ -208,23 +182,21 @@ extension HomeViewController {
 
 extension HomeViewController: HomeSearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if let clearButton = searchBar.value(forKey: "clearButton") as? UIButton {
-//            clearButton.isHidden = searchBar.text?.isEmpty ?? true
-//        }
+        //To do...
     }
     
-//    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-//        searchBar.resignFirstResponder()
-//        return true
-//    }
-//    
-//    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
-//        searchBar.resignFirstResponder()
-//    }
-//    
-//    func searchBar(_ searchBar: UISearchBar, searchText: String) {
-//        searchBar.resignFirstResponder()
-//    }
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.resignFirstResponder()
+        return true
+    }
+    
+    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, searchText: String) {
+        searchBar.resignFirstResponder()
+    }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         guard let touchedView = touch.view else { return true }

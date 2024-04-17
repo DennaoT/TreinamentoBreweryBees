@@ -39,16 +39,21 @@ class HomeSearchView: UIView {
     
     private enum Constants {
         static let shadowColor: UIColor = .lightGray.withAlphaComponent(0.3)
+        static let backViewColor: UIColor = .white
         static let mainViewColor: UIColor = .yellow
         static let searchBarRadius: CGFloat = 2
+        static let shadowSearchBarRadius: CGFloat = .measurement(.nano)
         static let spacingSides: CGFloat = .measurement(.small)
         static let spacingTop: CGFloat = .measurement(.large)
         static let spacingElements: CGFloat = .measurement(.big)
         static let titleColor: UIColor = .black
         static let titleHeight: CGFloat = 18
-        static let titleNumberOfLines: Int = 2
+        static let titleContainerHeight: CGFloat = 50
+        static let valueTwo: Int = 2
         static let searchDescriptionColor: UIColor = .black
         static let searchDescriptionHeight: CGFloat = .measurement(.initialMedium)
+        static let searchContainerHeight: CGFloat = .measurement(.xBig)
+        static let cirqueSpacing: CGFloat =  120
     }
     
     // MARK: - Views
@@ -68,8 +73,16 @@ class HomeSearchView: UIView {
         label.font = .boldSystemFont(ofSize: Constants.titleHeight)
         label.textAlignment = .left
         label.contentMode = .scaleAspectFit
-        label.numberOfLines = Constants.titleNumberOfLines
+        label.numberOfLines = Constants.valueTwo
         return label
+    }()
+    
+    private lazy var searchBarShadow: UIView = {
+        let backgroundView = UIView()
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.backgroundColor = Constants.shadowColor
+        backgroundView.layer.cornerRadius = Constants.shadowSearchBarRadius
+        return backgroundView
     }()
     
     private lazy var searchBar: UISearchBar = {
@@ -120,17 +133,20 @@ class HomeSearchView: UIView {
     
     private func buildMain() {
         self.clipsToBounds = true
-        self.backgroundColor = .green
+        self.backgroundColor = Constants.backViewColor
         self.addSubview(backgroundView)
-        let screenWidth = (UIScreen.main.bounds.width) + 240
+        
+        let screenWidth = (UIScreen.main.bounds.width) + (Constants.cirqueSpacing * CGFloat(Constants.valueTwo))
+        
         backgroundView.snp.makeConstraints {
             $0.height.equalTo(screenWidth)
-            $0.leading.equalToSuperview().inset(-120)
-            $0.trailing.equalToSuperview().inset(-120)
+            $0.leading.equalToSuperview().inset(-Constants.cirqueSpacing)
+            $0.trailing.equalToSuperview().inset(-Constants.cirqueSpacing)
             $0.bottom.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
-        backgroundView.layer.cornerRadius = screenWidth / 2
+        
+        backgroundView.layer.cornerRadius = screenWidth / CGFloat(Constants.valueTwo)
     }
     
     private func buildTitle() {
@@ -138,18 +154,24 @@ class HomeSearchView: UIView {
         self.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(Constants.spacingTop)
-            $0.height.equalTo(50)
+            $0.height.equalTo(Constants.titleContainerHeight)
             $0.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
         }
     }
     
     private func buildSearchBar() {
-        self.addSubview(searchBar)
-        searchBar.snp.makeConstraints {
+        self.addSubview(searchBarShadow)
+        searchBarShadow.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(Constants.spacingElements)
-            $0.height.equalTo(40)
+            $0.height.equalTo(Constants.searchContainerHeight)
             $0.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
             $0.bottom.lessThanOrEqualToSuperview()
+        }
+        
+        searchBarShadow.addSubview(searchBar)
+        searchBar.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(Constants.valueTwo)
         }
         
         searchBar.delegate = delegate
