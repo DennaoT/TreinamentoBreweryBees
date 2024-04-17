@@ -122,15 +122,15 @@ class HomeSearchView: UIView {
         self.clipsToBounds = true
         self.backgroundColor = .green
         self.addSubview(backgroundView)
-        let size: CGFloat = 300
+        let screenWidth = (UIScreen.main.bounds.width) + 240
         backgroundView.snp.makeConstraints {
-            $0.height.equalTo(size)
-            $0.leading.equalToSuperview().inset(-30)
-            $0.trailing.equalToSuperview().inset(-30)
-            $0.bottom.equalToSuperview().inset(40)
+            $0.height.equalTo(screenWidth)
+            $0.leading.equalToSuperview().inset(-120)
+            $0.trailing.equalToSuperview().inset(-120)
+            $0.bottom.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
-        backgroundView.layer.cornerRadius = size / 2
+        backgroundView.layer.cornerRadius = screenWidth / 2
     }
     
     private func buildTitle() {

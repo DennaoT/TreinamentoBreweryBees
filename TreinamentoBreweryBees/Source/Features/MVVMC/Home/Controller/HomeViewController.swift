@@ -171,14 +171,14 @@ extension HomeViewController {
         
         view.addSubview(searchView)
         searchView.snp.makeConstraints {
-            $0.height.equalTo(280)
+            $0.height.equalTo(240)
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview()
         }
     }
     
     private func setupList() {
-        
+        view.backgroundColor = .green
     }
     
     private func setupError() {
