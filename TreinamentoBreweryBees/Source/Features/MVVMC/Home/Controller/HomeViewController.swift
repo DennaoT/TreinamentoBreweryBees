@@ -23,9 +23,9 @@ class HomeViewController: UIViewController {
     
     private enum Images {
         static let magnifyingGlass = UIImage(systemName: "magnifyingglass")
-        static let circleMenu = UIImage(asset: BreweryBeesAssets.beesCircleMenuIcon)
-        static let beerYellow = UIImage(asset: BreweryBeesAssets.beesBeerYellowIcon)
-        static let arrowLeft = UIImage(asset: BreweryBeesAssets.beesArrowLeftIcon)
+        static let circleMenu = UIImage(asset: BreweryBeesAssets.Icons.beesCircleMenuIcon)
+        static let beerYellow = UIImage(asset: BreweryBeesAssets.Icons.beesBeerYellowIcon)
+        static let arrowLeft = UIImage(asset: BreweryBeesAssets.Icons.beesArrowLeftIcon)
     }
     
     // MARK: - Views
