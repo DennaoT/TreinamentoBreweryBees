@@ -14,15 +14,21 @@ class RatingView: UIView {
     
     enum ScreenType<V> {
         case toEvaluate(evaluateAction: StringActionHandler? = nil)
-        case seeReview(V?, showLeftNumber: Bool = false)
+        case seeReview(V?, showLeftNumber: RatingLeftNumber = .hideLeftNumber)
+    }
+    
+    enum RatingLeftNumber {
+        case hideLeftNumber
+        case showLeftNumber(sizeOfNumberLabel: CGFloat)
     }
     
     private enum Constants {
         static let mainViewColor: UIColor = .white
         static let titleColor: UIColor = .black
-        static let titleHeight: CGFloat = 18
         static let descriptionColor: UIColor = .black
         static let descriptionHeight: CGFloat = 18
+        static let numOfStars: Int = 5
+        static let defaultSpacing: CGFloat = 2.5
     }
     
     // MARK: - Views
@@ -31,52 +37,37 @@ class RatingView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.titleColor
-        label.font = .boldSystemFont(ofSize: Constants.titleHeight)
         label.textAlignment = .left
         label.contentMode = .scaleAspectFit
         return label
     }()
     
-    private lazy var firstStar: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    private lazy var starsRating: [UIImageView] = {
+        return (0..<Constants.numOfStars).map { _ in
+            let imageView = UIImageView()
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.contentMode = .scaleAspectFit
+            imageView.isUserInteractionEnabled = false
+            return imageView
+        }
     }()
     
-    private lazy var secondStar: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private lazy var thirdStar: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private lazy var fourthStar: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private lazy var fifthStar: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    private lazy var mainStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.spacing = Constants.defaultSpacing
+        stackView.backgroundColor = Constants.mainViewColor
+        return stackView
     }()
     
     // MARK: - Properties
     
     private var evaluateAction: StringActionHandler?
     private var valuationValue: CGFloat?
-    private var showLeftNumber: Bool = false
+    private var showLeftNumber: RatingLeftNumber?
     
     // MARK: - Public methods
     
@@ -109,37 +100,65 @@ class RatingView: UIView {
     // MARK: - Private methods
     
     private func buildComponents() {
-        buildMain()
-        buildTitle()
-        buildSearchBar()
+        addSubview(mainStackView)
+        mainStackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        for starView in starsRating {
+            mainStackView.addSubview(starView)
+        }
     }
     
-    private func buildMain() {
-        //Lalalala
-    }
-    
-    private func buildTitle() {
-        //Lalalala
-    }
-    
-    private func buildSearchBar() {
-        //Lalalala
-    }
-    
-    // MARK: - Setup screen type
+    // MARK: - Setup To Evaluate - screen type
     
     private func setupToEvaluate() {
-        //Lalalala
+        for starImage in starsRating {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectStar(_:)))
+            tapGesture.numberOfTapsRequired = 1
+            starImage.isUserInteractionEnabled = true
+            starImage.addGestureRecognizer(tapGesture)
+        }
+        
+        buildLeftNumber()
     }
+    
+    // MARK: - Setup See Review - screen type
     
     private func setupSeeReview() {
         guard let valuationValue = valuationValue else { return }
         
-        firstStar.image = .getRatedStar(valuationValue - 1)
-        secondStar.image = .getRatedStar(valuationValue - 2)
-        thirdStar.image = .getRatedStar(valuationValue - 3)
-        fourthStar.image = .getRatedStar(valuationValue - 4)
-        fifthStar.image = .getRatedStar(valuationValue - 5)
+        for (index, starImage) in starsRating.enumerated() {
+            starImage.image = .getRatedStar(valuationValue - CGFloat(index+1))
+        }
+    }
+}
+
+extension RatingView {
+    @objc private func selectStar(_ gesture: UITapGestureRecognizer) {
+        guard let selectedStar = gesture.view as? UIImageView,
+              let finalIndex = starsRating.firstIndex(of: selectedStar),
+              let valuationValue = valuationValue
+        else { return }
+        
+        for index in 0...finalIndex {
+            starsRating[index].image = .getRatedStar(valuationValue)
+        }
+        
+        if let action = evaluateAction {
+            action(String(describing: valuationValue))
+        }
+    }
+    
+    private func buildLeftNumber() {
+        guard case let .showLeftNumber(sizeOfNumberLabel) = showLeftNumber,
+              let valuationValue = valuationValue
+        else { return }
+        
+        numberText.font = .boldSystemFont(ofSize: sizeOfNumberLabel)
+        numberText.text = String(describing: valuationValue)
+        
+        mainStackView.insertArrangedSubview(numberText, at: .zero)
     }
 }
 
@@ -161,4 +180,3 @@ extension UIImage {
         return UIImage(asset: imageAsset) ?? UIImage()
     }
 }
-

@@ -11,4 +11,4 @@ import Foundation
 public typealias ActionHandler = () -> Void
 
 // MARK: - TextLinkAction
-public typealias StringActionHandler = () -> String
+public typealias StringActionHandler = (_ value: String) -> Void
