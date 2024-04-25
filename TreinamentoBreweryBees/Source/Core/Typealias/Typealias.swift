@@ -7,6 +7,8 @@
 
 import Foundation
 
-// MARK: - TextLinkAction
-
+// MARK: - ActionHandler
 public typealias ActionHandler = () -> Void
+
+// MARK: - TextLinkAction
+public typealias StringActionHandler = () -> String

@@ -16,6 +16,8 @@
 		324505E2AEF7EABB497921AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C55E2A91DB04D7F587F08 /* AppDelegate.swift */; };
 		3EB47116B7C2800863B8C517 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6394ADAECAE60C79CC6F8CDB /* Typealias.swift */; };
 		48192FDC590BD8D0E496A0A8 /* HomeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5983946D8EE2CA28EAFD1753 /* HomeError.swift */; };
+		517928702BD9C63200E4832D /* BreweryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179286F2BD9C63200E4832D /* BreweryCellView.swift */; };
+		517928732BD9DC7800E4832D /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517928722BD9DC7800E4832D /* RatingView.swift */; };
 		5795B8486C092D8D843B01E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747F8D745D4C19109B91823 /* SceneDelegate.swift */; };
 		58C16241A7C75E3CB424CD61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 692949FD115D148623145CEE /* Localizable.strings */; };
 		76CAA0CAAD7A50E3EE172313 /* HomeResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AC5A96D387879438202424 /* HomeResultView.swift */; };
@@ -69,6 +71,8 @@
 		349C55E2A91DB04D7F587F08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35D752A6161C40F1CCC03643 /* HomePopupDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopupDetailsView.swift; sourceTree = "<group>"; };
 		49CF2A7D594B907C423962B1 /* HomeCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		5179286F2BD9C63200E4832D /* BreweryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryCellView.swift; sourceTree = "<group>"; };
+		517928722BD9DC7800E4832D /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		5728A49BDE93DA87940ADEE4 /* TreinamentoBreweryBees.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TreinamentoBreweryBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		582DADEDDA2102DC7F49E1D8 /* TreinamentoBreweryBeesLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinamentoBreweryBeesLocalizable.swift; sourceTree = "<group>"; };
 		5983946D8EE2CA28EAFD1753 /* HomeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeError.swift; sourceTree = "<group>"; };
@@ -213,6 +217,22 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		5179286E2BD9C5D900E4832D /* BreweryCell */ = {
+			isa = PBXGroup;
+			children = (
+				5179286F2BD9C63200E4832D /* BreweryCellView.swift */,
+			);
+			path = BreweryCell;
+			sourceTree = "<group>";
+		};
+		517928712BD9DC2C00E4832D /* RatingView */ = {
+			isa = PBXGroup;
+			children = (
+				517928722BD9DC7800E4832D /* RatingView.swift */,
+			);
+			path = RatingView;
+			sourceTree = "<group>";
+		};
 		532557D304349EADC361B8E9 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +254,7 @@
 		70E65610ADB32C8087697EE6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				517928712BD9DC2C00E4832D /* RatingView */,
 				23BC6DF10EA0838F25D3A11A /* GenericError */,
 			);
 			path = Components;
@@ -409,6 +430,7 @@
 			children = (
 				E8AC5A96D387879438202424 /* HomeResultView.swift */,
 				FAF5951BF5D364EC0E444FF3 /* HomeSearchView.swift */,
+				5179286E2BD9C5D900E4832D /* BreweryCell */,
 				C5E0FF868462DF7EEF974EF0 /* Popup */,
 			);
 			path = View;
@@ -624,6 +646,8 @@
 				0CCDBA6F658EE3D8B75E7EE3 /* AppCoordinator.swift in Sources */,
 				324505E2AEF7EABB497921AE /* AppDelegate.swift in Sources */,
 				E83B7A5E308FC3A9E870140E /* ArchitectureConfig.swift in Sources */,
+				517928732BD9DC7800E4832D /* RatingView.swift in Sources */,
+				517928702BD9C63200E4832D /* BreweryCellView.swift in Sources */,
 				F763FF0709C6F4EC96A6C424 /* BaseCoordinatorDelegate.swift in Sources */,
 				B6D129CE8D034A3B85477652 /* BreweryBeesAssets.swift in Sources */,
 				EE61B6E8978C539E832C4372 /* CGFloat.swift in Sources */,

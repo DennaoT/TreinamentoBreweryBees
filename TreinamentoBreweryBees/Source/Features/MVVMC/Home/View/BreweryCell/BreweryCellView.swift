@@ -1,41 +1,20 @@
 //
-//  HomeResultView.swift
+//  BreweryCellView.swift
 //  TreinamentoBreweryBees
 //
-//  Created by Dennis Torres on 15/04/24.
+//  Created by Dennis Torres on 24/04/24.
 //
 
 import UIKit
 import SnapKit
 
-class HomeResultView: UIView {
-    
-    // MARK: - Model
-    
-    struct Model {
-        var resultFlowType: ResultFlowType
-        var breweriesList: [BreweryData]?
-        
-        public init(
-            resultFlowType: ResultFlowType = .verticalCarousel,
-            breweriesList: [BreweryData]?
-        ) {
-            self.resultFlowType = resultFlowType
-            self.breweriesList = breweriesList
-        }
-    }
+class BreweryCellView: UIView {
     
     // MARK: - Enums
     
-    enum ResultFlowType {
-        case verticalCarousel
-        case controlPage
-    }
-    
-    private enum ResultScreenType {
-        case defaultResults
-        case noDataFound
-        case emptySearch
+    enum ResultFlowType<V> {
+        case toEvaluate
+        case seeReview(V)
     }
     
     private enum Constants {
@@ -48,7 +27,7 @@ class HomeResultView: UIView {
     
     // MARK: - Views
     
-    private lazy var titleLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.titleColor
@@ -58,7 +37,7 @@ class HomeResultView: UIView {
         return label
     }()
     
-    private lazy var descriptionLabel: UILabel = {
+    private lazy var typeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.titleColor
@@ -70,8 +49,7 @@ class HomeResultView: UIView {
     
     // MARK: - Properties
     
-    private var resultScreen: ResultScreenType = .emptySearch
-    private var model: HomeResultView.Model?
+    private var model: BreweryData?
     
     // MARK: - Public methods
     
@@ -83,7 +61,7 @@ class HomeResultView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with model: HomeResultView.Model?) {
+    func setup(with model: BreweryData?) {
         guard let model = model else { return }
         
         self.model = model
@@ -111,3 +89,4 @@ class HomeResultView: UIView {
         //Lalalala
     }
 }
+

@@ -30,6 +30,7 @@ struct BreweryListData: Decodable {
 struct BreweryData: Decodable {
     let identifier: String
     let name: String
+    let logo: String?
     let type: String?
     let rating: String?
     let numRating: String?
@@ -40,6 +41,7 @@ struct BreweryData: Decodable {
     enum CodingKeys: String, CodingKey {
         case identifier
         case name = "brewery_name"
+        case logo = "brewery_logo"
         case type = "brewery_type"
         case rating = "brewery_rating"
         case numRating = "brewery_num_rating"
