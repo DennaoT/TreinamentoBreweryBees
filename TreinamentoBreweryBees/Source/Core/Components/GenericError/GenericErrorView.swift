@@ -90,8 +90,8 @@ class GenericErrorView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.descriptionColor
         label.font = .systemFont(ofSize: Constants.descriptionHeight)
-        label.contentMode = .scaleAspectFit
-        label.textAlignment = .left
+        label.contentMode = .scaleAspectFill
+        label.textAlignment = .center
         label.numberOfLines = 0
         return label
     }()
@@ -108,7 +108,6 @@ class GenericErrorView: UIView {
     
     // MARK: - Properties
     
-    private var activeTasksCount = 0
     private var model: GenericErrorView.Model?
     
     // MARK: - Public methods
@@ -199,26 +198,17 @@ class GenericErrorView: UIView {
         guard let buttonAction = model?.buttonAction else { return }
         
         let action = UIAction { [weak self] _ in
-            
-            guard let activeTasksCount = self?.activeTasksCount, activeTasksCount < 3 else { return }
-            
-            UIView.animate(withDuration: 0.1) {
+            UIView.animate(withDuration: .zero) {
                 self?.tryAgainButton.transform = CGAffineTransform(scaleX: Constants.scaleAnimation, y: Constants.scaleAnimation)
                 self?.tryAgainButton.backgroundColor = .gray.withAlphaComponent(Constants.timeAnimation)
                 self?.tryAgainButton.isUserInteractionEnabled = false
-                self?.activeTasksCount += 1
+            } completion: { _ in
+                self?.tryAgainButton.transform = CGAffineTransform.identity
+                self?.tryAgainButton.backgroundColor = Constants.buttonColor
+                self?.tryAgainButton.isUserInteractionEnabled = true
+                buttonAction()
             }
             
-            buttonAction()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + Constants.timeAnimation) {
-                UIView.animate(withDuration: Constants.timeAnimation) {
-                    self?.tryAgainButton.transform = CGAffineTransform.identity
-                    self?.tryAgainButton.backgroundColor = Constants.buttonColor
-                    self?.tryAgainButton.isUserInteractionEnabled = true
-                    self?.activeTasksCount -= 1
-                }
-            }
         }
         
         tryAgainButton.addAction(action, for: .primaryActionTriggered)

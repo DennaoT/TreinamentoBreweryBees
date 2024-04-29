@@ -27,9 +27,6 @@ class HomeViewModel: HomeViewModelProtocol {
     
     private weak var flowDelegate: HomeCoordinatorDelegate?
     private var documentRef: DocumentReference?
-    private var activeTasksCount = 0
-    
-    private var errorModel: GenericErrorView.Model?
     
     // MARK: - Public Methods
     
@@ -45,16 +42,14 @@ class HomeViewModel: HomeViewModelProtocol {
     /// - semaforo await q espera o proximo slot disponivel
     func fetchHomeData() {
         breweryModel.value = .loading
-        guard activeTasksCount < 3 else { return }
         
-        Task(priority: activeTasksCount > 1 ? .medium : .background) {
-            self.activeTasksCount += 1
+        Task {
             do {
-                await self.fetchCurrentData()
+                try await fetchCurrentData()
             } catch {
-                self.handleError(title: "Ocorreu um erro", description: error.localizedDescription, buttonText: "Tentar novamente")
+                handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_unexpected.localized,
+                            description: error.localizedDescription)
             }
-            self.activeTasksCount -= 1
         }
     }
 }
@@ -62,7 +57,7 @@ class HomeViewModel: HomeViewModelProtocol {
 // MARK: - Private Methods
 
 extension HomeViewModel {
-    private func fetchCurrentData() async {
+    private func fetchCurrentData() async throws {
         do {
             guard let documentSnapshot = try await documentRef?.getDocument() else {
                 throw FirestoreError.notFound
@@ -76,21 +71,17 @@ extension HomeViewModel {
             breweryModel.value = .success(breweryListData)
             
         } catch FirestoreError.notFound {
-            handleError(title: "Documento não encontrado",
-                        description: "Não foi possível encontrar dados do Firebase.",
-                        buttonText: "Tentar novamente")
+            handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_notFound.localized,
+                        description: TreinamentoBreweryBeesLocalizable.errorFirestore_notFoundDescription.localized)
         } catch FirestoreError.emptyData {
-            handleError(title: "Documento não encontrado",
-                        description: "Dados do documento estão vazios ou ausentes!",
-                        buttonText: "Tentar novamente")
+            handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_notFound.localized,
+                        description: TreinamentoBreweryBeesLocalizable.errorFirestore_emptyDataDescription.localized)
         } catch FirestoreError.dataCorrupted {
-            handleError(title: "Dados corrompidos",
-                        description: "Os dados estão corrompidos durante a decodificação.",
-                        buttonText: "Tentar novamente")
+            handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_dataCorrupted.localized,
+                        description: TreinamentoBreweryBeesLocalizable.errorFirestore_dataCorruptedDescription.localized)
         } catch {
-            handleError(title: "Ocorreu um erro inesperado",
-                        description: "Erro: \(error.localizedDescription)",
-                        buttonText: "Tentar novamente")
+            handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_unexpected.localized,
+                        description: error.localizedDescription)
         }
     }
     
@@ -102,11 +93,11 @@ extension HomeViewModel {
         return breweryListData
     }
     
-    private func handleError(title: String, description: String, buttonText: String) {
+    private func handleError(title: String, description: String) {
         let errorModel = GenericErrorView.Model(
             titleText: title,
             descriptionText: description,
-            buttonText: buttonText,
+            buttonText: TreinamentoBreweryBeesLocalizable.component_tryAgain.localized,
             buttonAction: { [weak self] in
                 self?.fetchHomeData()
             }

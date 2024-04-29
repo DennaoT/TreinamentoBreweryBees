@@ -13,9 +13,8 @@ class HomeViewController: UIViewController {
     // MARK: - Enums
     
     private enum Constants {
-        static let navigationBarElementsColor: UIColor = .yellow
+        static let navigationBarElementsColor = UIColor(asset: BreweryBeesAssets.Colors.beesThemeColor)
         static let navigationBarColor: UIColor = .black
-        static let mainViewColor: UIColor = .white
         static let searchViewHeight: CGFloat = 240
         static let defaultSpacing: CGFloat = .measurement(.small)
         static let errorBottomSpacing: CGFloat = 50
@@ -37,7 +36,6 @@ class HomeViewController: UIViewController {
         stackView.distribution = .fill
         stackView.alignment = .center
         stackView.spacing = Constants.defaultSpacing
-        stackView.backgroundColor = Constants.mainViewColor
         return stackView
     }()
     
@@ -68,8 +66,13 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
-        bindElements()
         fetchViewModel()
+    }
+    
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        
+        bindElements()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -119,7 +122,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     private func setupNavBar() {
-        navigationItem.title = "Detalhes da cervejaria"
+        navigationItem.title = TreinamentoBreweryBeesLocalizable.homeNavigationTitle.localized
         
         navigationController?.navigationBar.barTintColor = Constants.navigationBarColor
         navigationController?.navigationBar.tintColor = Constants.navigationBarElementsColor
@@ -170,11 +173,11 @@ extension HomeViewController {
 
 extension HomeViewController {
     private func startLoading() {
-        mainStackView.backgroundColor = .red
+        view.backgroundColor = .red
     }
     
     private func stopLoading() {
-        mainStackView.backgroundColor = Constants.mainViewColor
+        view.backgroundColor = .black
     }
 }
 

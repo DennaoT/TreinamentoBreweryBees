@@ -39,11 +39,12 @@ class HomeResultView: UIView {
     }
     
     private enum Constants {
-        static let mainViewColor: UIColor = .white
+        static let mainViewColor = UIColor(asset: BreweryBeesAssets.Colors.beesSoftSilverColor)
         static let titleColor: UIColor = .black
         static let titleHeight: CGFloat = 18
-        static let descriptionColor: UIColor = .black
+        static let descriptionColor: UIColor = .init(hex: "#595959")
         static let descriptionHeight: CGFloat = 18
+        static let defaultSpacing: CGFloat = .measurement(.small)
     }
     
     // MARK: - Views
@@ -53,7 +54,7 @@ class HomeResultView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.titleColor
         label.font = .boldSystemFont(ofSize: Constants.titleHeight)
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.contentMode = .scaleAspectFit
         return label
     }()
@@ -63,13 +64,24 @@ class HomeResultView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.titleColor
         label.font = .boldSystemFont(ofSize: Constants.titleHeight)
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.contentMode = .scaleAspectFit
         return label
     }()
     
+    private lazy var mainStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.spacing = Constants.defaultSpacing
+        return stackView
+    }()
+    
     // MARK: - Properties
     
+    private var breweriesCells: [BreweryCellView] = []
     private var resultScreen: ResultScreenType = .emptySearch
     private var model: HomeResultView.Model?
     
@@ -94,20 +106,35 @@ class HomeResultView: UIView {
     // MARK: - Private methods
     
     private func buildComponents() {
-        buildMain()
-        buildTitle()
-        buildSearchBar()
+        backgroundColor = Constants.mainViewColor
+        
+        guard let flowType = model?.resultFlowType else { return }
+        switch flowType {
+        case .verticalCarousel:
+            builVerticalCarousel()
+        case .controlPage:
+            buildControlPage()
+        }
     }
     
     private func buildMain() {
+        guard case .defaultResults = resultScreen else {
+            return
+        }
+        
+        descriptionLabel.font = .boldSystemFont(ofSize: Constants.descriptionHeight)
+    }
+    
+    private func buildNoResults() {
+        descriptionLabel.font = .systemFont(ofSize: Constants.descriptionHeight)
+        
+    }
+    
+    private func builVerticalCarousel() {
         //Lalalala
     }
     
-    private func buildTitle() {
-        //Lalalala
-    }
-    
-    private func buildSearchBar() {
-        //Lalalala
+    private func buildControlPage() {
+        //TO DO
     }
 }

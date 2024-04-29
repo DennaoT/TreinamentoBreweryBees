@@ -18,17 +18,13 @@ public enum URLImages: String {
 }
 
 public extension UIImage {
-    static func loadFromURL(url: URLImages) -> UIImage? {
-        var element: UIImage? = nil
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            if let url = URL(string: url.rawValue) {
-                if let data = try? Data(contentsOf: url) {
-                    if let image = UIImage(data: data) {
-                        element = image
-                    }
-                }
-            }
+    static func loadFromURL(urlString: String?) -> UIImage? {
+        guard let urlString = urlString,
+              let url = URL(string: urlString),
+              let data = try? Data(contentsOf: url),
+              let image = UIImage(data: data) else {
+            return nil
         }
-        return element
+        return image
     }
 }

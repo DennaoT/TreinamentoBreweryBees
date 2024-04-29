@@ -27,3 +27,28 @@
 "monthNovember" = "Novembre";
 "monthDecember" = "Décembre";
 "dateFormat" = "%@ de %@ de %@";
+
+// MARK: - Firebase Firestore Error
+
+"errorFirestore_unexpected" = "Une erreur inattendue s'est produite";
+"errorFirestore_notFound" = "Document non trouvé";
+"errorFirestore_dataCorrupted" = "Données corrompues";
+"errorFirestore_notFoundDescription" = "Impossible de trouver les données Firebase.";
+"errorFirestore_dataCorruptedDescription" = "Les données sont corrompues lors du décodage.";
+"errorFirestore_emptyDataDescription" = "Les données du document sont vides ou manquantes!";
+
+// MARK: - Home
+
+"homeNavigationTitle" = "Détails de la brasserie";
+
+// MARK: - Home Results
+
+"homeResultsTitle_Success" = "Selon les avis des utilisateurs:";
+"homeResultsTitle_NoDataFound" = "Aucun terme de recherche saisi";
+"homeResultsTitle_EmptySearch" = "Liste des brasseries introuvable";
+"homeResultsDescription_Success" = "Affichage de %@ de %@ résultats.";
+"homeResultsDescription_TryAgain" = "Veuillez vérifier votre recherche et réessayer pour obtenir des résultats.";
+
+// MARK: - Components
+
+"component_tryAgain" = "Réessayer";

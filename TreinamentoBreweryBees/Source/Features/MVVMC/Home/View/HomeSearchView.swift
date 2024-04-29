@@ -39,8 +39,8 @@ class HomeSearchView: UIView {
     
     private enum Constants {
         static let shadowColor: UIColor = .lightGray.withAlphaComponent(0.3)
-        static let backViewColor: UIColor = .white
-        static let mainViewColor: UIColor = .yellow
+        static let backViewColor = UIColor(asset: BreweryBeesAssets.Colors.beesSoftSilverColor)
+        static let mainViewColor = UIColor(asset: BreweryBeesAssets.Colors.beesThemeColor)
         static let searchBarRadius: CGFloat = 2
         static let shadowSearchBarRadius: CGFloat = .measurement(.nano)
         static let spacingSides: CGFloat = .measurement(.small)

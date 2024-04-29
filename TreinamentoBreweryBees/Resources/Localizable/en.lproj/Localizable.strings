@@ -27,3 +27,28 @@
 "monthNovember" = "November";
 "monthDecember" = "December";
 "dateFormat" = "%@ %@, %@";
+
+// MARK: - Firebase Firestore Error
+
+"errorFirestore_unexpected" = "An unexpected error occurred";
+"errorFirestore_notFound" = "Document not found";
+"errorFirestore_dataCorrupted" = "Data corrupted";
+"errorFirestore_notFoundDescription" = "Unable to find Firebase data.";
+"errorFirestore_dataCorruptedDescription" = "Data is corrupted during decoding.";
+"errorFirestore_emptyDataDescription" = "Document data is empty or missing!";
+
+// MARK: - Home
+
+"homeNavigationTitle" = "Brewery Details";
+
+// MARK: - Home Results
+
+"homeResultsTitle_Success" = "According to user reviews:";
+"homeResultsTitle_NoDataFound" = "No search term entered";
+"homeResultsTitle_EmptySearch" = "Brewery list not found";
+"homeResultsDescription_Success" = "Displaying %@ of %@ results.";
+"homeResultsDescription_TryAgain" = "Please check your search and try again for results.";
+
+// MARK: - Components
+
+"component_tryAgain" = "Try Again";

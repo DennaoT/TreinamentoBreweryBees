@@ -27,3 +27,29 @@
 "monthNovember" = "Novembro";
 "monthDecember" = "Dezembro";
 "dateFormat" = "%@ %@, %@";
+
+// MARK: - Firebase Firestore Error
+
+"errorFirestore_unexpected" = "Ocorreu um erro inesperado";
+"errorFirestore_notFound" = "Documento não encontrado";
+"errorFirestore_dataCorrupted" = "Dados corrompidos";
+"errorFirestore_notFoundDescription" = "Não foi possível encontrar dados do Firebase.";
+"errorFirestore_dataCorruptedDescription" = "Os dados estão corrompidos durante a decodificação";
+"errorFirestore_emptyDataDescription" = "Dados do documento estão vazios ou ausentes!";
+
+// MARK: - Home
+
+"homeNavigationTitle" = "Detalhes da cervejaria";
+
+// MARK: - Home Results
+
+"homeResultsTitle_Success" = "Segundo a opinião dos usuários:";
+"homeResultsTitle_NoDataFound" = "Nenhum termo digitado";
+"homeResultsTitle_EmptySearch" = "A lista de cervejaria não
+ foi encontrada";
+"homeResultsDescription_Success" = "Exibindo %@ de %@ resultados.";
+"homeResultsDescription_TryAgain" = "Por favor, verifique sua pesquisa e tente novamente para obter resultados.";
+
+// MARK: - Components
+
+"component_tryAgain" = "Tentar novamente";
