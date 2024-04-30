@@ -1029,6 +1029,7 @@ PODS:
   - nanopb/decode (2.30910.0)
   - nanopb/encode (2.30910.0)
   - PromisesObjC (2.4.0)
+  - ReachabilitySwift (5.2.2)
   - SnapKit (5.6.0)
   - SwiftGen (6.6.3)
 
@@ -1036,6 +1037,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - Firebase/RemoteConfig
+  - ReachabilitySwift
   - SnapKit (~> 5.6.0)
   - SwiftGen (~> 6.0)
 
@@ -1063,6 +1065,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - ReachabilitySwift
     - SnapKit
     - SwiftGen
 
@@ -1089,9 +1092,10 @@ SPEC CHECKSUMS:
   leveldb-library: 06a69cc7582d64b29424a63e085e683cc188230a
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
+  ReachabilitySwift: 2128f3a8c9107e1ad33574c6e58e8285d460b149
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftGen: 4993cbf71cbc4886f775e26f8d5c3a1188ec9f99
 
-PODFILE CHECKSUM: 69aa3c7376c01346a7472b3e17ac33d8c02a573d
+PODFILE CHECKSUM: de29a898d1346d378b3bb2e93282cd9c13861282
 
 COCOAPODS: 1.15.1
