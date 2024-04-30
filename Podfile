@@ -4,6 +4,7 @@ use_frameworks!
 
 def setup_libs
   pod 'SwiftGen', '~> 6.0'
+  pod 'ReachabilitySwift'
 end
 
 def firebase_libs

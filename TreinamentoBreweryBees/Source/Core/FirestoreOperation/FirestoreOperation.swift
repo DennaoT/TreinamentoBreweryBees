@@ -8,6 +8,7 @@
 import FirebaseCore
 import FirebaseFirestore
 import Foundation
+import Reachability
 
 typealias FirestoreCompletion<D: Decodable> = (Result<D, FirestoreError>) -> Void
 
@@ -19,6 +20,16 @@ class FirestoreOperation {
         completion: @escaping FirestoreCompletion<D>
     ) {
         currentTask?.cancel()
+        
+        guard let reachability = try? Reachability() else {
+            completion(.failure(.noInternet))
+            return
+        }
+        
+        guard reachability.connection != .unavailable else {
+            completion(.failure(.noInternet))
+            return
+        }
         
         currentTask = Task {
             do {

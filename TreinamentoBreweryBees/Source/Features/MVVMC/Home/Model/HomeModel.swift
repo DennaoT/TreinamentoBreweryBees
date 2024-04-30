@@ -28,6 +28,7 @@ struct BreweryListData: Decodable {
 }
 
 struct BreweryData: Decodable {
+    let id = UUID().uuidString
     let identifier: String
     let name: String
     let logo: String?
