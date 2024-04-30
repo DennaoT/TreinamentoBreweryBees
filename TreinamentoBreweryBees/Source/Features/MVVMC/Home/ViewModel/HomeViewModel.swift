@@ -56,8 +56,20 @@ class HomeViewModel: HomeViewModelProtocol {
 // MARK: - Handle Failures
 
 extension HomeViewModel {
-    private func handleFailure(_ failure: FirestoreError) {
+    private func handleFailure(_ failure: Error) {
         switch failure {
+        case let firestoreError as FirestoreError:
+            handleFirestoreError(error: firestoreError)
+        case let internetError as InternetError:
+            handleInternetError(error: internetError)
+        default:
+            handleError(title: TreinamentoBreweryBeesLocalizable.errorDefault.localized,
+                        description: failure.localizedDescription)
+        }
+    }
+    
+    private func handleFirestoreError(error: FirestoreError) {
+        switch error {
         case .notFound:
             handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_notFound.localized,
                         description: TreinamentoBreweryBeesLocalizable.errorFirestore_notFoundDescription.localized)
@@ -67,6 +79,14 @@ extension HomeViewModel {
         case .dataCorrupted:
             handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_dataCorrupted.localized,
                         description: TreinamentoBreweryBeesLocalizable.errorFirestore_dataCorruptedDescription.localized)
+        }
+    }
+    
+    private func handleInternetError(error: InternetError) {
+        switch error {
+        case .noConnection:
+            handleError(title: TreinamentoBreweryBeesLocalizable.errorInternet_noConnection.localized,
+                        description: TreinamentoBreweryBeesLocalizable.errorInternet_noConnectionDescription.localized)
         }
     }
     

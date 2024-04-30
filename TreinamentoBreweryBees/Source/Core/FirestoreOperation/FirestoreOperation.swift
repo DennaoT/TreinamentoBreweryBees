@@ -10,7 +10,7 @@ import FirebaseFirestore
 import Foundation
 import Reachability
 
-typealias FirestoreCompletion<D: Decodable> = (Result<D, FirestoreError>) -> Void
+typealias FirestoreCompletion<D: Decodable> = (Result<D, Error>) -> Void
 
 class FirestoreOperation {
     private static var currentTask: Task<Void, Never>?
@@ -21,13 +21,9 @@ class FirestoreOperation {
     ) {
         currentTask?.cancel()
         
-        guard let reachability = try? Reachability() else {
-            completion(.failure(.noInternet))
-            return
-        }
-        
-        guard reachability.connection != .unavailable else {
-            completion(.failure(.noInternet))
+        guard let reachability = try? Reachability(),
+              reachability.connection != .unavailable else {
+            completion(.failure(InternetError.noConnection))
             return
         }
         
@@ -38,26 +34,29 @@ class FirestoreOperation {
                 let documentSnapshot: DocumentSnapshot = try await documentRef.getDocument()
                 
                 guard documentSnapshot.exists else {
-                    completion(.failure(.notFound))
+                    completion(.failure(FirestoreError.notFound))
                     return
                 }
                 
                 guard let documentData = documentSnapshot.data() else {
-                    completion(.failure(.emptyData))
+                    completion(.failure(FirestoreError.emptyData))
                     return
                 }
                 
                 guard let decodedData = try? Firestore.Decoder().decode(D.self, from: documentData) else {
-                    completion(.failure(.dataCorrupted))
+                    completion(.failure(FirestoreError.dataCorrupted))
                     return
                 }
                 
                 completion(.success(decodedData))
             } catch {
-                if let firestoreError = error as? FirestoreError {
+                switch error {
+                case let firestoreError as FirestoreError:
                     completion(.failure(firestoreError))
-                } else {
-                    completion(.failure(.notFound))
+                case let internetError as InternetError:
+                    completion(.failure(internetError))
+                default:
+                    completion(.failure(error))
                 }
             }
         }

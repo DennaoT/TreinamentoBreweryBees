@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Typealias
 
 /// Typealias for breweries completion
-typealias BreweryBeesFirestoreCompletion = (Result<BreweryListData, FirestoreError>) -> Void
+typealias BreweryBeesFirestoreCompletion = (Result<BreweryListData, Error>) -> Void
 
 // MARK: - Protocol
 

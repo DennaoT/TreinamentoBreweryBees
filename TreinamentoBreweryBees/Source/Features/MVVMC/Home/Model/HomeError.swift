@@ -11,5 +11,8 @@ enum FirestoreError: Error {
     case notFound
     case emptyData
     case dataCorrupted
-    case noInternet
+}
+
+enum InternetError: Error {
+    case noConnection
 }

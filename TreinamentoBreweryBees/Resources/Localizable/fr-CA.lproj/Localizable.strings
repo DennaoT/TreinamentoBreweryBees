@@ -28,6 +28,15 @@
 "monthDecember" = "Décembre";
 "dateFormat" = "%@ de %@ de %@";
 
+// MARK: - Generic Error
+
+"errorDefault" = "Quelque chose s'est mal passé";
+
+// MARK: - Internet Connection Error
+
+"errorInternet_noConnection" = "Pas de connexion";
+"errorInternet_noConnectionDescription" = "Vous n'êtes connecté à aucun réseau";
+
 // MARK: - Firebase Firestore Error
 
 "errorFirestore_unexpected" = "Une erreur inattendue s'est produite";

@@ -31,6 +31,15 @@ public enum TreinamentoBreweryBeesLocalizable: String {
     case monthDecember
     case dateFormat
     
+    // MARK: - Generic Error
+
+    case errorDefault
+
+    // MARK: - Internet Connection Error
+
+    case errorInternet_noConnection
+    case errorInternet_noConnectionDescription
+    
     // MARK: - Firebase Firestore Error
     
     case errorFirestore_unexpected
