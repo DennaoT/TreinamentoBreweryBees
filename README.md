@@ -6,6 +6,16 @@
 
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
+### Swiftgen
+
+1. Instalar o SwiftGen com o seguinte comando:
+
+`brew install swiftgen`
+
+2. Depois que a instalação for concluída, execute o comando **swiftgen config**:
+
+`swiftgen config`
+
 ### Xcodegen
 
 1. Gerar arquivos de projeto:
@@ -21,16 +31,6 @@
 2. Baixar dependências listadas:
 
 `pod install`
-
-### Swiftgen
-
-1. Instalar o SwiftGen com o seguinte comando:
-
-`brew install swiftgen`
-
-2. Depois que a instalação for concluída, execute o comando **swiftgen config**:
-
-`swiftgen config`
 
 # SETUP IDE
 
