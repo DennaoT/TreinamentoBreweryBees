@@ -5,8 +5,6 @@
 //  Created by Dennis Torres on 02/04/24.
 //
 
-import FirebaseCore
-import FirebaseFirestore
 import UIKit
 
 // MARK: - Protocol
@@ -19,21 +17,19 @@ protocol HomeViewModelProtocol {
 
 class HomeViewModel: HomeViewModelProtocol {
     
-    // MARK: - Properties
+    // MARK: - Internal Properties
     
     var breweryModel = Dynamic<HomeInfoStatus<BreweryListData?, GenericErrorView.Model?>>(.loading)
     
     // MARK: - Private Properties
     
     private weak var flowDelegate: HomeCoordinatorDelegate?
-    private var documentRef: DocumentReference?
     
     // MARK: - Public Methods
     
-    init(delegate: HomeCoordinatorDelegate?) {
+    init(delegate: HomeCoordinatorDelegate?
+    ) {
         self.flowDelegate = delegate
-        
-        documentRef = Firestore.firestore().document(HomeDataPath.breweryListDocumentPath)
     }
     
     /// TODO
@@ -43,54 +39,35 @@ class HomeViewModel: HomeViewModelProtocol {
     func fetchHomeData() {
         breweryModel.value = .loading
         
-        Task {
-            do {
-                try await fetchCurrentData()
-            } catch {
-                handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_unexpected.localized,
-                            description: error.localizedDescription)
+        BreweryBeesManager.shared?.fetchFirestoreBreweries { [weak self] result in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                switch result {
+                case .success(let breweryData):
+                    self.breweryModel.value = .success(breweryData)
+                case .failure(let failure):
+                    self.handleFailure(failure)
+                }
             }
         }
     }
 }
 
-// MARK: - Private Methods
+// MARK: - Handle Failures
 
 extension HomeViewModel {
-    private func fetchCurrentData() async throws {
-        do {
-            guard let documentSnapshot = try await documentRef?.getDocument() else {
-                throw FirestoreError.notFound
-            }
-            
-            guard let data = documentSnapshot.data() else {
-                throw FirestoreError.emptyData
-            }
-            
-            let breweryListData = try decodeBreweryListData(from: data)
-            breweryModel.value = .success(breweryListData)
-            
-        } catch FirestoreError.notFound {
+    private func handleFailure(_ failure: FirestoreError) {
+        switch failure {
+        case .notFound:
             handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_notFound.localized,
                         description: TreinamentoBreweryBeesLocalizable.errorFirestore_notFoundDescription.localized)
-        } catch FirestoreError.emptyData {
+        case .emptyData:
             handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_notFound.localized,
                         description: TreinamentoBreweryBeesLocalizable.errorFirestore_emptyDataDescription.localized)
-        } catch FirestoreError.dataCorrupted {
+        case .dataCorrupted:
             handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_dataCorrupted.localized,
                         description: TreinamentoBreweryBeesLocalizable.errorFirestore_dataCorruptedDescription.localized)
-        } catch {
-            handleError(title: TreinamentoBreweryBeesLocalizable.errorFirestore_unexpected.localized,
-                        description: error.localizedDescription)
         }
-    }
-    
-    private func decodeBreweryListData(from data: [String: Any]) throws -> BreweryListData {
-        guard let breweryListData = try? Firestore.Decoder().decode(BreweryListData.self, from: data)
-        else {
-            throw FirestoreError.dataCorrupted
-        }
-        return breweryListData
     }
     
     private func handleError(title: String, description: String) {

@@ -41,17 +41,21 @@ class GenericErrorView: UIView {
         static let spacingTexts: CGFloat = .measurement(.large)
         static let titleColor: UIColor = .black
         static let titleHeight: CGFloat = 28
+        static let titleContainerHeight: CGFloat = 80
         static let descriptionColor: UIColor = .black
         static let descriptionHeight: CGFloat = .measurement(.initialMedium)
+        static let descriptionContainerHeight: CGFloat = 300
         static let buttonHeight: CGFloat = .measurement(.giga)
         static let buttonColor: UIColor = .white
         static let buttonTextColor: UIColor = .black
         static let buttonRadius: CGFloat = 12
-        static let spacingToButton: CGFloat = 170
+        static let spacingToTop: CGFloat = 70
+        static let spacingToButton: CGFloat = 70
         static let borderSides: CGFloat = 2
         static let borderBottom: CGFloat = 5
         static let scaleAnimation: CGFloat = 0.95
         static let timeAnimation: CGFloat = 0.4
+        static let minimumPressDuration: CGFloat = 1.2
     }
     
     // MARK: - Views
@@ -81,7 +85,7 @@ class GenericErrorView: UIView {
         label.textColor = Constants.titleColor
         label.font = .boldSystemFont(ofSize: Constants.titleHeight)
         label.textAlignment = .center
-        label.contentMode = .scaleAspectFit
+        label.numberOfLines = .zero
         return label
     }()
     
@@ -90,9 +94,8 @@ class GenericErrorView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.descriptionColor
         label.font = .systemFont(ofSize: Constants.descriptionHeight)
-        label.contentMode = .scaleAspectFill
         label.textAlignment = .center
-        label.numberOfLines = 0
+        label.numberOfLines = .zero
         return label
     }()
     
@@ -144,26 +147,27 @@ class GenericErrorView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(mainBackground)
-        mainBackground.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(Constants.borderSides)
-            $0.bottom.equalToSuperview().inset(Constants.borderBottom)
+        mainBackground.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(Constants.borderSides)
+            make.bottom.equalToSuperview().inset(Constants.borderBottom)
         }
         
         mainBackground.addSubview(mainStackView)
-        mainStackView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.centerX.equalToSuperview()
-            $0.width.equalToSuperview()
+        mainStackView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview()
         }
     }
     
     private func buildTitle() {
         titleLabel.text = model?.titleText
         mainStackView.addArrangedSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
-            $0.height.equalTo(Constants.titleHeight)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(Constants.spacingToTop)
+            make.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
+            make.height.equalTo(Constants.titleContainerHeight)
         }
     }
     
@@ -174,9 +178,27 @@ class GenericErrorView: UIView {
         
         descriptionLabel.text = descriptionText
         mainStackView.addArrangedSubview(descriptionLabel)
-        descriptionLabel.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
-            $0.height.equalTo(70)
+        descriptionLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
+            make.height.equalTo(Constants.descriptionContainerHeight)
+        }
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(setupDescriptionAction))
+        longPressGesture.minimumPressDuration = Constants.minimumPressDuration
+        descriptionLabel.addGestureRecognizer(longPressGesture)
+        descriptionLabel.isUserInteractionEnabled = true
+    }
+    
+    @objc private func setupDescriptionAction(sender: UILongPressGestureRecognizer) {
+        if case .began = sender.state {
+            UIView.animate(withDuration: Constants.timeAnimation) {
+                self.descriptionLabel.textColor = .blue
+            }
+        } else if case .ended = sender.state {
+            UIView.animate(withDuration: Constants.timeAnimation) {
+                self.descriptionLabel.textColor = Constants.descriptionColor
+            }
+            UIPasteboard.general.string = self.descriptionLabel.text
         }
     }
     
@@ -188,9 +210,9 @@ class GenericErrorView: UIView {
         tryAgainButton.setTitle(model?.buttonText, for: .normal)
         
         mainStackView.addArrangedSubview(tryAgainButton)
-        tryAgainButton.snp.makeConstraints {
-            $0.height.equalTo(Constants.buttonHeight)
-            $0.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
+        tryAgainButton.snp.makeConstraints { make in
+            make.height.equalTo(Constants.buttonHeight)
+            make.leading.trailing.equalToSuperview().inset(Constants.spacingSides)
         }
     }
     
@@ -198,7 +220,7 @@ class GenericErrorView: UIView {
         guard let buttonAction = model?.buttonAction else { return }
         
         let action = UIAction { [weak self] _ in
-            UIView.animate(withDuration: .zero) {
+            UIView.animate(withDuration: Constants.timeAnimation) {
                 self?.tryAgainButton.transform = CGAffineTransform(scaleX: Constants.scaleAnimation, y: Constants.scaleAnimation)
                 self?.tryAgainButton.backgroundColor = .gray.withAlphaComponent(Constants.timeAnimation)
                 self?.tryAgainButton.isUserInteractionEnabled = false
@@ -208,7 +230,6 @@ class GenericErrorView: UIView {
                 self?.tryAgainButton.isUserInteractionEnabled = true
                 buttonAction()
             }
-            
         }
         
         tryAgainButton.addAction(action, for: .primaryActionTriggered)
