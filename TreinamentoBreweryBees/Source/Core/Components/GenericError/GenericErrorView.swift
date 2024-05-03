@@ -75,7 +75,6 @@ class GenericErrorView: UIView {
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
         stackView.spacing = Constants.spacingTexts
-        stackView.backgroundColor = Constants.mainViewColor
         return stackView
     }()
     
@@ -111,6 +110,7 @@ class GenericErrorView: UIView {
     
     // MARK: - Properties
     
+    private var action: UIAction?
     private var model: GenericErrorView.Model?
     
     // MARK: - Public methods
@@ -219,7 +219,9 @@ class GenericErrorView: UIView {
     private func setupButtonAction() {
         guard let buttonAction = model?.buttonAction else { return }
         
-        let action = UIAction { [weak self] _ in
+        resetActionIfNeeds()
+        
+        action = UIAction { [weak self] _ in
             UIView.animate(withDuration: Constants.timeAnimation) {
                 self?.tryAgainButton.transform = CGAffineTransform(scaleX: Constants.scaleAnimation, y: Constants.scaleAnimation)
                 self?.tryAgainButton.backgroundColor = .gray.withAlphaComponent(Constants.timeAnimation)
@@ -232,7 +234,14 @@ class GenericErrorView: UIView {
             }
         }
         
+        guard let action = action else { return }
         tryAgainButton.addAction(action, for: .primaryActionTriggered)
+    }
+    
+    private func resetActionIfNeeds() {
+        guard model != nil, let action = action else { return }
+        
+        tryAgainButton.removeAction(action, for: .primaryActionTriggered)
     }
 }
 

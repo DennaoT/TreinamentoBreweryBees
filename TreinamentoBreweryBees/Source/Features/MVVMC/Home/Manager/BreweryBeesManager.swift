@@ -23,9 +23,7 @@ protocol BreweryBeesManagerProtocol: AnyObject {
 
 /// Singleton for operations manager
 class BreweryBeesManager {
-    static let shared = {
-        BreweryBeesManager().delegate
-    }()
+    static let shared = BreweryBeesManager()
     
     private weak var delegate: BreweryBeesManagerProtocol?
     
@@ -41,9 +39,7 @@ extension BreweryBeesManager: BreweryBeesManagerProtocol {
         FirestoreOperation.fetchFirestoreData(
             fromDocumentPath: HomeDataPath.breweryListDocumentPath
         ) { result in
-            DispatchQueue.main.async {
-                completion(result)
-            }
+            completion(result)
         }
     }
 }

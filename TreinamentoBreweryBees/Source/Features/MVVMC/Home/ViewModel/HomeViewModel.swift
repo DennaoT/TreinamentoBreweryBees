@@ -39,17 +39,25 @@ class HomeViewModel: HomeViewModelProtocol {
     func fetchHomeData() {
         breweryModel.value = .loading
         
-        BreweryBeesManager.shared?.fetchFirestoreBreweries { [weak self] result in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                switch result {
-                case .success(let breweryData):
-                    self.breweryModel.value = .success(breweryData)
-                case .failure(let failure):
-                    self.handleFailure(failure)
-                }
+        BreweryBeesManager.shared.fetchFirestoreBreweries { [weak self] result in
+            switch result {
+            case .success(let breweryData):
+                self?.handleSuccess(breweryData)
+            case .failure(let failure):
+                self?.handleFailure(failure)
             }
         }
+    }
+}
+
+// MARK: - Handle Success
+
+extension HomeViewModel {
+    private func handleSuccess(_ successData: BreweryListData) {
+        let logger = Logger(category: "HomeViewModel")
+        logger.log(message: "Success:\n\(successData)", level: .info)
+        
+        breweryModel.value = .success(successData)
     }
 }
 
@@ -91,6 +99,9 @@ extension HomeViewModel {
     }
     
     private func handleError(title: String, description: String) {
+        let logger = Logger(category: "HomeViewModel")
+        logger.log(message: "\(title):\n\(description)", level: .error)
+        
         let errorModel = GenericErrorView.Model(
             titleText: title,
             descriptionText: description,
