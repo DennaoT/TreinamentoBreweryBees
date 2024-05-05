@@ -42,6 +42,7 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     
     private var searchView: HomeSearchView?
+    private var resultView: HomeResultView?
     private var screenError: GenericErrorView?
     private var viewModel: HomeViewModelProtocol?
 
@@ -60,6 +61,7 @@ class HomeViewController: UIViewController {
         
         screenError = GenericErrorView()
         searchView = HomeSearchView()
+        resultView = HomeResultView()
     }
     
     override func viewDidLoad() {
@@ -80,6 +82,7 @@ class HomeViewController: UIViewController {
         
         screenError = nil
         searchView = nil
+        resultView = nil
         viewModel = nil
     }
     
@@ -88,7 +91,7 @@ class HomeViewController: UIViewController {
     private func setupViews() {
         setupNavBar()
         setupSearch()
-        setupList()
+        setupResult()
         setupError()
     }
     
@@ -105,6 +108,7 @@ class HomeViewController: UIViewController {
                 case .success(let model):
                     guard let textModel: String? = model?.breweriesList.first?.website else { return }
                     self.searchView?.setup(with: HomeSearchView.Model(), delegate: self)
+                    self.resultView?.setup(with: HomeResultView.Model(breweriesList: model?.breweriesList))
                     self.stopLoading()
                 case .error(let model):
                     self.screenError?.setup(with: model)
@@ -147,15 +151,22 @@ extension HomeViewController {
         guard let searchView = searchView else { return }
         
         view.addSubview(searchView)
-        searchView.snp.makeConstraints {
-            $0.height.equalTo(Constants.searchViewHeight)
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.trailing.equalToSuperview()
+        searchView.snp.makeConstraints { make in
+            make.height.equalTo(Constants.searchViewHeight)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
         }
     }
     
-    private func setupList() {
-        //To do...
+    private func setupResult() {
+        guard let resultView = resultView, let searchViewBottom = searchView?.snp.bottom
+        else { return }
+        
+        view.addSubview(resultView)
+        resultView.snp.makeConstraints { make in
+            make.top.equalTo(searchViewBottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
     }
     
     private func setupError() {
@@ -184,25 +195,21 @@ extension HomeViewController {
 // MARK: - Loading
 
 extension HomeViewController: HomeSearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // Aqui você pode implementar a lógica quando o usuário clica no botão de pesquisa
+        print("Pesquisar: \(searchBar.text ?? "")")
+        resultView?.update(filter: searchBar.text)
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //To do...
+        // Aqui você pode implementar a lógica quando o texto na barra de pesquisa é alterado
+        print("O texto \(searchBar.text ?? "") mudou!!")
+        
     }
     
-    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        searchBar.resignFirstResponder()
-        return true
-    }
-    
-    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, searchText: String) {
-        searchBar.resignFirstResponder()
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        guard let touchedView = touch.view else { return true }
-        return !(touchedView is UISearchBar)
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        // Aqui você pode implementar a lógica quando o usuário termina de digitar
+        print("Terminou de digitar: \(searchBar.text ?? "")")
+        //resultView?.update(filter: searchBar.text)
     }
 }

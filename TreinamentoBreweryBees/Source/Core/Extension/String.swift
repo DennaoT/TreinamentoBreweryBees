@@ -87,4 +87,26 @@ public extension String {
                 alphabetSet.contains(char.lowercased())
         }
     }
+    
+    func adjustnumberingCorrectly() -> String {
+        return self.filter { char in
+            char.isNumber || char == "," || char == "."
+        }
+        .replacingOccurrences(of: ".", with: ",")
+        .removeExtraCommas()
+        .replacingOccurrences(of: ",", with: ".")
+    }
+    
+    func removeExtraCommas() -> String {
+        guard let lastIndex = self.lastIndex(of: ","),
+              self.filter({ $0 == "," }).count > 1
+        else {
+            return self
+        }
+        
+        let substringBeforeLastComma = self[..<lastIndex]
+        let substringAfterLastComma = self[lastIndex...]
+        let stringWithoutExtraCommas = substringBeforeLastComma.filter { $0 != "," }
+        return String(stringWithoutExtraCommas) + substringAfterLastComma
+    }
 }

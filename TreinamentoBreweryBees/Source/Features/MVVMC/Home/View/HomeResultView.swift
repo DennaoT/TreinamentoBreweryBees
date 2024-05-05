@@ -41,9 +41,12 @@ class HomeResultView: UIView {
     private enum Constants {
         static let mainViewColor = UIColor(asset: BreweryBeesAssets.Colors.beesSoftSilverColor)
         static let titleColor: UIColor = .black
-        static let titleHeight: CGFloat = 18
+        static let titleHeight: CGFloat = 23
+        static let titleCenterHeight: CGFloat = 25.5
         static let descriptionColor: UIColor = .init(hex: "#595959")
-        static let descriptionHeight: CGFloat = 18
+        static let descriptionCenterColor: UIColor = .init(hex: "#333333")
+        static let descriptionHeight: CGFloat = 16
+        static let descriptionCenterHeight: CGFloat = 19.5
         static let defaultSpacing: CGFloat = .measurement(.small)
     }
     
@@ -53,26 +56,26 @@ class HomeResultView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.titleColor
-        label.font = .boldSystemFont(ofSize: Constants.titleHeight)
+        label.font = .boldSystemFont(ofSize: Constants.titleCenterHeight)
         label.textAlignment = .center
-        label.contentMode = .scaleAspectFit
+        label.numberOfLines = 2
         return label
     }()
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = Constants.titleColor
-        label.font = .boldSystemFont(ofSize: Constants.titleHeight)
+        label.textColor = Constants.descriptionCenterColor
+        label.font = .systemFont(ofSize: Constants.descriptionCenterHeight, weight: .thin)
         label.textAlignment = .center
-        label.contentMode = .scaleAspectFit
+        label.numberOfLines = 2
         return label
     }()
     
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalSpacing
         stackView.alignment = .fill
         stackView.spacing = Constants.defaultSpacing
         return stackView
@@ -118,8 +121,6 @@ class HomeResultView: UIView {
     }
     
     func update(filter: String?) {
-        guard let breweriesList = model?.breweriesList else { return }
-        
         filterBreweries(filter)
         updateMain()
     }
@@ -132,30 +133,34 @@ class HomeResultView: UIView {
         backgroundColor = Constants.mainViewColor
         
         titleLabel.text = TreinamentoBreweryBeesLocalizable.homeResultsTitle_NoDataFound.localized
+        addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(50)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(44)
+            make.leading.trailing.equalToSuperview().inset(Constants.defaultSpacing)
+            make.height.equalTo(70)
         }
         
         descriptionLabel.text = TreinamentoBreweryBeesLocalizable.homeResultsDescription_TryAgain.localized
+        addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).inset(16)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.defaultSpacing)
             make.leading.equalTo(titleLabel.snp.leading)
             make.trailing.equalTo(titleLabel.snp.trailing)
-            make.height.equalTo(44)
+            make.height.equalTo(70)
         }
         
         addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).inset(16)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(Constants.defaultSpacing)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(flowType == .verticalCarousel ? .zero : 50)
+            make.bottom.equalToSuperview().offset(flowType == .verticalCarousel ? .zero : 50)
         }
         
         scrollView.addSubview(mainStackView)
         mainStackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.height.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.9)
+            make.center.equalToSuperview()
         }
         
         mainStackView.axis = flowType == .verticalCarousel ? .vertical : .horizontal
@@ -182,11 +187,12 @@ class HomeResultView: UIView {
     
     private func builVerticalCarousel() {
         mainStackView.addArrangedSubviews(breweriesCells)
-        for brewery in breweriesCells {
-            brewery.snp.makeConstraints { make in
-                make.height.equalTo(60)
-            }
-        }
+//        for brewery in breweriesCells {
+//            brewery.snp.makeConstraints { make in
+//                make.height.equalTo(100)
+//                make.width.equalTo(360.5)
+//            }
+//        }
         
         //TALVEZ adicionar height à breweriesCells
     }
@@ -208,15 +214,11 @@ class HomeResultView: UIView {
     // MARK: - Update
     
     private func updateMain() {
-        shouldPresentElements()
-        
         switch resultScreen {
         case .defaultResults:
             titleLabel.text = TreinamentoBreweryBeesLocalizable.homeResultsTitle_Success.localized
-            if let breweriesList = model?.breweriesList{
-                descriptionLabel.text = String(
-                    format: TreinamentoBreweryBeesLocalizable.homeResultsDescription_Success.localized,
-                    breweriesCells.count, breweriesList.count)
+            if let breweriesList = model?.breweriesList {
+                descriptionLabel.text = "Tantos resultados de tantos..."//String(format: TreinamentoBreweryBeesLocalizable.homeResultsDescription_Success.localized, breweriesCells.count, breweriesList.count)
             }
             updateDefaultResults()
         case .noDataFound:
@@ -235,33 +237,38 @@ class HomeResultView: UIView {
     
     private func updateDefaultResults() {
         titleLabel.textAlignment = .left
-        descriptionLabel.textAlignment = .left
-        descriptionLabel.font = .boldSystemFont(ofSize: Constants.descriptionHeight)
+        titleLabel.font = .boldSystemFont(ofSize: Constants.titleHeight)
         
         titleLabel.snp.updateConstraints { make in
             make.top.equalToSuperview().inset(8)
-            make.height.equalTo(22)
+            make.height.equalTo(30)
         }
         
+        descriptionLabel.textAlignment = .left
+        descriptionLabel.font = .boldSystemFont(ofSize: Constants.descriptionHeight)
+        descriptionLabel.textColor = Constants.descriptionColor
+        
         descriptionLabel.snp.updateConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).inset(8)
-            make.height.equalTo(22)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.height.equalTo(30)
         }
     }
     
     private func updateNoResults() {
         titleLabel.textAlignment = .center
-        descriptionLabel.textAlignment = .center
-        descriptionLabel.font = .systemFont(ofSize: Constants.descriptionHeight)
         
         titleLabel.snp.updateConstraints { make in
             make.top.equalToSuperview().inset(50)
-            make.height.equalTo(44)
+            make.height.equalTo(70)
         }
         
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.font = .systemFont(ofSize: Constants.descriptionCenterHeight, weight: .thin)
+        descriptionLabel.textColor = Constants.descriptionCenterColor
+        
         descriptionLabel.snp.updateConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).inset(16)
-            make.height.equalTo(44)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.defaultSpacing)
+            make.height.equalTo(70)
         }
     }
     
@@ -288,8 +295,9 @@ class HomeResultView: UIView {
             let breweryCell = BreweryCellView()
             breweryCell.setup(with: breweryData)
             breweriesCells.append(breweryCell)
+            resultScreen = !breweriesCells.isEmpty ? .defaultResults : .noDataFound
         }
         
-        resultScreen = !breweriesCells.isEmpty ? .defaultResults : .noDataFound
+        //resultScreen = !breweriesCells.isEmpty ? .defaultResults : .noDataFound
     }
 }

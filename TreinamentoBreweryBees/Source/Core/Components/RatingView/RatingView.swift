@@ -23,12 +23,12 @@ class RatingView: UIView {
     }
     
     private enum Constants {
-        static let mainViewColor: UIColor = .white
         static let titleColor: UIColor = .black
         static let descriptionColor: UIColor = .black
         static let descriptionHeight: CGFloat = 18
         static let numOfStars: Int = 5
         static let defaultSpacing: CGFloat = 2.5
+        static let numberTextHeightPerc: CGFloat = 0.35
     }
     
     // MARK: - Views
@@ -47,6 +47,7 @@ class RatingView: UIView {
             let imageView = UIImageView()
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.contentMode = .scaleAspectFit
+            imageView.clipsToBounds = true
             imageView.isUserInteractionEnabled = false
             return imageView
         }
@@ -59,7 +60,7 @@ class RatingView: UIView {
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
         stackView.spacing = Constants.defaultSpacing
-        stackView.backgroundColor = Constants.mainViewColor
+        stackView.layer.masksToBounds = true
         return stackView
     }()
     
@@ -88,9 +89,7 @@ class RatingView: UIView {
             
             setupToEvaluate()
         case .seeReview(let valuation, let showLeftNumber):
-            guard let valuation = valuation as? CGFloat else { return }
-            
-            self.valuationValue = valuation
+            self.valuationValue = .fromAny(valuation)
             self.showLeftNumber = showLeftNumber
             
             setupSeeReview()
@@ -105,9 +104,7 @@ class RatingView: UIView {
             make.edges.equalToSuperview()
         }
         
-        for starView in starsRating {
-            mainStackView.addSubview(starView)
-        }
+        mainStackView.addArrangedSubviews(starsRating)
     }
     
     // MARK: - Setup To Evaluate - screen type
@@ -120,7 +117,7 @@ class RatingView: UIView {
             starImage.addGestureRecognizer(tapGesture)
         }
         
-        buildLeftNumber()
+        //buildLeftNumber()
     }
     
     // MARK: - Setup See Review - screen type
@@ -131,6 +128,8 @@ class RatingView: UIView {
         for (index, starImage) in starsRating.enumerated() {
             starImage.image = .getRatedStar(valuationValue - CGFloat(index+1))
         }
+        
+        buildLeftNumber()
     }
 }
 
@@ -155,10 +154,13 @@ extension RatingView {
               let valuationValue = valuationValue
         else { return }
         
-        numberText.font = .boldSystemFont(ofSize: sizeOfNumberLabel)
-        numberText.text = String(describing: valuationValue)
+        numberText.font = .boldSystemFont(ofSize: sizeOfNumberLabel * Constants.numberTextHeightPerc)
+        numberText.text = String(format: "%.1f", valuationValue)
         
         mainStackView.insertArrangedSubview(numberText, at: .zero)
+        numberText.snp.makeConstraints { make in
+            make.height.equalToSuperview()
+        }
     }
 }
 

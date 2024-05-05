@@ -42,3 +42,19 @@ public extension CGFloat {
     }
 }
 
+/// `TO DO
+/// `let testeA: CGFloat = .fromAny("")`                           retornou     ``0
+/// `let testeB: CGFloat = .fromAny("13.5")`                  retornou     ``13.5
+/// `let testeC: CGFloat = .fromAny("17.3f5")`              retornou     ``17.350000381469727
+/// `let testeD: CGFloat = .fromAny(3425)`                       retornou     ``3425
+/// `let testeE: CGFloat = .fromAny(Float(34.123))`   retornou     ``34.123001098632813
+/// `let testeF: CGFloat = .fromAny("0")`                         retornou     ``0
+extension CGFloat {
+    static func fromAny(_ value: Any?) -> CGFloat {
+        if let doubleValue = Float(String(describing: value).adjustnumberingCorrectly()) {
+            return CGFloat(doubleValue)
+        } else {
+            return 0
+        }
+    }
+}

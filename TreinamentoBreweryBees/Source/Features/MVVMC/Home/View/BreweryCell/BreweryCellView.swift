@@ -14,15 +14,16 @@ class BreweryCellView: UIView {
     
     private enum Constants {
         static let mainViewColor: UIColor = .white
-        static let mainViewHeight: CGFloat = .measurement(.xLarge)
+        static let mainViewHeight: CGFloat = 80
         static let defaultSpacing: CGFloat = .measurement(.smaller)
-        static let iconSize: CGFloat = 26
+        static let defaultRadius: CGFloat = .measurement(.smaller)
+        static let iconSize: CGFloat = .measurement(.big)
         static let titleColor: UIColor = .black
         static let titleHeight: CGFloat = 18
         static let descriptionColor: UIColor = .black
         static let descriptionHeight: CGFloat = 16
-        static let ratingHeight: CGFloat = 14
-        static let ratingWidth: CGFloat = 124
+        static let ratingHeight: CGFloat = 30
+        static let ratingWidth: CGFloat = 150
         static let defaultIconViewColor: UIColor = .init(hex: "#FFC366")
         static let defaultIconLabelColor: UIColor = .init(hex: "#8A7251")
     }
@@ -34,6 +35,7 @@ class BreweryCellView: UIView {
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.backgroundColor = Constants.defaultIconViewColor
         backgroundView.layer.cornerRadius = Constants.iconSize/2
+        backgroundView.layer.masksToBounds = true
         return backgroundView
     }()
     
@@ -49,8 +51,9 @@ class BreweryCellView: UIView {
     private lazy var iconImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.isUserInteractionEnabled = false
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -112,6 +115,7 @@ class BreweryCellView: UIView {
     
     private func buildMain() {
         backgroundColor = Constants.mainViewColor
+        layer.cornerRadius = Constants.defaultRadius
         
         snp.makeConstraints { make in
             make.height.equalTo(Constants.mainViewHeight)
@@ -121,27 +125,36 @@ class BreweryCellView: UIView {
     private func buildIcon() {
         addSubview(defaultIconView)
         defaultIconView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(Constants.defaultSpacing)
             make.size.equalTo(Constants.iconSize)
         }
         
-        guard let image = UIImage.loadFromURL(urlString: model?.logo) else {
-            if let firstChar = model?.name.first {
-                defaultIconLabel.text = String(firstChar)
+        buildImage()
+    }
+    
+    /// `TO DO
+    /// ``Aplicar melhoriar no Request das imagens por URL
+    private func buildImage() {
+        UIImage.loadFromURL(urlString: model?.logo) { [weak self] image in
+            guard let self = self else { return }
+            if let image = image {
+                self.iconImage.image = image
+                self.defaultIconView.addSubview(self.iconImage)
+                self.iconImage.snp.makeConstraints { make in
+                    make.center.equalToSuperview()
+                    make.size.equalToSuperview()
+                }
+            } else {
+                if let firstChar = self.model?.name.first {
+                    self.defaultIconLabel.text = String(firstChar.uppercased())
+                }
+                
+                self.defaultIconView.addSubview(self.defaultIconLabel)
+                self.defaultIconLabel.snp.makeConstraints { make in
+                    make.center.equalToSuperview()
+                }
             }
-            
-            defaultIconView.addSubview(defaultIconLabel)
-            defaultIconLabel.snp.makeConstraints { make in
-                make.center.equalToSuperview()
-            }
-            return
-        }
-        
-        iconImage.image = image
-        defaultIconView.addSubview(iconImage)
-        iconImage.snp.makeConstraints { make in
-            make.center.equalToSuperview()
         }
     }
     
@@ -149,7 +162,7 @@ class BreweryCellView: UIView {
         titleLabel.text = model?.name
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(defaultIconView.snp.trailing).inset(Constants.defaultSpacing)
+            make.leading.equalTo(defaultIconView.snp.trailing).offset(Constants.defaultSpacing)
             make.top.trailing.equalToSuperview().inset(Constants.defaultSpacing)
             make.height.equalTo(Constants.titleHeight)
         }
@@ -159,7 +172,7 @@ class BreweryCellView: UIView {
         addSubview(ratingView)
         ratingView.snp.makeConstraints { make in
             make.trailing.bottom.equalToSuperview().inset(Constants.defaultSpacing)
-            make.height.equalTo(Constants.titleHeight)
+            make.height.equalTo(Constants.ratingHeight)
             make.width.equalTo(Constants.ratingWidth)
         }
         
@@ -175,10 +188,10 @@ class BreweryCellView: UIView {
         descriptionLabel.text = model?.description
         addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
-            make.leading.equalTo(defaultIconView.snp.trailing).inset(Constants.defaultSpacing)
+            make.leading.equalTo(defaultIconView.snp.trailing).offset(Constants.defaultSpacing)
             make.bottom.equalToSuperview().inset(Constants.defaultSpacing)
             make.height.equalTo(Constants.descriptionHeight)
-            make.trailing.equalTo(ratingView.snp.leading).inset(Constants.defaultSpacing)
+            make.trailing.equalTo(ratingView.snp.leading)
         }
     }
 }

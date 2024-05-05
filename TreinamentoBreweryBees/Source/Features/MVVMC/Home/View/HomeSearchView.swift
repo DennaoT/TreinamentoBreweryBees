@@ -10,7 +10,7 @@ import SnapKit
 
 // MARK: - Typealias
 
-typealias HomeSearchBarDelegate = UISearchBarDelegate & UIGestureRecognizerDelegate
+typealias HomeSearchBarDelegate = UISearchBarDelegate
 
 class HomeSearchView: UIView {
     
@@ -176,15 +176,5 @@ class HomeSearchView: UIView {
         
         searchBar.delegate = delegate
         searchBar.placeholder = model?.searchDescription
-    }
-    
-    private func setupSearchBarResign() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tapGesture.delegate = delegate
-        searchBar.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func dismissKeyboard() {
-        searchBar.resignFirstResponder()
     }
 }
