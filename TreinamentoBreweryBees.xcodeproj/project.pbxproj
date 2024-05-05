@@ -18,6 +18,7 @@
 		48192FDC590BD8D0E496A0A8 /* HomeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5983946D8EE2CA28EAFD1753 /* HomeError.swift */; };
 		5100E5FA2BE0646100423EF5 /* BreweryBeesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5100E5F92BE0646100423EF5 /* BreweryBeesManager.swift */; };
 		5100E5FD2BE07C8C00423EF5 /* FirestoreOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5100E5FC2BE07C8C00423EF5 /* FirestoreOperation.swift */; };
+		517467CF2BE7157100C95A71 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517467CE2BE7157100C95A71 /* UIStackView.swift */; };
 		517928702BD9C63200E4832D /* BreweryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179286F2BD9C63200E4832D /* BreweryCellView.swift */; };
 		517928732BD9DC7800E4832D /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517928722BD9DC7800E4832D /* RatingView.swift */; };
 		51994AA62BE478C8006FC744 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51994AA52BE478C8006FC744 /* Logger.swift */; };
@@ -78,6 +79,7 @@
 		49CF2A7D594B907C423962B1 /* HomeCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		5100E5F92BE0646100423EF5 /* BreweryBeesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBeesManager.swift; sourceTree = "<group>"; };
 		5100E5FC2BE07C8C00423EF5 /* FirestoreOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreOperation.swift; sourceTree = "<group>"; };
+		517467CE2BE7157100C95A71 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		5179286F2BD9C63200E4832D /* BreweryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryCellView.swift; sourceTree = "<group>"; };
 		517928722BD9DC7800E4832D /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		51994AA52BE478C8006FC744 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				D41FBB27A64869F51F92B381 /* String.swift */,
 				CF8710022B0D90663E6EB27C /* UIColor.swift */,
 				DC47B1CB80A0F6EE013A9777 /* UIImage.swift */,
+				517467CE2BE7157100C95A71 /* UIStackView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				B6D129CE8D034A3B85477652 /* BreweryBeesAssets.swift in Sources */,
 				EE61B6E8978C539E832C4372 /* CGFloat.swift in Sources */,
 				864023E2650B29D9E30B9564 /* Dynamic.swift in Sources */,
+				517467CF2BE7157100C95A71 /* UIStackView.swift in Sources */,
 				CF55003CC67DDF125A0E376D /* GenericErrorView.swift in Sources */,
 				D14BD79D4EFEBB4D799206B0 /* HomeCoordinator.swift in Sources */,
 				9607DEA6A0200484D6A02C3B /* HomeCoordinatorDelegate.swift in Sources */,

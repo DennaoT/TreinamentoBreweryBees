@@ -67,4 +67,24 @@ public extension String {
         
         return removeSufix ? host?.components(separatedBy: "/").first : host
     }
+    
+    func filterString() -> String {
+        let alphabet = "abcdefghijklmnopqrstuvwxyz"
+        return self
+            .folding(options: .diacriticInsensitive, locale: .current)
+            .filter { char in
+                alphabet.contains(char.lowercased())
+        }
+    }
+    
+    func filterString(charactersAllowed characters: Character...) -> String {
+        var uniqueCharacters = Set<Character>(characters)
+        let alphabetSet: Set<Character> = Set("abcdefghijklmnopqrstuvwxyz")
+        uniqueCharacters.subtract(alphabetSet)
+        return self
+            .folding(options: .diacriticInsensitive, locale: .current)
+            .filter { char in
+                alphabetSet.contains(char.lowercased())
+        }
+    }
 }
