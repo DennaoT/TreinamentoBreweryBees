@@ -192,24 +192,10 @@ extension HomeViewController {
     }
 }
 
-// MARK: - Loading
+// MARK: - SearchBarDelegate
 
 extension HomeViewController: HomeSearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // Aqui você pode implementar a lógica quando o usuário clica no botão de pesquisa
-        print("Pesquisar: \(searchBar.text ?? "")")
-        resultView?.update(filter: searchBar.text)
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // Aqui você pode implementar a lógica quando o texto na barra de pesquisa é alterado
-        print("O texto \(searchBar.text ?? "") mudou!!")
-        
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        // Aqui você pode implementar a lógica quando o usuário termina de digitar
-        print("Terminou de digitar: \(searchBar.text ?? "")")
-        //resultView?.update(filter: searchBar.text)
+        resultView?.update(filter: searchBar.text)
     }
 }

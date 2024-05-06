@@ -53,8 +53,8 @@
 // MARK: - Home Results
 
 "homeResultsTitle_Success" = "Selon les avis des utilisateurs:";
-"homeResultsTitle_NoDataFound" = "Aucun terme de recherche saisi";
-"homeResultsTitle_EmptySearch" = "Liste des brasseries introuvable";
+"homeResultsTitle_NoDataFound" = "Liste des brasseries introuvable";
+"homeResultsTitle_EmptySearch" = "Aucun terme de recherche saisi";
 "homeResultsDescription_Success" = "Affichage de %@ de %@ résultats.";
 "homeResultsDescription_TryAgain" = "Veuillez vérifier votre recherche et réessayer pour obtenir des résultats.";
 

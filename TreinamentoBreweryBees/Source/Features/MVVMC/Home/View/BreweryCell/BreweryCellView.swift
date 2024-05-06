@@ -185,7 +185,7 @@ class BreweryCellView: UIView {
     }
     
     private func buildDescription() {
-        descriptionLabel.text = model?.description
+        descriptionLabel.text = model?.type
         addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
             make.leading.equalTo(defaultIconView.snp.trailing).offset(Constants.defaultSpacing)

@@ -53,9 +53,9 @@
 // MARK: - Home Results
 
 "homeResultsTitle_Success" = "Segundo a opinião dos usuários:";
-"homeResultsTitle_NoDataFound" = "Nenhum termo digitado";
-"homeResultsTitle_EmptySearch" = "A lista de cervejaria não
+"homeResultsTitle_NoDataFound" = "A lista de cervejaria não
  foi encontrada";
+"homeResultsTitle_EmptySearch" = "Nenhum termo digitado";
 "homeResultsDescription_Success" = "Exibindo %@ de %@ resultados.";
 "homeResultsDescription_TryAgain" = "Por favor, verifique sua pesquisa e tente novamente para obter resultados.";
 

@@ -53,8 +53,8 @@
 // MARK: - Home Results
 
 "homeResultsTitle_Success" = "According to user reviews:";
-"homeResultsTitle_NoDataFound" = "No search term entered";
-"homeResultsTitle_EmptySearch" = "Brewery list not found";
+"homeResultsTitle_NoDataFound" = "Brewery list not found";
+"homeResultsTitle_EmptySearch" = "No search term entered";
 "homeResultsDescription_Success" = "Displaying %@ of %@ results.";
 "homeResultsDescription_TryAgain" = "Please check your search and try again for results.";
 

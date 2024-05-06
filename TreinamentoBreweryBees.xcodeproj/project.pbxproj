@@ -395,8 +395,8 @@
 		BDD69416CB76E07B748BA92F /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				1DC0B81E42C8713E3ADBEF13 /* HomeCoordinator.swift */,
 				49CF2A7D594B907C423962B1 /* HomeCoordinatorDelegate.swift */,
+				1DC0B81E42C8713E3ADBEF13 /* HomeCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";

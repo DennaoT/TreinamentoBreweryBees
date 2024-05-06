@@ -24,8 +24,6 @@ class RatingView: UIView {
     
     private enum Constants {
         static let titleColor: UIColor = .black
-        static let descriptionColor: UIColor = .black
-        static let descriptionHeight: CGFloat = 18
         static let numOfStars: Int = 5
         static let defaultSpacing: CGFloat = 2.5
         static let numberTextHeightPerc: CGFloat = 0.35
@@ -116,8 +114,6 @@ class RatingView: UIView {
             starImage.isUserInteractionEnabled = true
             starImage.addGestureRecognizer(tapGesture)
         }
-        
-        //buildLeftNumber()
     }
     
     // MARK: - Setup See Review - screen type
@@ -126,7 +122,7 @@ class RatingView: UIView {
         guard let valuationValue = valuationValue else { return }
         
         for (index, starImage) in starsRating.enumerated() {
-            starImage.image = .getRatedStar(valuationValue - CGFloat(index+1))
+            starImage.image = .getRatedStar(valuationValue - CGFloat(index))
         }
         
         buildLeftNumber()
