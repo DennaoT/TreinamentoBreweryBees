@@ -27,18 +27,6 @@ class HomeViewController: UIViewController {
         static let arrowLeft = UIImage(asset: BreweryBeesAssets.Icons.beesArrowLeftIcon)
     }
     
-    // MARK: - Views
-    
-    private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.alignment = .center
-        stackView.spacing = Constants.defaultSpacing
-        return stackView
-    }()
-    
     // MARK: - Properties
     
     private var searchView: HomeSearchView?
