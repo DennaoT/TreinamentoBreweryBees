@@ -106,7 +106,6 @@ class HomeViewController: UIViewController {
                 self.screenError?.isHidden = true
                 switch status {
                 case .success(let model):
-                    guard let textModel: String? = model?.breweriesList.first?.website else { return }
                     self.searchView?.setup(with: HomeSearchView.Model(), delegate: self)
                     self.resultView?.setup(with: HomeResultView.Model(breweriesList: model?.breweriesList))
                     self.stopLoading()
