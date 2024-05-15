@@ -102,7 +102,7 @@
 		9C4FE9D877D2237C7EFC7CB6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A87C4FAB275319F44AD576F2 /* ArchitectureConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureConfig.swift; sourceTree = "<group>"; };
 		BAFFAE3110A1EFEC4DA8CDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		BF7A639F12B0719B9FA25E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BF7A639F12B0719B9FA25E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFA236A686FA82A07374AFD9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		CF8710022B0D90663E6EB27C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D41FBB27A64869F51F92B381 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -358,6 +358,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		51E719552BF55CF500DC5159 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BF7A639F12B0719B9FA25E37 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		532557D304349EADC361B8E9 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,7 +575,7 @@
 		F5CF615BA01A6907B274C003 /* TreinamentoBreweryBeesTests */ = {
 			isa = PBXGroup;
 			children = (
-				BF7A639F12B0719B9FA25E37 /* Info.plist */,
+				51E719552BF55CF500DC5159 /* SupportingFiles */,
 				51E719452BF544FC00DC5159 /* Source */,
 			);
 			path = TreinamentoBreweryBeesTests;

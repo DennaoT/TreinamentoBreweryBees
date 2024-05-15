@@ -12,22 +12,25 @@ class HomeViewModelTests: XCTestCase {
     
     var viewModel: HomeViewModel!
     var mockDelegate: MockHomeCoordinatorDelegate!
+    var mockManager: MockBreweryBeesManager!
     
     override func setUp() {
         super.setUp()
         mockDelegate = MockHomeCoordinatorDelegate()
+        mockManager = MockBreweryBeesManager()
         viewModel = HomeViewModel(delegate: mockDelegate)
     }
     
     override func tearDown() {
         viewModel = nil
         mockDelegate = nil
+        mockManager = nil
         super.tearDown()
     }
     
     func testFetchHomeDataSuccess() {
         // Mock the BreweryBeesManager response
-        BreweryBeesManager.shared = MockBreweryBeesManager(result: .success(MockBreweryListData.breweryListData))
+        mockManager.fetchResult = .success(MockBreweryListData.breweryListData)
         
         let expectation = self.expectation(description: "Fetch home data success")
         
@@ -95,4 +98,49 @@ class MockHomeCoordinatorDelegate: HomeCoordinatorDelegate {
     func openUrl(url urlString: String?) { }
     func finishFlowHome() { }
     func openError(tryAgainAction: @escaping TryAgainHandler) { }
+}
+
+// MARK: - Equatable Conformance
+
+extension BreweryListData: Equatable {
+    public static func == (lhs: BreweryListData, rhs: BreweryListData) -> Bool {
+        return lhs.identifier == rhs.identifier && lhs.breweriesList == rhs.breweriesList
+    }
+}
+
+extension BreweryData: Equatable {
+    public static func == (lhs: BreweryData, rhs: BreweryData) -> Bool {
+        return lhs.identifier == rhs.identifier &&
+               lhs.name == rhs.name &&
+               lhs.logo == rhs.logo &&
+               lhs.type == rhs.type &&
+               lhs.rating == rhs.rating &&
+               lhs.numRating == rhs.numRating &&
+               lhs.address == rhs.address &&
+               lhs.website == rhs.website &&
+               lhs.description == rhs.description
+    }
+}
+
+extension GenericErrorView.Model: Equatable {
+    public static func == (lhs: GenericErrorView.Model, rhs: GenericErrorView.Model) -> Bool {
+        return lhs.titleText == rhs.titleText &&
+               lhs.descriptionText == rhs.descriptionText &&
+               lhs.buttonText == rhs.buttonText
+    }
+}
+
+extension HomeInfoStatus: Equatable where T: Equatable, E: Equatable {
+    public static func == (lhs: HomeInfoStatus<T, E>, rhs: HomeInfoStatus<T, E>) -> Bool {
+        switch (lhs, rhs) {
+        case (.loading, .loading):
+            return true
+        case (.success(let leftData), .success(let rightData)):
+            return leftData == rightData
+        case (.error(let leftError), .error(let rightError)):
+            return leftError == rightError
+        default:
+            return false
+        }
+    }
 }

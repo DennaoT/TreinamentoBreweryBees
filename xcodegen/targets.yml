@@ -12,7 +12,7 @@ targets:
       - path: ../TreinamentoBreweryBees
 
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER:  br.com.TreinamentoBreweryBees.TreinamentoBreweryBees
+      PRODUCT_BUNDLE_IDENTIFIER: br.com.TreinamentoBreweryBees.TreinamentoBreweryBees
       CODE_SIGN_STYLE: 'Automatic'
       PROVISIONING_PROFILE: "Dennis Torres"
 
@@ -50,10 +50,10 @@ targets:
       - package: SnapshotTesting
     
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER:  br.com.TreinamentoBreweryBees.TreinamentoBreweryBeesTests
+      PRODUCT_BUNDLE_IDENTIFIER: br.com.TreinamentoBreweryBees.TreinamentoBreweryBeesTests
       
     info:
-      path: ../TreinamentoBreweryBeesTests/Info.plist
+      path: ../TreinamentoBreweryBeesTests/SupportingFiles/Info.plist
       properties:
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         CFBundleShortVersionString: $(MARKETING_VERSION)
