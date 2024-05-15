@@ -28,4 +28,5 @@ end
 target 'TreinamentoBreweryBeesTests' do
   inherit! :search_paths
   # Pods for testing
+  firebase_libs
 end
