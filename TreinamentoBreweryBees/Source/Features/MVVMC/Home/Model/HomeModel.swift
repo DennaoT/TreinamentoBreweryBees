@@ -17,7 +17,7 @@ enum HomeInfoStatus<T,E> {
 
 // MARK: - Models
 
-struct BreweryListData: Decodable {
+public struct BreweryListData: Decodable {
     let identifier: String
     let breweriesList: [BreweryData]
     
@@ -25,10 +25,14 @@ struct BreweryListData: Decodable {
         case identifier
         case breweriesList = "breweries"
     }
+    
+    public init(identifier: String? = nil, breweriesList: [BreweryData]) {
+        self.identifier = generateIdentifier(from: identifier)
+        self.breweriesList = breweriesList
+    }
 }
 
-struct BreweryData: Decodable {
-    let id = UUID().uuidString
+public struct BreweryData: Decodable {
     let identifier: String
     let name: String
     let logo: String?
@@ -50,4 +54,33 @@ struct BreweryData: Decodable {
         case website = "brewery_website"
         case description = "brewery_description"
     }
+    
+    public init(
+        identifier: String? = nil,
+        name: String,
+        logo: String? = nil,
+        type: String? = nil,
+        rating: String? = nil,
+        numRating: String? = nil,
+        address: String,
+        website: String,
+        description: String? = nil
+    ) {
+        self.identifier = generateIdentifier(from: identifier)
+        self.name = name
+        self.logo = logo
+        self.type = type
+        self.rating = rating
+        self.numRating = numRating
+        self.address = address
+        self.website = website
+        self.description = description
+    }
+}
+
+private func generateIdentifier(from identifier: String?) -> String {
+    guard let id = identifier, !id.removingAllWhitespaces().isEmpty else {
+        return UUID().uuidString
+    }
+    return id
 }

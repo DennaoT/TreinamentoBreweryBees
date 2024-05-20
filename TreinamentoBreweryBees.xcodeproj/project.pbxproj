@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -418,7 +418,6 @@
 				EB0DA823CFBDB00F052D8281 /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */,
 				FE4484208A5725F50F0AA557 /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -741,7 +740,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen";
+			shellScript = "#${PODS_ROOT}/SwiftGen/bin/swiftgen\n";
 		};
 		E44DF96574AD3A49352C1DA6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -68,6 +68,10 @@ public extension String {
         return removeSufix ? host?.components(separatedBy: "/").first : host
     }
     
+    func removingAllWhitespaces() -> String {
+        return self.replacingOccurrences(of: " ", with: "")
+    }
+    
     func filterString() -> String {
         let alphabet = "abcdefghijklmnopqrstuvwxyz"
         return self
