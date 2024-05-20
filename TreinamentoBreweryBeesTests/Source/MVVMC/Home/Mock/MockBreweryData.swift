@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@testable import TreinamentoBreweryBees
 
 // Mock data for BreweryData
 struct MockBreweryData {

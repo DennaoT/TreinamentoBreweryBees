@@ -11,40 +11,40 @@
 		0632B2AADE051C11DF7D01DF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC47B1CB80A0F6EE013A9777 /* UIImage.swift */; };
 		0CCDBA6F658EE3D8B75E7EE3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17469B92C179938A379D355 /* AppCoordinator.swift */; };
 		13D2FB4AA4B9707F545A82AB /* TreinamentoBreweryBeesLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582DADEDDA2102DC7F49E1D8 /* TreinamentoBreweryBeesLocalizable.swift */; };
-		1B1C92FA419CA49F7434EA11 /* Pods_TreinamentoBreweryBees.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9100051585ECF3A4480D855 /* Pods_TreinamentoBreweryBees.framework */; };
 		2987D202834B33E1687E77AC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8710022B0D90663E6EB27C /* UIColor.swift */; };
 		324505E2AEF7EABB497921AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C55E2A91DB04D7F587F08 /* AppDelegate.swift */; };
 		3EB47116B7C2800863B8C517 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6394ADAECAE60C79CC6F8CDB /* Typealias.swift */; };
+		4050B6C6D5543B16F47DDF42 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50326AA44F8CD0702493630C /* UIStackView.swift */; };
 		48192FDC590BD8D0E496A0A8 /* HomeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5983946D8EE2CA28EAFD1753 /* HomeError.swift */; };
-		5100E5FA2BE0646100423EF5 /* BreweryBeesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5100E5F92BE0646100423EF5 /* BreweryBeesManager.swift */; };
-		5100E5FD2BE07C8C00423EF5 /* FirestoreOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5100E5FC2BE07C8C00423EF5 /* FirestoreOperation.swift */; };
-		517467CF2BE7157100C95A71 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517467CE2BE7157100C95A71 /* UIStackView.swift */; };
-		517928702BD9C63200E4832D /* BreweryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179286F2BD9C63200E4832D /* BreweryCellView.swift */; };
-		517928732BD9DC7800E4832D /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517928722BD9DC7800E4832D /* RatingView.swift */; };
-		51994AA62BE478C8006FC744 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51994AA52BE478C8006FC744 /* Logger.swift */; };
-		51994AA92BE47A77006FC744 /* BreweryBees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51994AA82BE47A77006FC744 /* BreweryBees.swift */; };
-		51994AAC2BE47ABE006FC744 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51994AAB2BE47ABE006FC744 /* Bundle.swift */; };
-		51E719502BF54D8800DC5159 /* MockBreweryBeesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E7194F2BF54D8800DC5159 /* MockBreweryBeesManager.swift */; };
-		51E719522BF54DD700DC5159 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E719512BF54DD700DC5159 /* HomeViewModelTests.swift */; };
-		51E719542BF54F8700DC5159 /* MockBreweryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E719532BF54F8700DC5159 /* MockBreweryData.swift */; };
+		533C5F9A45BC7CC9B868AE98 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF46446B74CB375B2BBA7D5F /* HomeViewModelTests.swift */; };
 		5795B8486C092D8D843B01E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747F8D745D4C19109B91823 /* SceneDelegate.swift */; };
 		58C16241A7C75E3CB424CD61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 692949FD115D148623145CEE /* Localizable.strings */; };
+		63446B06555DDC4DD6D00135 /* Pods_TreinamentoBreweryBeesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553D776E6F66801B656AECBE /* Pods_TreinamentoBreweryBeesTests.framework */; };
+		691BEDF3C9FE0532E5545C5C /* BreweryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2376F97EAE534A9EACA688 /* BreweryCellView.swift */; };
 		76CAA0CAAD7A50E3EE172313 /* HomeResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AC5A96D387879438202424 /* HomeResultView.swift */; };
+		78F02D1475F69614550E6518 /* HomeDataPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1E5846E5AC16D4C4331F5 /* HomeDataPath.swift */; };
+		7BAF19BA3EDEF8B7409FE305 /* MockBreweryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD91F708C4563C6C6801616 /* MockBreweryData.swift */; };
 		864023E2650B29D9E30B9564 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098034F25D041F13E513B6A6 /* Dynamic.swift */; };
 		87723A37F0F4D5ACDB873A45 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8465150354CE1D50B2A3B06 /* HomeViewController.swift */; };
 		8DC32CAFE73404C86BE1BD04 /* HomeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5951BF5D364EC0E444FF3 /* HomeSearchView.swift */; };
+		9051D86E1BFEC6F6C1FCF52D /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3FBC719C52D6DE45CD5D82 /* Bundle.swift */; };
 		9607DEA6A0200484D6A02C3B /* HomeCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF2A7D594B907C423962B1 /* HomeCoordinatorDelegate.swift */; };
+		9CFAC2105AA3CDA4A087BF09 /* BreweryBees.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C2F2354046E95A590EBB5 /* BreweryBees.swift */; };
+		9F93F852E48D12BE1FFC8673 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB63681B8C4A48AFAA1C4A /* Logger.swift */; };
 		AB9DACFB95A9246602D25FAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C332279D21A0045CF1E5E18A /* LaunchScreen.storyboard */; };
 		AEE84F2F2B65E71CE4C3888D /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 5EE2D33FA46A808B35D049B0 /* SnapshotTesting */; };
+		AFC684AEC98EC3CB104B9845 /* Pods_TreinamentoBreweryBees.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650ADE75B6AAE3530CAA67F6 /* Pods_TreinamentoBreweryBees.framework */; };
+		B278AC8157645BCCB6D814E0 /* BreweryBeesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90C81E8D50A077F892014CB /* BreweryBeesManager.swift */; };
+		B36766FF5C2CE9B9A09FFB75 /* FirestoreOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CF924E66CA2580CA3D0830 /* FirestoreOperation.swift */; };
 		B6D129CE8D034A3B85477652 /* BreweryBeesAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046AB9294EBA0E10C43512B3 /* BreweryBeesAssets.swift */; };
-		BCA3DF047D499E218A127F26 /* Pods_TreinamentoBreweryBeesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBFE0432A93488DAF1B11CA /* Pods_TreinamentoBreweryBeesTests.framework */; };
 		C519698E63B522AF71294CDA /* HomePopupDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D752A6161C40F1CCC03643 /* HomePopupDetailsView.swift */; };
 		C9197D261FF6D8CC53EB7E42 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118985213C545ADC14CEA55D /* HomeViewModel.swift */; };
 		CF55003CC67DDF125A0E376D /* GenericErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875A233D306347C3E3EB0E51 /* GenericErrorView.swift */; };
 		D07805A8A504AB118D52E646 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FBB27A64869F51F92B381 /* String.swift */; };
 		D084C9053853EEBCB1536ACC /* HomePopupRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E792FA0D45BB23E4183E05 /* HomePopupRatingView.swift */; };
 		D14BD79D4EFEBB4D799206B0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC0B81E42C8713E3ADBEF13 /* HomeCoordinator.swift */; };
-		DB1CCD04E16623E7DC1FC7EF /* HomeDataPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85285367BB9F223AC6053745 /* HomeDataPath.swift */; };
+		D632D77075F8BB96E1034903 /* MockBreweryBeesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCDD5D56C9A2C13579B4367 /* MockBreweryBeesManager.swift */; };
+		DD54A267F1C12EB4B8D1337B /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507E44661F1663B4E4F2CE9 /* RatingView.swift */; };
 		E3764C95EC02ACBED04D5A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED35BEB66C662252EA239DD6 /* Assets.xcassets */; };
 		E83B7A5E308FC3A9E870140E /* ArchitectureConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87C4FAB275319F44AD576F2 /* ArchitectureConfig.swift */; };
 		EE61B6E8978C539E832C4372 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D6836B5D14944679C9037A /* CGFloat.swift */; };
@@ -66,58 +66,58 @@
 		046AB9294EBA0E10C43512B3 /* BreweryBeesAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBeesAssets.swift; sourceTree = "<group>"; };
 		083FBE5A38BE0AFE622A196D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		098034F25D041F13E513B6A6 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
-		0D8AB00F1C4AB4D6FDABF209 /* Pods-TreinamentoBreweryBees.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBees.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees.debug.xcconfig"; sourceTree = "<group>"; };
 		111E7A4935DD85A2416E1900 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		118985213C545ADC14CEA55D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		19E792FA0D45BB23E4183E05 /* HomePopupRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopupRatingView.swift; sourceTree = "<group>"; };
 		1DC0B81E42C8713E3ADBEF13 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
-		266B8F066C26817C78FC9C0F /* Pods-TreinamentoBreweryBees.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBees.release.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees.release.xcconfig"; sourceTree = "<group>"; };
 		2B7E1B9383BCDCA55CB593E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2BBFE0432A93488DAF1B11CA /* Pods_TreinamentoBreweryBeesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreinamentoBreweryBeesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C3F70FE70B05E6029B7E57E /* Pods-TreinamentoBreweryBees.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBees.release.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees.release.xcconfig"; sourceTree = "<group>"; };
+		2F3FBC719C52D6DE45CD5D82 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		325B44C4B6893147B13BE4F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		349C55E2A91DB04D7F587F08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35D752A6161C40F1CCC03643 /* HomePopupDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopupDetailsView.swift; sourceTree = "<group>"; };
+		3660FFD3084C015FF2CB9F69 /* Pods-TreinamentoBreweryBees.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBees.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees.debug.xcconfig"; sourceTree = "<group>"; };
 		49CF2A7D594B907C423962B1 /* HomeCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorDelegate.swift; sourceTree = "<group>"; };
-		5100E5F92BE0646100423EF5 /* BreweryBeesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBeesManager.swift; sourceTree = "<group>"; };
-		5100E5FC2BE07C8C00423EF5 /* FirestoreOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreOperation.swift; sourceTree = "<group>"; };
-		517467CE2BE7157100C95A71 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
-		5179286F2BD9C63200E4832D /* BreweryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryCellView.swift; sourceTree = "<group>"; };
-		517928722BD9DC7800E4832D /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
-		51994AA52BE478C8006FC744 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		51994AA82BE47A77006FC744 /* BreweryBees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBees.swift; sourceTree = "<group>"; };
-		51994AAB2BE47ABE006FC744 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
-		51E7194F2BF54D8800DC5159 /* MockBreweryBeesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBreweryBeesManager.swift; sourceTree = "<group>"; };
-		51E719512BF54DD700DC5159 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
-		51E719532BF54F8700DC5159 /* MockBreweryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBreweryData.swift; sourceTree = "<group>"; };
+		50326AA44F8CD0702493630C /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		553D776E6F66801B656AECBE /* Pods_TreinamentoBreweryBeesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreinamentoBreweryBeesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5728A49BDE93DA87940ADEE4 /* TreinamentoBreweryBees.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TreinamentoBreweryBees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		582DADEDDA2102DC7F49E1D8 /* TreinamentoBreweryBeesLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinamentoBreweryBeesLocalizable.swift; sourceTree = "<group>"; };
 		5983946D8EE2CA28EAFD1753 /* HomeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeError.swift; sourceTree = "<group>"; };
 		6394ADAECAE60C79CC6F8CDB /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		650ADE75B6AAE3530CAA67F6 /* Pods_TreinamentoBreweryBees.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreinamentoBreweryBees.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D2376F97EAE534A9EACA688 /* BreweryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryCellView.swift; sourceTree = "<group>"; };
 		773C269137E8578D87D2C742 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
-		85285367BB9F223AC6053745 /* HomeDataPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataPath.swift; sourceTree = "<group>"; };
-		856A2B3BAD98780D44884A79 /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.release.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.release.xcconfig"; sourceTree = "<group>"; };
 		875A233D306347C3E3EB0E51 /* GenericErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericErrorView.swift; sourceTree = "<group>"; };
 		9693F67D966DC881D70CD047 /* BaseCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		9817EA39A7D83AC2E1E26085 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9C4FE9D877D2237C7EFC7CB6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		A507E44661F1663B4E4F2CE9 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		A87C4FAB275319F44AD576F2 /* ArchitectureConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureConfig.swift; sourceTree = "<group>"; };
+		ABCDD5D56C9A2C13579B4367 /* MockBreweryBeesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBreweryBeesManager.swift; sourceTree = "<group>"; };
+		AF46446B74CB375B2BBA7D5F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		B2CB63681B8C4A48AFAA1C4A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		BAFFAE3110A1EFEC4DA8CDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		BF7A639F12B0719B9FA25E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBD91F708C4563C6C6801616 /* MockBreweryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBreweryData.swift; sourceTree = "<group>"; };
+		BC8C2F2354046E95A590EBB5 /* BreweryBees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBees.swift; sourceTree = "<group>"; };
 		BFA236A686FA82A07374AFD9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		CF8710022B0D90663E6EB27C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D41FBB27A64869F51F92B381 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		D71ECBA84FA10E65F79A9F29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D747F8D745D4C19109B91823 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D7D6836B5D14944679C9037A /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		D8465150354CE1D50B2A3B06 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DC47B1CB80A0F6EE013A9777 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		E1CF924E66CA2580CA3D0830 /* FirestoreOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreOperation.swift; sourceTree = "<group>"; };
 		E8AC5A96D387879438202424 /* HomeResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResultView.swift; sourceTree = "<group>"; };
-		E9100051585ECF3A4480D855 /* Pods_TreinamentoBreweryBees.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreinamentoBreweryBees.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E90C81E8D50A077F892014CB /* BreweryBeesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBeesManager.swift; sourceTree = "<group>"; };
+		EB0DA823CFBDB00F052D8281 /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED35BEB66C662252EA239DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EE2D9D88654C9D1897F32461 /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F0D1E5846E5AC16D4C4331F5 /* HomeDataPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataPath.swift; sourceTree = "<group>"; };
 		F17469B92C179938A379D355 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F738D0729FE0462F31447EE9 /* TreinamentoBreweryBeesTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TreinamentoBreweryBeesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B73AECDF45368BDB50C8AC /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		FAF5951BF5D364EC0E444FF3 /* HomeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchView.swift; sourceTree = "<group>"; };
+		FE4484208A5725F50F0AA557 /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.release.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,42 +126,74 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEE84F2F2B65E71CE4C3888D /* SnapshotTesting in Frameworks */,
-				BCA3DF047D499E218A127F26 /* Pods_TreinamentoBreweryBeesTests.framework in Frameworks */,
+				63446B06555DDC4DD6D00135 /* Pods_TreinamentoBreweryBeesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB4F9982EBBB8608DA2C7785 /* Frameworks */ = {
+		B51D605E14061510D71C8D01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B1C92FA419CA49F7434EA11 /* Pods_TreinamentoBreweryBees.framework in Frameworks */,
+				AFC684AEC98EC3CB104B9845 /* Pods_TreinamentoBreweryBees.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0110A73468B338D3AE368484 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				B2CB63681B8C4A48AFAA1C4A /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 		026D83F482C0F085890BB2B4 = {
 			isa = PBXGroup;
 			children = (
 				627F9030BE2164C28025D53C /* TreinamentoBreweryBees */,
 				F5CF615BA01A6907B274C003 /* TreinamentoBreweryBeesTests */,
 				E7E7B00E22A97A05B4B7551A /* Products */,
-				3EFC455A633E1314E1B29089 /* Pods */,
-				F4164DD6D1A70C1F320EAD90 /* Frameworks */,
+				AF8E10C45E4C083ECD8EB6B7 /* Pods */,
+				57520B83C8BF9411F04EEA83 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		0A7F7C0D6292E9CEB70402CC /* RatingView */ = {
+			isa = PBXGroup;
+			children = (
+				A507E44661F1663B4E4F2CE9 /* RatingView.swift */,
+			);
+			path = RatingView;
+			sourceTree = "<group>";
+		};
+		0C881740CDEC3EB1F79F1031 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF46446B74CB375B2BBA7D5F /* HomeViewModelTests.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		115DADF113FDA1FAC0A2516E /* Infraestructure */ = {
 			isa = PBXGroup;
 			children = (
-				51994AA82BE47A77006FC744 /* BreweryBees.swift */,
-				51994AAA2BE47AA0006FC744 /* Extension */,
+				BC8C2F2354046E95A590EBB5 /* BreweryBees.swift */,
 				20CE116C1CB2084FD44C8547 /* Base */,
 				AE09D0A2373D364B6048DCA9 /* Coordinator */,
+				AE07E98D21F1F0761F6EFB07 /* Extension */,
 				82D10984B8B034CA6B64D90D /* LaunchScreen */,
 			);
 			path = Infraestructure;
+			sourceTree = "<group>";
+		};
+		1D51FF90DDFC2D6FE1D2215D /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				BBD91F708C4563C6C6801616 /* MockBreweryData.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		20CE116C1CB2084FD44C8547 /* Base */ = {
@@ -181,6 +213,14 @@
 			path = GenericError;
 			sourceTree = "<group>";
 		};
+		29CEBEF2979C84B9B92022D6 /* BreweryCell */ = {
+			isa = PBXGroup;
+			children = (
+				6D2376F97EAE534A9EACA688 /* BreweryCellView.swift */,
+			);
+			path = BreweryCell;
+			sourceTree = "<group>";
+		};
 		2F6B6A0CCF16082CF31B50CA /* Dynamic */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,17 +237,6 @@
 				115DADF113FDA1FAC0A2516E /* Infraestructure */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		3EFC455A633E1314E1B29089 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0D8AB00F1C4AB4D6FDABF209 /* Pods-TreinamentoBreweryBees.debug.xcconfig */,
-				266B8F066C26817C78FC9C0F /* Pods-TreinamentoBreweryBees.release.xcconfig */,
-				EE2D9D88654C9D1897F32461 /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */,
-				856A2B3BAD98780D44884A79 /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		47461C8CDF436911C02045F2 /* ArchitectureSelector */ = {
@@ -235,137 +264,6 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		5100E5F82BE063B300423EF5 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				85285367BB9F223AC6053745 /* HomeDataPath.swift */,
-				5100E5F92BE0646100423EF5 /* BreweryBeesManager.swift */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		5100E5FB2BE07C6600423EF5 /* FirestoreOperation */ = {
-			isa = PBXGroup;
-			children = (
-				5100E5FC2BE07C8C00423EF5 /* FirestoreOperation.swift */,
-			);
-			path = FirestoreOperation;
-			sourceTree = "<group>";
-		};
-		5179286E2BD9C5D900E4832D /* BreweryCell */ = {
-			isa = PBXGroup;
-			children = (
-				5179286F2BD9C63200E4832D /* BreweryCellView.swift */,
-			);
-			path = BreweryCell;
-			sourceTree = "<group>";
-		};
-		517928712BD9DC2C00E4832D /* RatingView */ = {
-			isa = PBXGroup;
-			children = (
-				517928722BD9DC7800E4832D /* RatingView.swift */,
-			);
-			path = RatingView;
-			sourceTree = "<group>";
-		};
-		51994AA32BE478AD006FC744 /* Logger */ = {
-			isa = PBXGroup;
-			children = (
-				51994AA52BE478C8006FC744 /* Logger.swift */,
-			);
-			path = Logger;
-			sourceTree = "<group>";
-		};
-		51994AAA2BE47AA0006FC744 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				51994AAB2BE47ABE006FC744 /* Bundle.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		51E719452BF544FC00DC5159 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				51E719462BF5456300DC5159 /* MVVMC */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		51E719462BF5456300DC5159 /* MVVMC */ = {
-			isa = PBXGroup;
-			children = (
-				51E719472BF5456C00DC5159 /* Home */,
-			);
-			path = MVVMC;
-			sourceTree = "<group>";
-		};
-		51E719472BF5456C00DC5159 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				51E7194A2BF54ADC00DC5159 /* Coordinator */,
-				51E719492BF54ACD00DC5159 /* Controller */,
-				51E7194B2BF54AEC00DC5159 /* Manager */,
-				51E7194C2BF54AF300DC5159 /* Mock */,
-				51E7194D2BF54B2E00DC5159 /* View */,
-				51E7194E2BF54B4800DC5159 /* ViewModel */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		51E719492BF54ACD00DC5159 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		51E7194A2BF54ADC00DC5159 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		51E7194B2BF54AEC00DC5159 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				51E7194F2BF54D8800DC5159 /* MockBreweryBeesManager.swift */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		51E7194C2BF54AF300DC5159 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				51E719532BF54F8700DC5159 /* MockBreweryData.swift */,
-			);
-			path = Mock;
-			sourceTree = "<group>";
-		};
-		51E7194D2BF54B2E00DC5159 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		51E7194E2BF54B4800DC5159 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				51E719512BF54DD700DC5159 /* HomeViewModelTests.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		51E719552BF55CF500DC5159 /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				BF7A639F12B0719B9FA25E37 /* Info.plist */,
-			);
-			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
 		532557D304349EADC361B8E9 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +271,15 @@
 				8DD08948E8975EB3F8216CB7 /* Localize */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		57520B83C8BF9411F04EEA83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				650ADE75B6AAE3530CAA67F6 /* Pods_TreinamentoBreweryBees.framework */,
+				553D776E6F66801B656AECBE /* Pods_TreinamentoBreweryBeesTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		627F9030BE2164C28025D53C /* TreinamentoBreweryBees */ = {
@@ -387,8 +294,8 @@
 		70E65610ADB32C8087697EE6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				517928712BD9DC2C00E4832D /* RatingView */,
 				23BC6DF10EA0838F25D3A11A /* GenericError */,
+				0A7F7C0D6292E9CEB70402CC /* RatingView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -409,18 +316,43 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		82D8965EB9169FA95341841F /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D71ECBA84FA10E65F79A9F29 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		86721DBC52FA00497B2E5D9C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E90C81E8D50A077F892014CB /* BreweryBeesManager.swift */,
+				F0D1E5846E5AC16D4C4331F5 /* HomeDataPath.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		8984FC32C23A9289827EDDE3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				51994AA32BE478AD006FC744 /* Logger */,
-				5100E5FB2BE07C6600423EF5 /* FirestoreOperation */,
 				70E65610ADB32C8087697EE6 /* Components */,
 				DCF964C88000A3F7B9BF1B5A /* CoordinatorDelegate */,
 				2F6B6A0CCF16082CF31B50CA /* Dynamic */,
 				D20799F90B63837D2CEA747E /* Extension */,
+				8BBD60C08A74E64DF168ECF4 /* FirestoreOperation */,
+				0110A73468B338D3AE368484 /* Logger */,
 				78C09C02EFD079D2D39F72F0 /* Typealias */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		8BBD60C08A74E64DF168ECF4 /* FirestoreOperation */ = {
+			isa = PBXGroup;
+			children = (
+				E1CF924E66CA2580CA3D0830 /* FirestoreOperation.swift */,
+			);
+			path = FirestoreOperation;
 			sourceTree = "<group>";
 		};
 		8DD08948E8975EB3F8216CB7 /* Localize */ = {
@@ -436,7 +368,7 @@
 			children = (
 				A9B794441C29967F5D8389F1 /* Controller */,
 				BDD69416CB76E07B748BA92F /* Coordinator */,
-				5100E5F82BE063B300423EF5 /* Manager */,
+				86721DBC52FA00497B2E5D9C /* Manager */,
 				9FD27FFACCCC291F3B4C5F4C /* Model */,
 				F5BDC7A563B8E9ACE3F9BA8F /* View */,
 				F336DF7104CCA86417679C10 /* ViewModel */,
@@ -461,6 +393,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		AE07E98D21F1F0761F6EFB07 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2F3FBC719C52D6DE45CD5D82 /* Bundle.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		AE09D0A2373D364B6048DCA9 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +408,26 @@
 				47461C8CDF436911C02045F2 /* ArchitectureSelector */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		AF8E10C45E4C083ECD8EB6B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3660FFD3084C015FF2CB9F69 /* Pods-TreinamentoBreweryBees.debug.xcconfig */,
+				2C3F70FE70B05E6029B7E57E /* Pods-TreinamentoBreweryBees.release.xcconfig */,
+				EB0DA823CFBDB00F052D8281 /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */,
+				FE4484208A5725F50F0AA557 /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B400658014C9060B1A542E43 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				ABCDD5D56C9A2C13579B4367 /* MockBreweryBeesManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		B6B8290E9BA03D94394FCD98 /* Assets */ = {
@@ -481,8 +441,8 @@
 		BDD69416CB76E07B748BA92F /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				49CF2A7D594B907C423962B1 /* HomeCoordinatorDelegate.swift */,
 				1DC0B81E42C8713E3ADBEF13 /* HomeCoordinator.swift */,
+				49CF2A7D594B907C423962B1 /* HomeCoordinatorDelegate.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -507,6 +467,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		CEE1FF4902D42BB4D338B165 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				FE48B53B53174642B63BDA5D /* MVVMC */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		D20799F90B63837D2CEA747E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,9 +482,19 @@
 				D41FBB27A64869F51F92B381 /* String.swift */,
 				CF8710022B0D90663E6EB27C /* UIColor.swift */,
 				DC47B1CB80A0F6EE013A9777 /* UIImage.swift */,
-				517467CE2BE7157100C95A71 /* UIStackView.swift */,
+				50326AA44F8CD0702493630C /* UIStackView.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		D2AE389A8F85A1F9ADF08D57 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B400658014C9060B1A542E43 /* Manager */,
+				1D51FF90DDFC2D6FE1D2215D /* Mock */,
+				0C881740CDEC3EB1F79F1031 /* ViewModel */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		D43F2217844CD9DC2563E054 /* Generated */ = {
@@ -552,21 +530,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		F4164DD6D1A70C1F320EAD90 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E9100051585ECF3A4480D855 /* Pods_TreinamentoBreweryBees.framework */,
-				2BBFE0432A93488DAF1B11CA /* Pods_TreinamentoBreweryBeesTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		F5BDC7A563B8E9ACE3F9BA8F /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E8AC5A96D387879438202424 /* HomeResultView.swift */,
 				FAF5951BF5D364EC0E444FF3 /* HomeSearchView.swift */,
-				5179286E2BD9C5D900E4832D /* BreweryCell */,
+				29CEBEF2979C84B9B92022D6 /* BreweryCell */,
 				C5E0FF868462DF7EEF974EF0 /* Popup */,
 			);
 			path = View;
@@ -575,10 +544,18 @@
 		F5CF615BA01A6907B274C003 /* TreinamentoBreweryBeesTests */ = {
 			isa = PBXGroup;
 			children = (
-				51E719552BF55CF500DC5159 /* SupportingFiles */,
-				51E719452BF544FC00DC5159 /* Source */,
+				CEE1FF4902D42BB4D338B165 /* Source */,
+				82D8965EB9169FA95341841F /* SupportingFiles */,
 			);
 			path = TreinamentoBreweryBeesTests;
+			sourceTree = "<group>";
+		};
+		FE48B53B53174642B63BDA5D /* MVVMC */ = {
+			isa = PBXGroup;
+			children = (
+				D2AE389A8F85A1F9ADF08D57 /* Home */,
+			);
+			path = MVVMC;
 			sourceTree = "<group>";
 		};
 		FFDAF58ED5128F7C7D0FA45C /* Features */ = {
@@ -596,12 +573,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 840A4DDFEDDC8F1ED18D0F7C /* Build configuration list for PBXNativeTarget "TreinamentoBreweryBees" */;
 			buildPhases = (
-				5E8EA13180CCEFB4224B7B3B /* [CP] Check Pods Manifest.lock */,
+				21E0963A755036A0DB52EA66 /* [CP] Check Pods Manifest.lock */,
 				A1ABF71B59797E586C0FAE61 /* SwiftGen */,
 				86850BD8AAC2B550E3910B6B /* Sources */,
 				B142E7830361E9F84AB7F93E /* Resources */,
-				DB4F9982EBBB8608DA2C7785 /* Frameworks */,
-				7F102EE55FDC66AAEA86FDFA /* [CP] Embed Pods Frameworks */,
+				B51D605E14061510D71C8D01 /* Frameworks */,
+				E44DF96574AD3A49352C1DA6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -616,10 +593,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 783D8FDA0CE632036244C1D1 /* Build configuration list for PBXNativeTarget "TreinamentoBreweryBeesTests" */;
 			buildPhases = (
-				2146E1BED763D28D7CE645E0 /* [CP] Check Pods Manifest.lock */,
+				4D09539AFF22C48F2A3B845B /* [CP] Check Pods Manifest.lock */,
 				27FB7E9A5E02F0345738CF8B /* Sources */,
 				411E468C4F57DA181CB9ABFA /* Frameworks */,
-				2A6EB245185F606EC098E719 /* [CP] Embed Pods Frameworks */,
+				2AD47F856D3F293585260622 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -640,6 +617,7 @@
 		0DC1487776F2318AEE879F3B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					CD9340CAADD230E58E7A7C22 = {
@@ -648,7 +626,7 @@
 				};
 			};
 			buildConfigurationList = D3A79EEC775C309407354E99 /* Build configuration list for PBXProject "TreinamentoBreweryBees" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -686,46 +664,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2146E1BED763D28D7CE645E0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TreinamentoBreweryBeesTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2A6EB245185F606EC098E719 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5E8EA13180CCEFB4224B7B3B /* [CP] Check Pods Manifest.lock */ = {
+		21E0963A755036A0DB52EA66 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -747,21 +686,43 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7F102EE55FDC66AAEA86FDFA /* [CP] Embed Pods Frameworks */ = {
+		2AD47F856D3F293585260622 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D09539AFF22C48F2A3B845B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TreinamentoBreweryBeesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A1ABF71B59797E586C0FAE61 /* SwiftGen */ = {
@@ -780,7 +741,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#${PODS_ROOT}/SwiftGen/bin/swiftgen\n";
+			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen";
+		};
+		E44DF96574AD3A49352C1DA6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -789,9 +767,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51E719542BF54F8700DC5159 /* MockBreweryData.swift in Sources */,
-				51E719502BF54D8800DC5159 /* MockBreweryBeesManager.swift in Sources */,
-				51E719522BF54DD700DC5159 /* HomeViewModelTests.swift in Sources */,
+				533C5F9A45BC7CC9B868AE98 /* HomeViewModelTests.swift in Sources */,
+				D632D77075F8BB96E1034903 /* MockBreweryBeesManager.swift in Sources */,
+				7BAF19BA3EDEF8B7409FE305 /* MockBreweryData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,21 +778,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CCDBA6F658EE3D8B75E7EE3 /* AppCoordinator.swift in Sources */,
-				51994AAC2BE47ABE006FC744 /* Bundle.swift in Sources */,
 				324505E2AEF7EABB497921AE /* AppDelegate.swift in Sources */,
 				E83B7A5E308FC3A9E870140E /* ArchitectureConfig.swift in Sources */,
-				517928732BD9DC7800E4832D /* RatingView.swift in Sources */,
-				517928702BD9C63200E4832D /* BreweryCellView.swift in Sources */,
 				F763FF0709C6F4EC96A6C424 /* BaseCoordinatorDelegate.swift in Sources */,
+				9CFAC2105AA3CDA4A087BF09 /* BreweryBees.swift in Sources */,
 				B6D129CE8D034A3B85477652 /* BreweryBeesAssets.swift in Sources */,
+				B278AC8157645BCCB6D814E0 /* BreweryBeesManager.swift in Sources */,
+				691BEDF3C9FE0532E5545C5C /* BreweryCellView.swift in Sources */,
+				9051D86E1BFEC6F6C1FCF52D /* Bundle.swift in Sources */,
 				EE61B6E8978C539E832C4372 /* CGFloat.swift in Sources */,
 				864023E2650B29D9E30B9564 /* Dynamic.swift in Sources */,
-				517467CF2BE7157100C95A71 /* UIStackView.swift in Sources */,
+				B36766FF5C2CE9B9A09FFB75 /* FirestoreOperation.swift in Sources */,
 				CF55003CC67DDF125A0E376D /* GenericErrorView.swift in Sources */,
 				D14BD79D4EFEBB4D799206B0 /* HomeCoordinator.swift in Sources */,
 				9607DEA6A0200484D6A02C3B /* HomeCoordinatorDelegate.swift in Sources */,
-				DB1CCD04E16623E7DC1FC7EF /* HomeDataPath.swift in Sources */,
-				51994AA92BE47A77006FC744 /* BreweryBees.swift in Sources */,
+				78F02D1475F69614550E6518 /* HomeDataPath.swift in Sources */,
 				48192FDC590BD8D0E496A0A8 /* HomeError.swift in Sources */,
 				F16CC9476E22C00D4AF749F4 /* HomeModel.swift in Sources */,
 				C519698E63B522AF71294CDA /* HomePopupDetailsView.swift in Sources */,
@@ -823,15 +801,15 @@
 				8DC32CAFE73404C86BE1BD04 /* HomeSearchView.swift in Sources */,
 				87723A37F0F4D5ACDB873A45 /* HomeViewController.swift in Sources */,
 				C9197D261FF6D8CC53EB7E42 /* HomeViewModel.swift in Sources */,
-				5100E5FA2BE0646100423EF5 /* BreweryBeesManager.swift in Sources */,
+				9F93F852E48D12BE1FFC8673 /* Logger.swift in Sources */,
+				DD54A267F1C12EB4B8D1337B /* RatingView.swift in Sources */,
 				5795B8486C092D8D843B01E7 /* SceneDelegate.swift in Sources */,
 				D07805A8A504AB118D52E646 /* String.swift in Sources */,
 				13D2FB4AA4B9707F545A82AB /* TreinamentoBreweryBeesLocalizable.swift in Sources */,
-				51994AA62BE478C8006FC744 /* Logger.swift in Sources */,
-				5100E5FD2BE07C8C00423EF5 /* FirestoreOperation.swift in Sources */,
 				3EB47116B7C2800863B8C517 /* Typealias.swift in Sources */,
 				2987D202834B33E1687E77AC /* UIColor.swift in Sources */,
 				0632B2AADE051C11DF7D01DF /* UIImage.swift in Sources */,
+				4050B6C6D5543B16F47DDF42 /* UIStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,10 +850,10 @@
 /* Begin XCBuildConfiguration section */
 		27D652AE0B0F8DDD72BCA5AB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 856A2B3BAD98780D44884A79 /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */;
+			baseConfigurationReference = FE4484208A5725F50F0AA557 /* Pods-TreinamentoBreweryBeesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = TreinamentoBreweryBeesTests/Info.plist;
+				INFOPLIST_FILE = TreinamentoBreweryBeesTests/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1019,10 +997,10 @@
 		};
 		6179D159DB65C20F0BBB5216 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE2D9D88654C9D1897F32461 /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */;
+			baseConfigurationReference = EB0DA823CFBDB00F052D8281 /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = TreinamentoBreweryBeesTests/Info.plist;
+				INFOPLIST_FILE = TreinamentoBreweryBeesTests/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1037,7 +1015,7 @@
 		};
 		6F5DDA9B6B95D4DFE3078801 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D8AB00F1C4AB4D6FDABF209 /* Pods-TreinamentoBreweryBees.debug.xcconfig */;
+			baseConfigurationReference = 3660FFD3084C015FF2CB9F69 /* Pods-TreinamentoBreweryBees.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1056,7 +1034,7 @@
 		};
 		FC4D1CC08A8F39C73D5EBCBC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 266B8F066C26817C78FC9C0F /* Pods-TreinamentoBreweryBees.release.xcconfig */;
+			baseConfigurationReference = 2C3F70FE70B05E6029B7E57E /* Pods-TreinamentoBreweryBees.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
