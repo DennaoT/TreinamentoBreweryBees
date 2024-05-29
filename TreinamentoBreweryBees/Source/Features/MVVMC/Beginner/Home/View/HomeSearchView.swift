@@ -112,7 +112,7 @@ class HomeSearchView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with model: HomeSearchView.Model?, delegate: HomeSearchBarDelegate?) {
+    func setup(with model: HomeSearchView.Model? = HomeSearchView.Model(), delegate: HomeSearchBarDelegate?) {
         guard let model = model,
               let delegate = delegate
         else { return }

@@ -5,7 +5,7 @@
 //  Created by Dennis Torres on 02/04/24.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - Status
 
@@ -19,7 +19,7 @@ enum HomeInfoStatus<T,E> {
 
 public struct BreweryListData: Decodable {
     let identifier: String
-    let breweriesList: [BreweryData]
+    var breweriesList: [BreweryData]
     
     enum CodingKeys: String, CodingKey {
         case identifier
@@ -35,7 +35,7 @@ public struct BreweryListData: Decodable {
 public struct BreweryData: Decodable {
     let identifier: String
     let name: String
-    let logo: String?
+    var logo: BreweryLogo?
     let type: String?
     let rating: String?
     let numRating: String?
@@ -58,7 +58,7 @@ public struct BreweryData: Decodable {
     public init(
         identifier: String? = nil,
         name: String,
-        logo: String? = nil,
+        logo: BreweryLogo? = nil,
         type: String? = nil,
         rating: String? = nil,
         numRating: String? = nil,
@@ -75,6 +75,24 @@ public struct BreweryData: Decodable {
         self.address = address
         self.website = website
         self.description = description
+    }
+    
+    mutating func setImage(_ image: UIImage?) {
+        self.logo?.image = image
+    }
+}
+
+public struct BreweryLogo: Decodable {
+    let url: String?
+    var image: UIImage?
+    
+    enum CodingKeys: String, CodingKey {
+        case url = "urlImage"
+    }
+    
+    public init(url: String?, image: UIImage?) {
+        self.url = url
+        self.image = image
     }
 }
 

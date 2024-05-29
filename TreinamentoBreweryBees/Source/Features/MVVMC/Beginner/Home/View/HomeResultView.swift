@@ -127,6 +127,12 @@ class HomeResultView: UIView {
         buildComponents()
     }
     
+    func setupCellImages(breweryID: String, image: UIImage?) {
+        guard breweriesCells.isEmpty else { return }
+        
+        //breweriesCells.updateImages()
+    }
+    
     func update(filter: String?) {
         filterBreweries(filter)
         updateMain()

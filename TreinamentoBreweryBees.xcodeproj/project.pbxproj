@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		00D69EAD7A41D53DD0B4C030 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B7E1B9383BCDCA55CB593E6 /* GoogleService-Info.plist */; };
 		0632B2AADE051C11DF7D01DF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC47B1CB80A0F6EE013A9777 /* UIImage.swift */; };
+		0B8E7FA72C07EDC800959BDC /* BeginnerHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FA62C07EDC800959BDC /* BeginnerHomePresenter.swift */; };
+		0B8E7FAA2C07EDE500959BDC /* BeginnerHomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FA92C07EDE500959BDC /* BeginnerHomeFactory.swift */; };
+		0B8E7FAC2C07EDF600959BDC /* BeginnerHomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FAB2C07EDF600959BDC /* BeginnerHomeCoordinator.swift */; };
+		0B8E7FAE2C07EE1200959BDC /* BeginnerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FAD2C07EE1200959BDC /* BeginnerHomeViewController.swift */; };
+		0B8E7FB02C07EE7400959BDC /* BeginnerHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FAF2C07EE7400959BDC /* BeginnerHomeInteractor.swift */; };
+		0B8E7FB22C07EE8500959BDC /* BeginnerHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FB12C07EE8500959BDC /* BeginnerHomeService.swift */; };
 		0BE24A372C076DEB00F68900 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE24A362C076DEB00F68900 /* UIView.swift */; };
 		0BE24A3A2C07750200F68900 /* BreweryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE24A392C07750200F68900 /* BreweryIconView.swift */; };
 		0BE24A3C2C077B0D00F68900 /* ImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE24A3B2C077B0D00F68900 /* ImageDownloadOperation.swift */; };
@@ -68,6 +74,12 @@
 		046AB9294EBA0E10C43512B3 /* BreweryBeesAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBeesAssets.swift; sourceTree = "<group>"; };
 		083FBE5A38BE0AFE622A196D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		098034F25D041F13E513B6A6 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		0B8E7FA62C07EDC800959BDC /* BeginnerHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomePresenter.swift; sourceTree = "<group>"; };
+		0B8E7FA92C07EDE500959BDC /* BeginnerHomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomeFactory.swift; sourceTree = "<group>"; };
+		0B8E7FAB2C07EDF600959BDC /* BeginnerHomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomeCoordinator.swift; sourceTree = "<group>"; };
+		0B8E7FAD2C07EE1200959BDC /* BeginnerHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomeViewController.swift; sourceTree = "<group>"; };
+		0B8E7FAF2C07EE7400959BDC /* BeginnerHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomeInteractor.swift; sourceTree = "<group>"; };
+		0B8E7FB12C07EE8500959BDC /* BeginnerHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomeService.swift; sourceTree = "<group>"; };
 		0BE24A362C076DEB00F68900 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0BE24A392C07750200F68900 /* BreweryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryIconView.swift; sourceTree = "<group>"; };
 		0BE24A3B2C077B0D00F68900 /* ImageDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadOperation.swift; sourceTree = "<group>"; };
@@ -172,6 +184,43 @@
 			path = RatingView;
 			sourceTree = "<group>";
 		};
+		0B8E7F9F2C07E64600959BDC /* VIP */ = {
+			isa = PBXGroup;
+			children = (
+				0B8E7FA12C07E84200959BDC /* BeginnerUIKit */,
+			);
+			path = VIP;
+			sourceTree = "<group>";
+		};
+		0B8E7FA02C07E81C00959BDC /* MVVMC */ = {
+			isa = PBXGroup;
+			children = (
+				492237B9853D149F0558813E /* Beginner */,
+			);
+			path = MVVMC;
+			sourceTree = "<group>";
+		};
+		0B8E7FA12C07E84200959BDC /* BeginnerUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				0B8E7FA22C07E89A00959BDC /* Home */,
+			);
+			path = BeginnerUIKit;
+			sourceTree = "<group>";
+		};
+		0B8E7FA22C07E89A00959BDC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0B8E7FA92C07EDE500959BDC /* BeginnerHomeFactory.swift */,
+				0B8E7FAD2C07EE1200959BDC /* BeginnerHomeViewController.swift */,
+				0B8E7FB12C07EE8500959BDC /* BeginnerHomeService.swift */,
+				0B8E7FAF2C07EE7400959BDC /* BeginnerHomeInteractor.swift */,
+				0B8E7FA62C07EDC800959BDC /* BeginnerHomePresenter.swift */,
+				0B8E7FAB2C07EDF600959BDC /* BeginnerHomeCoordinator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		0BE24A382C07749400F68900 /* BreweryIcon */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,12 +300,12 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		492237B9853D149F0558813E /* MVVMC */ = {
+		492237B9853D149F0558813E /* Beginner */ = {
 			isa = PBXGroup;
 			children = (
 				9FC1EE3289461D551A80C93B /* Home */,
 			);
-			path = MVVMC;
+			path = Beginner;
 			sourceTree = "<group>";
 		};
 		4E47D599E9A5F31E61B37B27 /* SupportingFiles */ = {
@@ -566,7 +615,8 @@
 		FFDAF58ED5128F7C7D0FA45C /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				492237B9853D149F0558813E /* MVVMC */,
+				0B8E7FA02C07E81C00959BDC /* MVVMC */,
+				0B8E7F9F2C07E64600959BDC /* VIP */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -792,10 +842,15 @@
 				691BEDF3C9FE0532E5545C5C /* BreweryCellView.swift in Sources */,
 				9051D86E1BFEC6F6C1FCF52D /* Bundle.swift in Sources */,
 				EE61B6E8978C539E832C4372 /* CGFloat.swift in Sources */,
+				0B8E7FAA2C07EDE500959BDC /* BeginnerHomeFactory.swift in Sources */,
 				864023E2650B29D9E30B9564 /* Dynamic.swift in Sources */,
 				B36766FF5C2CE9B9A09FFB75 /* FirestoreOperation.swift in Sources */,
+				0B8E7FB02C07EE7400959BDC /* BeginnerHomeInteractor.swift in Sources */,
 				CF55003CC67DDF125A0E376D /* GenericErrorView.swift in Sources */,
+				0B8E7FA72C07EDC800959BDC /* BeginnerHomePresenter.swift in Sources */,
+				0B8E7FAE2C07EE1200959BDC /* BeginnerHomeViewController.swift in Sources */,
 				D14BD79D4EFEBB4D799206B0 /* HomeCoordinator.swift in Sources */,
+				0B8E7FB22C07EE8500959BDC /* BeginnerHomeService.swift in Sources */,
 				0BE24A372C076DEB00F68900 /* UIView.swift in Sources */,
 				9607DEA6A0200484D6A02C3B /* HomeCoordinatorDelegate.swift in Sources */,
 				78F02D1475F69614550E6518 /* HomeDataPath.swift in Sources */,
@@ -811,6 +866,7 @@
 				DD54A267F1C12EB4B8D1337B /* RatingView.swift in Sources */,
 				5795B8486C092D8D843B01E7 /* SceneDelegate.swift in Sources */,
 				D07805A8A504AB118D52E646 /* String.swift in Sources */,
+				0B8E7FAC2C07EDF600959BDC /* BeginnerHomeCoordinator.swift in Sources */,
 				13D2FB4AA4B9707F545A82AB /* TreinamentoBreweryBeesLocalizable.swift in Sources */,
 				3EB47116B7C2800863B8C517 /* Typealias.swift in Sources */,
 				2987D202834B33E1687E77AC /* UIColor.swift in Sources */,

@@ -94,8 +94,9 @@ class HomeViewController: UIViewController {
                 self.screenError?.isHidden = true
                 switch status {
                 case .success(let model):
-                    self.searchView?.setup(with: HomeSearchView.Model(), delegate: self)
+                    self.searchView?.setup(delegate: self)
                     self.resultView?.setup(with: HomeResultView.Model(breweriesList: model?.breweriesList))
+                    self.setupCellsImages(breweries: model?.breweriesList)
                     self.stopLoading()
                 case .error(let model):
                     self.screenError?.setup(with: model)
@@ -104,6 +105,15 @@ class HomeViewController: UIViewController {
                 case .loading:
                     self.startLoading()
                 }
+            }
+        }
+    }
+    
+    private func setupCellsImages(breweries: [BreweryData]?) {
+        guard let breweries = breweries else { return }
+        for brewery in breweries {
+            viewModel?.fetchDownloadedImage(breweryID: brewery.identifier) { [weak self] image in
+                self?.resultView?.setupCellImages(breweryID: brewery.identifier, image: image)
             }
         }
     }

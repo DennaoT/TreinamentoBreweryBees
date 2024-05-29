@@ -7,17 +7,13 @@
 
 import UIKit
 
-// MARK: - Typealias
-
-typealias BreweryImageTuple = (image: UIImage?, breweryName: String)
-
 // MARK: - Protocol
 
 protocol HomeViewModelProtocol {
     var breweryModel: Dynamic<HomeInfoStatus<BreweryListData?, GenericErrorView.Model?>> { get set }
     
     func fetchHomeData()
-    func fetchDownloadedImage() -> BreweryImageTuple
+    func fetchDownloadedImage(breweryID: String, completion: @escaping (UIImage?) -> Void)
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -54,17 +50,14 @@ class HomeViewModel: HomeViewModelProtocol {
         }
     }
     
-    func fetchDownloadedImage(breweryID: String, completion: @escaping (BreweryImageTuple) -> Void) {
+    func fetchDownloadedImage(breweryID: String, completion: @escaping (UIImage?) -> Void) {
         breweryModel.bind { value in
             if case .success(let breweryListData) = value,
-               let data = breweryListData?.breweriesList.first(where: { $0.identifier == breweryID })
-            {
-                BreweryBeesService.shared.fetchDownloadedImage(fromURL: data.logo) { image in
-                    if let downloadedImage = image {
-                        completion((downloadedImage, data.name))
-                    } else {
-                        completion((nil, data.name))
-                    }
+               let data = breweryListData?.breweriesList.first(
+                where: { $0.identifier == breweryID }
+               ) {
+                BreweryBeesService.shared.fetchDownloadedImage(fromURL: data.logo?.url) { image in
+                    completion(image)
                 }
             }
         }
@@ -75,10 +68,14 @@ class HomeViewModel: HomeViewModelProtocol {
 
 extension HomeViewModel {
     private func handleSuccess(_ successData: BreweryListData) {
-        let logger = Logger(category: "HomeViewModel")
-        logger.log(message: "Success:\n\(successData)", level: .info)
+        logData(successData)
         
         breweryModel.value = .success(successData)
+    }
+    
+    private func logData(_ successData: BreweryListData) {
+        let logger = Logger(category: "HomeViewModel")
+        logger.log(message: "Success:\n\(successData)", level: .info)
     }
 }
 
