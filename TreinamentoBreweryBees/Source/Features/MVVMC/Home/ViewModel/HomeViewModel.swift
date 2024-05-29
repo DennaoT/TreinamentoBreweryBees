@@ -7,12 +7,17 @@
 
 import UIKit
 
+// MARK: - Typealias
+
+typealias BreweryImageTuple = (image: UIImage?, breweryName: String)
+
 // MARK: - Protocol
 
 protocol HomeViewModelProtocol {
     var breweryModel: Dynamic<HomeInfoStatus<BreweryListData?, GenericErrorView.Model?>> { get set }
     
     func fetchHomeData()
+    func fetchDownloadedImage() -> BreweryImageTuple
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -39,12 +44,28 @@ class HomeViewModel: HomeViewModelProtocol {
     func fetchHomeData() {
         breweryModel.value = .loading
         
-        BreweryBeesManager.shared.fetchFirestoreBreweries { [weak self] result in
+        BreweryBeesService.shared.fetchFirestoreBreweries { [weak self] result in
             switch result {
             case .success(let breweryData):
                 self?.handleSuccess(breweryData)
             case .failure(let failure):
                 self?.handleFailure(failure)
+            }
+        }
+    }
+    
+    func fetchDownloadedImage(breweryID: String, completion: @escaping (BreweryImageTuple) -> Void) {
+        breweryModel.bind { value in
+            if case .success(let breweryListData) = value,
+               let data = breweryListData?.breweriesList.first(where: { $0.identifier == breweryID })
+            {
+                BreweryBeesService.shared.fetchDownloadedImage(fromURL: data.logo) { image in
+                    if let downloadedImage = image {
+                        completion((downloadedImage, data.name))
+                    } else {
+                        completion((nil, data.name))
+                    }
+                }
             }
         }
     }

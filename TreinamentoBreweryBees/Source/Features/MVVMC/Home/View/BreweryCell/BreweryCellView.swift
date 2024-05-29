@@ -17,15 +17,15 @@ class BreweryCellView: UIView {
         static let mainViewHeight: CGFloat = 80
         static let defaultSpacing: CGFloat = .measurement(.smaller)
         static let defaultRadius: CGFloat = .measurement(.smaller)
-        static let iconSize: CGFloat = .measurement(.big)
+//        static let iconSize: CGFloat = .measurement(.big)
         static let titleColor: UIColor = .black
         static let titleHeight: CGFloat = 18
         static let descriptionColor: UIColor = .black
         static let descriptionHeight: CGFloat = 16
         static let ratingHeight: CGFloat = 30
         static let ratingWidth: CGFloat = 150
-        static let defaultIconViewColor: UIColor = .init(hex: "#FFC366")
-        static let defaultIconLabelColor: UIColor = .init(hex: "#8A7251")
+//        static let defaultIconViewColor: UIColor = .init(hex: "#FFC366")
+//        static let defaultIconLabelColor: UIColor = .init(hex: "#8A7251")
     }
     
     // MARK: - Views

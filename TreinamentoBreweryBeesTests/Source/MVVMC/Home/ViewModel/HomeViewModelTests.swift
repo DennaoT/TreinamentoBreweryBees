@@ -12,12 +12,12 @@ class HomeViewModelTests: XCTestCase {
     
     var viewModel: HomeViewModel!
     var mockDelegate: MockHomeCoordinatorDelegate!
-    var mockManager: MockBreweryBeesManager!
+    var mockManager: MockBreweryBeesService!
     
     override func setUp() {
         super.setUp()
         mockDelegate = MockHomeCoordinatorDelegate()
-        mockManager = MockBreweryBeesManager()
+        mockManager = MockBreweryBeesService()
         viewModel = HomeViewModel(delegate: mockDelegate)
     }
     
@@ -29,7 +29,7 @@ class HomeViewModelTests: XCTestCase {
     }
     
     func testFetchHomeDataSuccess() {
-        // Mock the BreweryBeesManager response
+        // Mock the BreweryBeesService response
         mockManager.fetchResult = .success(MockBreweryListData.breweryListData)
         
         let expectation = self.expectation(description: "Fetch home data success")

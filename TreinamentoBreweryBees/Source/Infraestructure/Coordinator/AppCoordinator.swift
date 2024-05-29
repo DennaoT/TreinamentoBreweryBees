@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum ArchitectureType {
+    case mvvmc_uikit, mvvmc_weakref_uikit, vip_uikit, vip_swiftui_combine, viper
+}
+
 class AppCoordinator: MainCoordinator {
     
     // MARK: - Properties
@@ -17,34 +21,46 @@ class AppCoordinator: MainCoordinator {
     
     private var architecture: ArchitectureType
     
-    init(navigationController: UINavigationController, architecture: ArchitectureType = .mvvmc) {
+    init(navigationController: UINavigationController, architecture: ArchitectureType = .mvvmc_uikit) {
         self.navigationController = navigationController
         self.architecture = architecture
     }
     
     func start() {
         switch architecture {
-        case .mvvmc:
-            startMVVMC()
-        case .vip:
-            startVIP()
+        case .mvvmc_uikit:
+            start_MVVMC_UIKit()
+        case .mvvmc_weakref_uikit:
+            start_MVVMC_WeakReference_UIKit()
+        case .vip_uikit:
+            start_VIP_UIKit()
+        case .vip_swiftui_combine:
+            start_VIP_SwiftUI_Combine()
         case .viper:
-            startVIPER()
+            start_VIPER()
         }
     }
 }
 
-extension AppCoordinator: ArchitectureConfig {
-    func startMVVMC() {
+extension AppCoordinator {
+    private func start_MVVMC_UIKit() {
         let homeCoordinator = HomeCoordinator(navigationController: navigationController)
         homeCoordinator.start()
     }
     
-    func startVIP() {
+    private func start_MVVMC_WeakReference_UIKit() {
         /* Intentionally unimplemented */
     }
     
-    func startVIPER() {
+    private func start_VIP_UIKit() {
+        /* Intentionally unimplemented */
+    }
+    
+    private func start_VIP_SwiftUI_Combine() {
+        /* Intentionally unimplemented */
+    }
+    
+    private func start_VIPER() {
         /* Intentionally unimplemented */
     }
 }

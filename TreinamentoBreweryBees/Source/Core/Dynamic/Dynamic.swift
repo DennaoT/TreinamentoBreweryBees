@@ -11,7 +11,7 @@ public class Dynamic<T> {
     typealias Listener = (T) -> Void
     
     // Armazenar a lista de observadores
-    var listeners: [Listener] = []
+    private var listeners: [Listener] = []
     
     // Valor dinâmico
     var value: T {

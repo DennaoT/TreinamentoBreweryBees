@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		00D69EAD7A41D53DD0B4C030 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B7E1B9383BCDCA55CB593E6 /* GoogleService-Info.plist */; };
 		0632B2AADE051C11DF7D01DF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC47B1CB80A0F6EE013A9777 /* UIImage.swift */; };
+		0BE24A372C076DEB00F68900 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE24A362C076DEB00F68900 /* UIView.swift */; };
+		0BE24A3A2C07750200F68900 /* BreweryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE24A392C07750200F68900 /* BreweryIconView.swift */; };
+		0BE24A3C2C077B0D00F68900 /* ImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE24A3B2C077B0D00F68900 /* ImageDownloadOperation.swift */; };
 		0CCDBA6F658EE3D8B75E7EE3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17469B92C179938A379D355 /* AppCoordinator.swift */; };
 		13D2FB4AA4B9707F545A82AB /* TreinamentoBreweryBeesLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582DADEDDA2102DC7F49E1D8 /* TreinamentoBreweryBeesLocalizable.swift */; };
 		2987D202834B33E1687E77AC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8710022B0D90663E6EB27C /* UIColor.swift */; };
@@ -34,7 +37,7 @@
 		AB9DACFB95A9246602D25FAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C332279D21A0045CF1E5E18A /* LaunchScreen.storyboard */; };
 		AEE84F2F2B65E71CE4C3888D /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 5EE2D33FA46A808B35D049B0 /* SnapshotTesting */; };
 		AFC684AEC98EC3CB104B9845 /* Pods_TreinamentoBreweryBees.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650ADE75B6AAE3530CAA67F6 /* Pods_TreinamentoBreweryBees.framework */; };
-		B278AC8157645BCCB6D814E0 /* BreweryBeesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90C81E8D50A077F892014CB /* BreweryBeesManager.swift */; };
+		B278AC8157645BCCB6D814E0 /* BreweryBeesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90C81E8D50A077F892014CB /* BreweryBeesService.swift */; };
 		B36766FF5C2CE9B9A09FFB75 /* FirestoreOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CF924E66CA2580CA3D0830 /* FirestoreOperation.swift */; };
 		B6D129CE8D034A3B85477652 /* BreweryBeesAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046AB9294EBA0E10C43512B3 /* BreweryBeesAssets.swift */; };
 		C519698E63B522AF71294CDA /* HomePopupDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D752A6161C40F1CCC03643 /* HomePopupDetailsView.swift */; };
@@ -43,10 +46,9 @@
 		D07805A8A504AB118D52E646 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FBB27A64869F51F92B381 /* String.swift */; };
 		D084C9053853EEBCB1536ACC /* HomePopupRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E792FA0D45BB23E4183E05 /* HomePopupRatingView.swift */; };
 		D14BD79D4EFEBB4D799206B0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC0B81E42C8713E3ADBEF13 /* HomeCoordinator.swift */; };
-		D632D77075F8BB96E1034903 /* MockBreweryBeesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCDD5D56C9A2C13579B4367 /* MockBreweryBeesManager.swift */; };
+		D632D77075F8BB96E1034903 /* MockBreweryBeesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCDD5D56C9A2C13579B4367 /* MockBreweryBeesService.swift */; };
 		DD54A267F1C12EB4B8D1337B /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507E44661F1663B4E4F2CE9 /* RatingView.swift */; };
 		E3764C95EC02ACBED04D5A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED35BEB66C662252EA239DD6 /* Assets.xcassets */; };
-		E83B7A5E308FC3A9E870140E /* ArchitectureConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87C4FAB275319F44AD576F2 /* ArchitectureConfig.swift */; };
 		EE61B6E8978C539E832C4372 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D6836B5D14944679C9037A /* CGFloat.swift */; };
 		F16CC9476E22C00D4AF749F4 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C269137E8578D87D2C742 /* HomeModel.swift */; };
 		F763FF0709C6F4EC96A6C424 /* BaseCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F67D966DC881D70CD047 /* BaseCoordinatorDelegate.swift */; };
@@ -66,6 +68,9 @@
 		046AB9294EBA0E10C43512B3 /* BreweryBeesAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBeesAssets.swift; sourceTree = "<group>"; };
 		083FBE5A38BE0AFE622A196D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		098034F25D041F13E513B6A6 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		0BE24A362C076DEB00F68900 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		0BE24A392C07750200F68900 /* BreweryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryIconView.swift; sourceTree = "<group>"; };
+		0BE24A3B2C077B0D00F68900 /* ImageDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadOperation.swift; sourceTree = "<group>"; };
 		111E7A4935DD85A2416E1900 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		118985213C545ADC14CEA55D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		19E792FA0D45BB23E4183E05 /* HomePopupRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopupRatingView.swift; sourceTree = "<group>"; };
@@ -92,8 +97,7 @@
 		9817EA39A7D83AC2E1E26085 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9C4FE9D877D2237C7EFC7CB6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A507E44661F1663B4E4F2CE9 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
-		A87C4FAB275319F44AD576F2 /* ArchitectureConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureConfig.swift; sourceTree = "<group>"; };
-		ABCDD5D56C9A2C13579B4367 /* MockBreweryBeesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBreweryBeesManager.swift; sourceTree = "<group>"; };
+		ABCDD5D56C9A2C13579B4367 /* MockBreweryBeesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBreweryBeesService.swift; sourceTree = "<group>"; };
 		AF46446B74CB375B2BBA7D5F /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		B2CB63681B8C4A48AFAA1C4A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		BAFFAE3110A1EFEC4DA8CDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -109,7 +113,7 @@
 		DC47B1CB80A0F6EE013A9777 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		E1CF924E66CA2580CA3D0830 /* FirestoreOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreOperation.swift; sourceTree = "<group>"; };
 		E8AC5A96D387879438202424 /* HomeResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResultView.swift; sourceTree = "<group>"; };
-		E90C81E8D50A077F892014CB /* BreweryBeesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBeesManager.swift; sourceTree = "<group>"; };
+		E90C81E8D50A077F892014CB /* BreweryBeesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBeesService.swift; sourceTree = "<group>"; };
 		EB0DA823CFBDB00F052D8281 /* Pods-TreinamentoBreweryBeesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBeesTests/Pods-TreinamentoBreweryBeesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED35BEB66C662252EA239DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0D1E5846E5AC16D4C4331F5 /* HomeDataPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataPath.swift; sourceTree = "<group>"; };
@@ -166,6 +170,14 @@
 				A507E44661F1663B4E4F2CE9 /* RatingView.swift */,
 			);
 			path = RatingView;
+			sourceTree = "<group>";
+		};
+		0BE24A382C07749400F68900 /* BreweryIcon */ = {
+			isa = PBXGroup;
+			children = (
+				0BE24A392C07750200F68900 /* BreweryIconView.swift */,
+			);
+			path = BreweryIcon;
 			sourceTree = "<group>";
 		};
 		0C881740CDEC3EB1F79F1031 /* ViewModel */ = {
@@ -239,14 +251,6 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		47461C8CDF436911C02045F2 /* ArchitectureSelector */ = {
-			isa = PBXGroup;
-			children = (
-				A87C4FAB275319F44AD576F2 /* ArchitectureConfig.swift */,
-			);
-			path = ArchitectureSelector;
-			sourceTree = "<group>";
-		};
 		492237B9853D149F0558813E /* MVVMC */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +298,7 @@
 		70E65610ADB32C8087697EE6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0BE24A382C07749400F68900 /* BreweryIcon */,
 				23BC6DF10EA0838F25D3A11A /* GenericError */,
 				0A7F7C0D6292E9CEB70402CC /* RatingView */,
 			);
@@ -324,13 +329,13 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		86721DBC52FA00497B2E5D9C /* Manager */ = {
+		86721DBC52FA00497B2E5D9C /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				E90C81E8D50A077F892014CB /* BreweryBeesManager.swift */,
+				E90C81E8D50A077F892014CB /* BreweryBeesService.swift */,
 				F0D1E5846E5AC16D4C4331F5 /* HomeDataPath.swift */,
 			);
-			path = Manager;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		8984FC32C23A9289827EDDE3 /* Core */ = {
@@ -340,19 +345,20 @@
 				DCF964C88000A3F7B9BF1B5A /* CoordinatorDelegate */,
 				2F6B6A0CCF16082CF31B50CA /* Dynamic */,
 				D20799F90B63837D2CEA747E /* Extension */,
-				8BBD60C08A74E64DF168ECF4 /* FirestoreOperation */,
+				8BBD60C08A74E64DF168ECF4 /* Operation */,
 				0110A73468B338D3AE368484 /* Logger */,
 				78C09C02EFD079D2D39F72F0 /* Typealias */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		8BBD60C08A74E64DF168ECF4 /* FirestoreOperation */ = {
+		8BBD60C08A74E64DF168ECF4 /* Operation */ = {
 			isa = PBXGroup;
 			children = (
 				E1CF924E66CA2580CA3D0830 /* FirestoreOperation.swift */,
+				0BE24A3B2C077B0D00F68900 /* ImageDownloadOperation.swift */,
 			);
-			path = FirestoreOperation;
+			path = Operation;
 			sourceTree = "<group>";
 		};
 		8DD08948E8975EB3F8216CB7 /* Localize */ = {
@@ -368,7 +374,7 @@
 			children = (
 				A9B794441C29967F5D8389F1 /* Controller */,
 				BDD69416CB76E07B748BA92F /* Coordinator */,
-				86721DBC52FA00497B2E5D9C /* Manager */,
+				86721DBC52FA00497B2E5D9C /* Service */,
 				9FD27FFACCCC291F3B4C5F4C /* Model */,
 				F5BDC7A563B8E9ACE3F9BA8F /* View */,
 				F336DF7104CCA86417679C10 /* ViewModel */,
@@ -405,7 +411,6 @@
 			isa = PBXGroup;
 			children = (
 				F17469B92C179938A379D355 /* AppCoordinator.swift */,
-				47461C8CDF436911C02045F2 /* ArchitectureSelector */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -421,12 +426,12 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		B400658014C9060B1A542E43 /* Manager */ = {
+		B400658014C9060B1A542E43 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				ABCDD5D56C9A2C13579B4367 /* MockBreweryBeesManager.swift */,
+				ABCDD5D56C9A2C13579B4367 /* MockBreweryBeesService.swift */,
 			);
-			path = Manager;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		B6B8290E9BA03D94394FCD98 /* Assets */ = {
@@ -482,6 +487,7 @@
 				CF8710022B0D90663E6EB27C /* UIColor.swift */,
 				DC47B1CB80A0F6EE013A9777 /* UIImage.swift */,
 				50326AA44F8CD0702493630C /* UIStackView.swift */,
+				0BE24A362C076DEB00F68900 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -489,7 +495,7 @@
 		D2AE389A8F85A1F9ADF08D57 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B400658014C9060B1A542E43 /* Manager */,
+				B400658014C9060B1A542E43 /* Service */,
 				1D51FF90DDFC2D6FE1D2215D /* Mock */,
 				0C881740CDEC3EB1F79F1031 /* ViewModel */,
 			);
@@ -767,7 +773,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				533C5F9A45BC7CC9B868AE98 /* HomeViewModelTests.swift in Sources */,
-				D632D77075F8BB96E1034903 /* MockBreweryBeesManager.swift in Sources */,
+				D632D77075F8BB96E1034903 /* MockBreweryBeesService.swift in Sources */,
 				7BAF19BA3EDEF8B7409FE305 /* MockBreweryData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,11 +784,11 @@
 			files = (
 				0CCDBA6F658EE3D8B75E7EE3 /* AppCoordinator.swift in Sources */,
 				324505E2AEF7EABB497921AE /* AppDelegate.swift in Sources */,
-				E83B7A5E308FC3A9E870140E /* ArchitectureConfig.swift in Sources */,
 				F763FF0709C6F4EC96A6C424 /* BaseCoordinatorDelegate.swift in Sources */,
 				9CFAC2105AA3CDA4A087BF09 /* BreweryBees.swift in Sources */,
 				B6D129CE8D034A3B85477652 /* BreweryBeesAssets.swift in Sources */,
-				B278AC8157645BCCB6D814E0 /* BreweryBeesManager.swift in Sources */,
+				B278AC8157645BCCB6D814E0 /* BreweryBeesService.swift in Sources */,
+				0BE24A3A2C07750200F68900 /* BreweryIconView.swift in Sources */,
 				691BEDF3C9FE0532E5545C5C /* BreweryCellView.swift in Sources */,
 				9051D86E1BFEC6F6C1FCF52D /* Bundle.swift in Sources */,
 				EE61B6E8978C539E832C4372 /* CGFloat.swift in Sources */,
@@ -790,6 +796,7 @@
 				B36766FF5C2CE9B9A09FFB75 /* FirestoreOperation.swift in Sources */,
 				CF55003CC67DDF125A0E376D /* GenericErrorView.swift in Sources */,
 				D14BD79D4EFEBB4D799206B0 /* HomeCoordinator.swift in Sources */,
+				0BE24A372C076DEB00F68900 /* UIView.swift in Sources */,
 				9607DEA6A0200484D6A02C3B /* HomeCoordinatorDelegate.swift in Sources */,
 				78F02D1475F69614550E6518 /* HomeDataPath.swift in Sources */,
 				48192FDC590BD8D0E496A0A8 /* HomeError.swift in Sources */,
@@ -808,6 +815,7 @@
 				3EB47116B7C2800863B8C517 /* Typealias.swift in Sources */,
 				2987D202834B33E1687E77AC /* UIColor.swift in Sources */,
 				0632B2AADE051C11DF7D01DF /* UIImage.swift in Sources */,
+				0BE24A3C2C077B0D00F68900 /* ImageDownloadOperation.swift in Sources */,
 				4050B6C6D5543B16F47DDF42 /* UIStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

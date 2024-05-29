@@ -12,7 +12,11 @@ import Reachability
 
 typealias FirestoreCompletion<D: Decodable> = (Result<D, Error>) -> Void
 
-class FirestoreOperation {
+protocol FirestoreOperable {
+    static func fetchFirestoreData<D: Decodable>(fromDocumentPath documentPath: String, completion: @escaping FirestoreCompletion<D>)
+}
+
+class FirestoreOperation: FirestoreOperable {
     private static var currentTask: Task<Void, Never>?
     
     static func fetchFirestoreData<D: Decodable>(
