@@ -5,10 +5,16 @@
 //  Created by Dennis Torres on 15/04/24.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - ActionHandler
 public typealias ActionHandler = () -> Void
 
-// MARK: - TextLinkAction
+// MARK: - TextLinkHandler
 public typealias StringActionHandler = (_ value: String) -> Void
+
+// MARK: - Image With Identifier
+public typealias IdentifierImage = (identifier: String, image: UIImage)
+
+// MARK: - Image With Identifier
+public typealias IdentifierImagesHandler = ([IdentifierImage]) -> Void

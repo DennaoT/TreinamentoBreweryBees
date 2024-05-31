@@ -120,6 +120,12 @@ class HomeResultView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        breweriesCells = []
+        resultScreen = .emptySearch
+        model = nil
+    }
+    
     func setup(with model: HomeResultView.Model?) {
         guard let model = model else { return }
         self.model = model
@@ -127,10 +133,23 @@ class HomeResultView: UIView {
         buildComponents()
     }
     
-    func setupCellImages(breweryID: String, image: UIImage?) {
-        guard breweriesCells.isEmpty else { return }
+    func setupCellImages(updatedImages: [IdentifierImage]) {
+        guard updatedImages.isEmpty,
+              var breweriesList = model?.breweriesList
+        else { return }
         
-        //breweriesCells.updateImages()
+        for updatedData in updatedImages {
+            if let index = breweriesList.firstIndex(where: {
+                $0.identifier == updatedData.identifier
+            }) {
+                breweriesList[index].setImage(updatedData.image)
+                for breweryCell in breweriesCells {
+                    breweryCell.updateIconIfIdentifierMatches(with: breweriesList[index])
+                }
+            }
+        }
+        
+        model?.breweriesList = breweriesList
     }
     
     func update(filter: String?) {

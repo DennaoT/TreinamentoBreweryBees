@@ -78,6 +78,12 @@ class RatingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        evaluateAction = nil
+        valuationValue = nil
+        showLeftNumber = nil
+    }
+    
     func setup(_ screenType: ScreenType<Any>) {
         buildComponents()
         

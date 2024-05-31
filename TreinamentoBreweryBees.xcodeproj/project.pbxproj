@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		00D69EAD7A41D53DD0B4C030 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B7E1B9383BCDCA55CB593E6 /* GoogleService-Info.plist */; };
 		0632B2AADE051C11DF7D01DF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC47B1CB80A0F6EE013A9777 /* UIImage.swift */; };
+		0B0A228F2C0A381800F4521B /* BeginnerResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A228E2C0A381800F4521B /* BeginnerResultView.swift */; };
+		0B0A22912C0A396200F4521B /* BeginnerSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A22902C0A396200F4521B /* BeginnerSearchView.swift */; };
 		0B8E7FA72C07EDC800959BDC /* BeginnerHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FA62C07EDC800959BDC /* BeginnerHomePresenter.swift */; };
 		0B8E7FAA2C07EDE500959BDC /* BeginnerHomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FA92C07EDE500959BDC /* BeginnerHomeFactory.swift */; };
 		0B8E7FAC2C07EDF600959BDC /* BeginnerHomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FAB2C07EDF600959BDC /* BeginnerHomeCoordinator.swift */; };
@@ -74,6 +76,8 @@
 		046AB9294EBA0E10C43512B3 /* BreweryBeesAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryBeesAssets.swift; sourceTree = "<group>"; };
 		083FBE5A38BE0AFE622A196D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		098034F25D041F13E513B6A6 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		0B0A228E2C0A381800F4521B /* BeginnerResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerResultView.swift; sourceTree = "<group>"; };
+		0B0A22902C0A396200F4521B /* BeginnerSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerSearchView.swift; sourceTree = "<group>"; };
 		0B8E7FA62C07EDC800959BDC /* BeginnerHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomePresenter.swift; sourceTree = "<group>"; };
 		0B8E7FA92C07EDE500959BDC /* BeginnerHomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomeFactory.swift; sourceTree = "<group>"; };
 		0B8E7FAB2C07EDF600959BDC /* BeginnerHomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomeCoordinator.swift; sourceTree = "<group>"; };
@@ -184,6 +188,15 @@
 			path = RatingView;
 			sourceTree = "<group>";
 		};
+		0B0A228D2C0A14CA00F4521B /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				0B0A228E2C0A381800F4521B /* BeginnerResultView.swift */,
+				0B0A22902C0A396200F4521B /* BeginnerSearchView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		0B8E7F9F2C07E64600959BDC /* VIP */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +230,7 @@
 				0B8E7FAF2C07EE7400959BDC /* BeginnerHomeInteractor.swift */,
 				0B8E7FA62C07EDC800959BDC /* BeginnerHomePresenter.swift */,
 				0B8E7FAB2C07EDF600959BDC /* BeginnerHomeCoordinator.swift */,
+				0B0A228D2C0A14CA00F4521B /* Subviews */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -843,6 +857,7 @@
 				9051D86E1BFEC6F6C1FCF52D /* Bundle.swift in Sources */,
 				EE61B6E8978C539E832C4372 /* CGFloat.swift in Sources */,
 				0B8E7FAA2C07EDE500959BDC /* BeginnerHomeFactory.swift in Sources */,
+				0B0A228F2C0A381800F4521B /* BeginnerResultView.swift in Sources */,
 				864023E2650B29D9E30B9564 /* Dynamic.swift in Sources */,
 				B36766FF5C2CE9B9A09FFB75 /* FirestoreOperation.swift in Sources */,
 				0B8E7FB02C07EE7400959BDC /* BeginnerHomeInteractor.swift in Sources */,
@@ -852,6 +867,7 @@
 				D14BD79D4EFEBB4D799206B0 /* HomeCoordinator.swift in Sources */,
 				0B8E7FB22C07EE8500959BDC /* BeginnerHomeService.swift in Sources */,
 				0BE24A372C076DEB00F68900 /* UIView.swift in Sources */,
+				0B0A22912C0A396200F4521B /* BeginnerSearchView.swift in Sources */,
 				9607DEA6A0200484D6A02C3B /* HomeCoordinatorDelegate.swift in Sources */,
 				78F02D1475F69614550E6518 /* HomeDataPath.swift in Sources */,
 				48192FDC590BD8D0E496A0A8 /* HomeError.swift in Sources */,

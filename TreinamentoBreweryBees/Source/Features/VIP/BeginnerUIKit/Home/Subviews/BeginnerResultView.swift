@@ -1,14 +1,17 @@
 //
-//  HomePopupRatingView.swift
+//  BeginnerResultView.swift
 //  TreinamentoBreweryBees
 //
-//  Created by Dennis Torres on 15/04/24.
+//  Created by Dennis Torres on 31/05/24.
 //
 
 import UIKit
-import SnapKit
 
-class HomePopupRatingView: UIView {
+protocol BeginnerResultDisplaying: AnyObject {
+    func display()
+}
+
+final class BeginnerResultView: UIView {
     
     // MARK: - Enums
     
@@ -25,19 +28,19 @@ class HomePopupRatingView: UIView {
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.distribution = .fill
         stackView.alignment = .center
-        stackView.axis = .vertical
         stackView.spacing = Constants.defaultSpacing
         return stackView
     }()
     
-    // MARK: - Properties
+    // MARK: - Interactor
     
-    private var model: BreweryData?
+    private var interactor: BeginnerHomeInteracting?
     
-    // MARK: - Public methods
+    // MARK: - Init
     
-    init() {
+    init(interactor: BeginnerHomeInteracting?) {
         super.init(frame: .zero)
+        self.interactor = interactor
     }
     
     required init?(coder: NSCoder) {
@@ -45,20 +48,12 @@ class HomePopupRatingView: UIView {
     }
     
     deinit {
-        model = nil
+        interactor = nil
     }
-    
-    func setup(with model: BreweryData) {
-        self.model = model
-        
-        buildComponents()
-    }
-    
-    // MARK: - Private methods
-    
-    private func buildComponents() {
-        guard let model = model else { return }
-        
-        backgroundColor = Constants.mainViewColor
+}
+
+extension BeginnerResultView: BeginnerResultDisplaying {
+    func display() {
+        //Something
     }
 }

@@ -5,6 +5,7 @@
 //  Created by Dennis Torres on 02/04/24.
 //
 
+import Foundation
 import UIKit
 
 // MARK: - Protocol
@@ -13,7 +14,7 @@ protocol HomeViewModelProtocol {
     var breweryModel: Dynamic<HomeInfoStatus<BreweryListData?, GenericErrorView.Model?>> { get set }
     
     func fetchHomeData()
-    func fetchDownloadedImage(breweryID: String, completion: @escaping (UIImage?) -> Void)
+    func updateCellsImagesIfNeeded(completion: @escaping IdentifierImagesHandler)
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -33,10 +34,6 @@ class HomeViewModel: HomeViewModelProtocol {
         self.flowDelegate = delegate
     }
     
-    /// TODO
-    /// - usar -> semaphore: criar uma fila de concorrencia
-    /// - limitar o numero de threads
-    /// - semaforo await q espera o proximo slot disponivel
     func fetchHomeData() {
         breweryModel.value = .loading
         
@@ -50,17 +47,23 @@ class HomeViewModel: HomeViewModelProtocol {
         }
     }
     
-    func fetchDownloadedImage(breweryID: String, completion: @escaping (UIImage?) -> Void) {
+    func updateCellsImagesIfNeeded(completion: @escaping IdentifierImagesHandler) {
+        var imagesToUpdate: [IdentifierImage] = []
+        
         breweryModel.bind { value in
-            if case .success(let breweryListData) = value,
-               let data = breweryListData?.breweriesList.first(
-                where: { $0.identifier == breweryID }
-               ) {
-                BreweryBeesService.shared.fetchDownloadedImage(fromURL: data.logo?.url) { image in
-                    completion(image)
+            guard case .success(let breweryListData) = value,
+                  let breweriesList = breweryListData?.breweriesList
+            else { return }
+            
+            for brewery in breweriesList {
+                BreweryBeesService.shared.fetchDownloadedImage(fromURL: brewery.logo?.url) { image in
+                    guard let image = image else { return }
+                    imagesToUpdate.append((brewery.identifier, image))
                 }
             }
         }
+        
+        completion(imagesToUpdate)
     }
 }
 

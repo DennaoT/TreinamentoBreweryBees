@@ -44,6 +44,10 @@ class HomePopupDetailsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        model = nil
+    }
+    
     func setup(with model: BreweryData) {
         self.model = model
         

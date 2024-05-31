@@ -123,6 +123,11 @@ class GenericErrorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        action = nil
+        model = nil
+    }
+    
     func setup(with model: GenericErrorView.Model?) {
         guard let model = model else { return }
         self.model = model

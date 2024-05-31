@@ -18,4 +18,10 @@ extension UIView {
         }
         return lineDivisor
     }
+    
+    func removeSubviews() {
+        for subview in subviews {
+            subview.removeFromSuperview()
+        }
+    }
 }
