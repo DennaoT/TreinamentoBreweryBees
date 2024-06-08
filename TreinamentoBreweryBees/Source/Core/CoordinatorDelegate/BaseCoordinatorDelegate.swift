@@ -7,9 +7,9 @@
 
 import UIKit
 
-public typealias Coordinator = MainCoordinator & BaseCoordinatorDelegate
+public typealias Coordinator = AppCoordinating & BaseCoordinatorDelegate
 
-public protocol MainCoordinator {
+public protocol AppCoordinating {
     var navigationController: UINavigationController { get set }
     func start()
 }

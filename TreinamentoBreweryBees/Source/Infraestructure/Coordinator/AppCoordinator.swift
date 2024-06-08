@@ -11,7 +11,7 @@ enum ArchitectureType {
     case mvvmc_uikit, mvvmc_weakref_uikit, vip_uikit, vip_swiftui_combine, viper
 }
 
-class AppCoordinator: MainCoordinator {
+class AppCoordinator: AppCoordinating {
     
     // MARK: - Properties
     
@@ -54,6 +54,9 @@ extension AppCoordinator {
     
     private func start_VIP_UIKit() {
         /* Intentionally unimplemented */
+        let vc = BeginnerHomeFactory.make()
+        navigationController.pushViewController(vc, animated: true)
+        /**/
     }
     
     private func start_VIP_SwiftUI_Combine() {

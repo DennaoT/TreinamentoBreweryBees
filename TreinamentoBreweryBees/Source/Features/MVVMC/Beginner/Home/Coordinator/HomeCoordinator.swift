@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeCoordinator: Coordinator {
+class HomeCoordinator: AppCoordinating {
     var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -19,9 +19,5 @@ class HomeCoordinator: Coordinator {
         let viewController = HomeViewController.instantiate(viewModel: viewModel)
         
         navigationController.pushViewController(viewController, animated: true)
-    }
-    
-    func coordinatorRemoved() {
-        navigationController.popViewController(animated: true)
     }
 }
