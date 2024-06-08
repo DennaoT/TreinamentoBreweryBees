@@ -134,7 +134,7 @@ class HomeResultView: UIView {
     }
     
     func setupCellImages(updatedImages: [IdentifierImage]) {
-        guard updatedImages.isEmpty,
+        guard !updatedImages.isEmpty,
               var breweriesList = model?.breweriesList
         else { return }
         

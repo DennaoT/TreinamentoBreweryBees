@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
     private var resultView: HomeResultView?
     private var screenError: GenericErrorView?
     private var viewModel: HomeViewModelProtocol?
-
+    
     // MARK: - Instantiate
     
     public static func instantiate(viewModel: HomeViewModelProtocol) -> HomeViewController {
@@ -111,8 +111,8 @@ class HomeViewController: UIViewController {
     
     private func bindCellsImagesIfNeeded() {
         viewModel?.updateCellsImagesIfNeeded { [weak self] imagesToUpdate in
-            guard !imagesToUpdate.isEmpty else { return }
-            self?.resultView?.setupCellImages(updatedImages: imagesToUpdate)
+            guard !imagesToUpdate.isEmpty, let self = self else { return }
+            self.resultView?.setupCellImages(updatedImages: imagesToUpdate)
         }
     }
 }

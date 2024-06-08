@@ -58,11 +58,12 @@ class HomeViewModel: HomeViewModelProtocol {
                 BreweryBeesService.shared.fetchDownloadedImage(fromURL: brewery.logo?.url) { image in
                     guard let image = image else { return }
                     imagesToUpdate.append((brewery.identifier, image))
+                    if brewery.identifier == breweriesList.last?.identifier {
+                        completion(imagesToUpdate)
+                    }
                 }
             }
         }
-        
-        completion(imagesToUpdate)
     }
 }
 
