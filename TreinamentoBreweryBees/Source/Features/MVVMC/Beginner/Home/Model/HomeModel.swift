@@ -39,6 +39,7 @@ public struct BreweryData: Decodable {
     let type: String?
     let rating: String?
     let numRating: String?
+    //let rate: BreweryRateData?
     let address: String
     let website: String
     let description: String?
@@ -93,6 +94,28 @@ public struct BreweryLogo: Decodable {
     public init(url: String?, image: UIImage?) {
         self.url = url
         self.image = image
+    }
+}
+
+public struct BreweryRateData: Decodable {
+    let rating: String
+    let quantityRating: String?
+    var userHasAlreadyRated: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case rating = "brewery_rating"
+        case quantityRating = "brewery_num_rating"
+        case userHasAlreadyRated
+    }
+    
+    public init(
+        rating: String,
+        quantityRating: String? = nil,
+        userHasAlreadyRated: Bool = false
+    ) {
+        self.rating = rating
+        self.quantityRating = quantityRating
+        self.userHasAlreadyRated = userHasAlreadyRated
     }
 }
 

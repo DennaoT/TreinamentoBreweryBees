@@ -31,6 +31,7 @@
 // MARK: - Generic Error
 
 "errorDefault" = "Something went wrong";
+"errorTryAgain" = "Try Again";
 
 // MARK: - Internet Connection Error
 
@@ -58,6 +59,26 @@
 "homeResultsDescription_Success" = "Displaying %@ of %@ results.";
 "homeResultsDescription_TryAgain" = "Please check your search and try again for results.";
 
-// MARK: - Components
+// MARK: - Brewery Details
 
-"component_tryAgain" = "Try Again";
+"breweryDetailsTitle" = "Brewery Details";
+"breweryDetails_EstablishmentTitle" = "Type";
+"breweryDetails_WebsiteTitle" = "Website";
+"breweryDetails_AddressTitle" = "Address";
+"breweryDetails_MapsTextLink" = "View on Map";
+"breweryDetails_RateButton" = "RATE BREWERY";
+"breweryDetails_AlreadyRated" = "You have already rated this brewery!";
+
+// MARK: - Email
+
+"emailTextExample" = "example@email.com";
+"emailInvalid" = "Please enter a valid email";
+
+// MARK: - Brewery Rating
+
+"breweryRatingTitle" = "Rate Brewery %@";
+"breweryButtonTitle" = "SAVE";
+"successTitle" = "Cheers!";
+"successDescription" = "Your rating has been successfully added!";
+"errorTitle" = "Something went wrong!";
+"errorDescription" = "Unable to add your rating. Please try again later.";

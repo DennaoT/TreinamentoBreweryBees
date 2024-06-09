@@ -31,6 +31,7 @@
 // MARK: - Generic Error
 
 "errorDefault" = "Quelque chose s'est mal passé";
+"errorTryAgain" = "Réessayer";
 
 // MARK: - Internet Connection Error
 
@@ -58,6 +59,26 @@
 "homeResultsDescription_Success" = "Affichage de %@ de %@ résultats.";
 "homeResultsDescription_TryAgain" = "Veuillez vérifier votre recherche et réessayer pour obtenir des résultats.";
 
-// MARK: - Components
+// MARK: - Brewery Details
 
-"component_tryAgain" = "Réessayer";
+"breweryDetailsTitle" = "Détails de la brasserie";
+"breweryDetails_EstablishmentTitle" = "Type";
+"breweryDetails_WebsiteTitle" = "Site web";
+"breweryDetails_AddressTitle" = "Adresse";
+"breweryDetails_MapsTextLink" = "Voir sur la carte";
+"breweryDetails_RateButton" = "ÉVALUER LA BRASSERIE";
+"breweryDetails_AlreadyRated" = "Vous avez déjà évalué cette brasserie !";
+
+// MARK: - Email
+
+"emailTextExample" = "exemple@courriel.com";
+"emailInvalid" = "Veuillez entrer une adresse e-mail valide";
+
+// MARK: - Brewery Rating
+
+"breweryRatingTitle" = "Évaluez la brasserie %@";
+"breweryButtonTitle" = "ENREGISTRER";
+"successTitle" = "À votre santé !";
+"successDescription" = "Votre évaluation a été ajoutée avec succès !";
+"errorTitle" = "Quelque chose s'est mal passé !";
+"errorDescription" = "Impossible d'ajouter votre évaluation. Veuillez réessayer plus tard.";

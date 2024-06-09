@@ -31,6 +31,7 @@
 // MARK: - Generic Error
 
 "errorDefault" = "Algo deu errado";
+"errorTryAgain" = "Tentar novamente";
 
 // MARK: - Internet Connection Error
 
@@ -59,6 +60,27 @@
 "homeResultsDescription_Success" = "Exibindo %@ de %@ resultados.";
 "homeResultsDescription_TryAgain" = "Por favor, verifique sua pesquisa e tente novamente para obter resultados.";
 
-// MARK: - Components
+// MARK: - Brewery Details
 
-"component_tryAgain" = "Tentar novamente";
+"breweryDetailsTitle" = "Detalhes da cervejaria";
+"breweryDetails_EstablishmentTitle" = "Tipo";
+"breweryDetails_WebsiteTitle" = "Site";
+"breweryDetails_AddressTitle" = "Endereço";
+"breweryDetails_MapsTextLink" = "Ver no mapa";
+"breweryDetails_RateButton" = "AVALIAR CERVEJARIA";
+"breweryDetails_AlreadyRated" = "Você já avaliou essa cervejaria!";
+
+// MARK: - Email
+
+"emailTextExample" = "nome@email.com";
+"emailInvalid" = "Favor inserir um e-mail válido";
+
+// MARK: - Brewery Rating
+
+"breweryRatingTitle" = "Avalie a cervejaria %@";
+"breweryButtonTitle" = "SALVAR";
+"successTitle" = "Um brinde!";
+"successDescription" = "Sua avaliação foi adicionada com sucesso!";
+"errorTitle" = "Algo deu errado!";
+"errorDescription" = "Não foi possivel adicionar sua avaliação.
+Tente mais tarde.";

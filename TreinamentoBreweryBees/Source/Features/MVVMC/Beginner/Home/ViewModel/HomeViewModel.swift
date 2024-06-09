@@ -126,7 +126,7 @@ extension HomeViewModel {
         let errorModel = GenericErrorView.Model(
             titleText: title,
             descriptionText: description,
-            buttonText: TreinamentoBreweryBeesLocalizable.component_tryAgain.localized,
+            buttonText: TreinamentoBreweryBeesLocalizable.errorTryAgain.localized,
             buttonAction: { [weak self] in
                 self?.fetchHomeData()
             }

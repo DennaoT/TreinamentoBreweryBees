@@ -34,6 +34,7 @@ public enum TreinamentoBreweryBeesLocalizable: String {
     // MARK: - Generic Error
 
     case errorDefault
+    case errorTryAgain
 
     // MARK: - Internet Connection Error
 
@@ -61,9 +62,29 @@ public enum TreinamentoBreweryBeesLocalizable: String {
     case homeResultsDescription_Success
     case homeResultsDescription_TryAgain
     
-    // MARK: - Components
+    // MARK: - Brewery Details
     
-    case component_tryAgain
+    case breweryDetailsTitle
+    case breweryDetails_EstablishmentTitle
+    case breweryDetails_WebsiteTitle
+    case breweryDetails_AddressTitle
+    case breweryDetails_MapsTextLink
+    case breweryDetails_RateButton
+    case breweryDetails_AlreadyRated
+    
+    // MARK: - Email
+    
+    case emailTextExample
+    case emailInvalid
+    
+    // MARK: - Brewery Rating
+    
+    case breweryRatingTitle
+    case breweryButtonTitle
+    case successTitle
+    case successDescription
+    case errorTitle
+    case errorDescription
     
     // MARK: - Method
     
