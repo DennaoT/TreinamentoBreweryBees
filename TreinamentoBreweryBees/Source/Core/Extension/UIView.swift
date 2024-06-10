@@ -19,6 +19,12 @@ extension UIView {
         return lineDivisor
     }
     
+    func addSubviews(_ views: UIView...) {
+        views.forEach { subview in
+            addSubview(subview)
+        }
+    }
+    
     func removeSubviews() {
         for subview in subviews {
             subview.removeFromSuperview()

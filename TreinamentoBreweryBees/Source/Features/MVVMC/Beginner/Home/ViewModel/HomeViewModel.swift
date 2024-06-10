@@ -14,6 +14,8 @@ protocol HomeViewModelProtocol {
     
     func fetchHomeData()
     func updateCellsImagesIfNeeded(completion: @escaping IdentifierImagesHandler)
+    
+    func performURL(urlString: String?, flow: UrlTypeFlow)
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -24,13 +26,13 @@ class HomeViewModel: HomeViewModelProtocol {
     
     // MARK: - Private Properties
     
-    private weak var flowDelegate: HomeCoordinatorDelegate?
+    private weak var parentCoordinator: HomeCoordinatorDelegate?
     
     // MARK: - Public Methods
     
-    init(delegate: HomeCoordinatorDelegate?
+    init(coordinator: HomeCoordinatorDelegate?
     ) {
-        self.flowDelegate = delegate
+        self.parentCoordinator = coordinator
     }
     
     func fetchHomeData() {
@@ -64,6 +66,10 @@ class HomeViewModel: HomeViewModelProtocol {
                 }
             }
         }
+    }
+    
+    func performURL(urlString: String?, flow: UrlTypeFlow = .open) {
+        parentCoordinator?.manageUrl(url: urlString, flow: flow)
     }
 }
 

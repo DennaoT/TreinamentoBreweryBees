@@ -7,13 +7,11 @@
 
 import UIKit
 
-typealias TryAgainHandler = () -> Void
-
 protocol HomeCoordinatorDelegate: AnyObject {
     func openNextFlow(_ breweryData: BreweryData?)
-    func openUrl(url urlString: String?)
+    func manageUrl(url urlString: String?, flow: UrlTypeFlow)
     func finishFlowHome()
-    func openError(tryAgainAction: @escaping TryAgainHandler)
+    func openError(tryAgainAction: @escaping ActionHandler)
 }
 
 extension HomeCoordinator: HomeCoordinatorDelegate {
@@ -21,20 +19,25 @@ extension HomeCoordinator: HomeCoordinatorDelegate {
         //Next Coordinator
     }
     
-    func openUrl(url urlString: String?) {
+    func manageUrl(url urlString: String?, flow: UrlTypeFlow) {
         guard let urlString = urlString,
               let url = URL(string: urlString),
               UIApplication.shared.canOpenURL(url) 
         else { return }
         
-        UIApplication.shared.open(url)
+        switch flow {
+        case .open:
+            UIApplication.shared.open(url)
+        case .copy:
+            UIPasteboard.general.url = url
+        }
     }
     
     func finishFlowHome() {
         //Pop current Coordinator
     }
     
-    func openError(tryAgainAction: @escaping TryAgainHandler) {
+    func openError(tryAgainAction: @escaping ActionHandler) {
         //Open Error Screen
     }
 }

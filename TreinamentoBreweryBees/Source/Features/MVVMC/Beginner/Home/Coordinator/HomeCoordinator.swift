@@ -15,7 +15,7 @@ class HomeCoordinator: AppCoordinating {
     }
     
     func start() {
-        let viewModel = HomeViewModel(delegate: self)
+        let viewModel = HomeViewModel(coordinator: self)
         let viewController = HomeViewController.instantiate(viewModel: viewModel)
         
         navigationController.pushViewController(viewController, animated: true)

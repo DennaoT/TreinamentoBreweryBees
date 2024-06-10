@@ -11,6 +11,7 @@
 		0632B2AADE051C11DF7D01DF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC47B1CB80A0F6EE013A9777 /* UIImage.swift */; };
 		0B0A228F2C0A381800F4521B /* BeginnerResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A228E2C0A381800F4521B /* BeginnerResultView.swift */; };
 		0B0A22912C0A396200F4521B /* BeginnerSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A22902C0A396200F4521B /* BeginnerSearchView.swift */; };
+		0B235A582C1752EA005A7182 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B235A572C1752EA005A7182 /* Enums.swift */; };
 		0B8E7FA72C07EDC800959BDC /* BeginnerHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FA62C07EDC800959BDC /* BeginnerHomePresenter.swift */; };
 		0B8E7FAA2C07EDE500959BDC /* BeginnerHomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FA92C07EDE500959BDC /* BeginnerHomeFactory.swift */; };
 		0B8E7FAC2C07EDF600959BDC /* BeginnerHomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E7FAB2C07EDF600959BDC /* BeginnerHomeCoordinator.swift */; };
@@ -78,6 +79,7 @@
 		098034F25D041F13E513B6A6 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		0B0A228E2C0A381800F4521B /* BeginnerResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerResultView.swift; sourceTree = "<group>"; };
 		0B0A22902C0A396200F4521B /* BeginnerSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerSearchView.swift; sourceTree = "<group>"; };
+		0B235A572C1752EA005A7182 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		0B8E7FA62C07EDC800959BDC /* BeginnerHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomePresenter.swift; sourceTree = "<group>"; };
 		0B8E7FA92C07EDE500959BDC /* BeginnerHomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomeFactory.swift; sourceTree = "<group>"; };
 		0B8E7FAB2C07EDF600959BDC /* BeginnerHomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerHomeCoordinator.swift; sourceTree = "<group>"; };
@@ -195,6 +197,14 @@
 				0B0A22902C0A396200F4521B /* BeginnerSearchView.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		0B235A562C1752C2005A7182 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				0B235A572C1752EA005A7182 /* Enums.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		0B8E7F9F2C07E64600959BDC /* VIP */ = {
@@ -411,6 +421,7 @@
 				8BBD60C08A74E64DF168ECF4 /* Operation */,
 				0110A73468B338D3AE368484 /* Logger */,
 				78C09C02EFD079D2D39F72F0 /* Typealias */,
+				0B235A562C1752C2005A7182 /* Enums */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -856,6 +867,7 @@
 				691BEDF3C9FE0532E5545C5C /* BreweryCellView.swift in Sources */,
 				9051D86E1BFEC6F6C1FCF52D /* Bundle.swift in Sources */,
 				EE61B6E8978C539E832C4372 /* CGFloat.swift in Sources */,
+				0B235A582C1752EA005A7182 /* Enums.swift in Sources */,
 				0B8E7FAA2C07EDE500959BDC /* BeginnerHomeFactory.swift in Sources */,
 				0B0A228F2C0A381800F4521B /* BeginnerResultView.swift in Sources */,
 				864023E2650B29D9E30B9564 /* Dynamic.swift in Sources */,

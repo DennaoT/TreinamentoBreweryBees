@@ -37,9 +37,7 @@ public struct BreweryData: Decodable {
     let name: String
     var logo: BreweryLogo?
     let type: String?
-    let rating: String?
-    let numRating: String?
-    //let rate: BreweryRateData?
+    var rating: BreweryRateData
     let address: String
     let website: String
     let description: String?
@@ -50,7 +48,6 @@ public struct BreweryData: Decodable {
         case logo = "brewery_logo"
         case type = "brewery_type"
         case rating = "brewery_rating"
-        case numRating = "brewery_num_rating"
         case address = "brewery_address"
         case website = "brewery_website"
         case description = "brewery_description"
@@ -61,8 +58,7 @@ public struct BreweryData: Decodable {
         name: String,
         logo: BreweryLogo? = nil,
         type: String? = nil,
-        rating: String? = nil,
-        numRating: String? = nil,
+        rating: BreweryRateData,
         address: String,
         website: String,
         description: String? = nil
@@ -72,7 +68,6 @@ public struct BreweryData: Decodable {
         self.logo = logo
         self.type = type
         self.rating = rating
-        self.numRating = numRating
         self.address = address
         self.website = website
         self.description = description
@@ -98,22 +93,22 @@ public struct BreweryLogo: Decodable {
 }
 
 public struct BreweryRateData: Decodable {
-    let rating: String
+    let value: String
     let quantityRating: String?
     var userHasAlreadyRated: Bool
     
     enum CodingKeys: String, CodingKey {
-        case rating = "brewery_rating"
+        case value = "brewery_value_rating"
         case quantityRating = "brewery_num_rating"
         case userHasAlreadyRated
     }
     
     public init(
-        rating: String,
+        value: String,
         quantityRating: String? = nil,
         userHasAlreadyRated: Bool = false
     ) {
-        self.rating = rating
+        self.value = value
         self.quantityRating = quantityRating
         self.userHasAlreadyRated = userHasAlreadyRated
     }

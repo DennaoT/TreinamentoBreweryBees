@@ -18,3 +18,6 @@ public typealias IdentifierImage = (identifier: String, image: UIImage)
 
 // MARK: - Image With Identifier
 public typealias IdentifierImagesHandler = ([IdentifierImage]) -> Void
+
+// MARK: - Url Action Handler
+public typealias UrlActionHandler = (_ urlString: String?, _ flow: UrlTypeFlow) -> Void
