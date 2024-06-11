@@ -59,6 +59,7 @@ class BreweryCellView: UIView {
     // MARK: - Properties
     
     private var model: BreweryData?
+    private var action: ActionHandler?
     
     // MARK: - Public methods
     
@@ -71,14 +72,17 @@ class BreweryCellView: UIView {
     }
     
     deinit {
+        action = nil
         model = nil
     }
     
-    func setup(with model: BreweryData?) {
+    func setup(with model: BreweryData?, action: ActionHandler? = nil) {
         guard let model = model else { return }
         self.model = model
+        self.action = action
         
         buildComponents()
+        setupAction()
     }
     
     func updateIconIfIdentifierMatches(with newModel: BreweryData?) {
@@ -138,7 +142,7 @@ class BreweryCellView: UIView {
         
         ratingView.setup(
             .seeReview(
-                model?.rating,
+                model?.rating.value,
                 showLeftNumber: .showLeftNumber(sizeOfNumberLabel: Constants.ratingHeight)
             )
         )
@@ -153,5 +157,17 @@ class BreweryCellView: UIView {
             make.height.equalTo(Constants.descriptionHeight)
             make.trailing.equalTo(ratingView.snp.leading)
         }
+    }
+    
+    private func setupAction() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
+        isUserInteractionEnabled = true
+        addGestureRecognizer(tap)
+    }
+    
+    @objc
+    private func cellTapped() {
+        guard let action = action else { return }
+        action()
     }
 }

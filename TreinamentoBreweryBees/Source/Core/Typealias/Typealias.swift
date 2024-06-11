@@ -7,11 +7,14 @@
 
 import UIKit
 
-// MARK: - ActionHandler
+// MARK: - Action Handler
 public typealias ActionHandler = () -> Void
 
-// MARK: - TextLinkHandler
+// MARK: - Text Link Handler
 public typealias StringActionHandler = (_ value: String) -> Void
+
+// MARK: - Model Handler
+public typealias ModelHandler = (_ model: Decodable) -> Void
 
 // MARK: - Image With Identifier
 public typealias IdentifierImage = (identifier: String, image: UIImage)

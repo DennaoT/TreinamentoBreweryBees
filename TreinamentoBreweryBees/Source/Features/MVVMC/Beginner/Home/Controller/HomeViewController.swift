@@ -13,11 +13,14 @@ class HomeViewController: UIViewController {
     // MARK: - Enums
     
     private enum Constants {
-        static let navigationBarElementsColor = UIColor(asset: BreweryBeesAssets.Colors.beesThemeColor)
+        static let mainThemeColor = UIColor(asset: BreweryBeesAssets.Colors.beesThemeColor)
+        static let backViewColor = UIColor(asset: BreweryBeesAssets.Colors.beesSoftSilverColor)
         static let navigationBarColor: UIColor = .black
         static let searchViewHeight: CGFloat = 240
         static let defaultSpacing: CGFloat = .measurement(.small)
         static let errorBottomSpacing: CGFloat = 50
+        static let cirqueSpacing: CGFloat =  120
+        static let valueDivisor: Int = 2
     }
     
     private enum Images {
@@ -29,6 +32,23 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
+    private lazy var backgroundGrayView: UIView = {
+        let backgroundView = UIView()
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.backgroundColor = Constants.backViewColor
+        backgroundView.clipsToBounds = true
+        return backgroundView
+    }()
+    
+    private lazy var topCircleView: UIView = {
+        let backgroundView = UIView()
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.backgroundColor = Constants.mainThemeColor
+        backgroundView.layer.masksToBounds = false
+        return backgroundView
+    }()
+    
+    private var detailsView: HomePopupDetailsView?
     private var searchView: HomeSearchView?
     private var resultView: HomeResultView?
     private var screenError: GenericErrorView?
@@ -69,6 +89,7 @@ class HomeViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
+        detailsView = nil
         screenError = nil
         searchView = nil
         resultView = nil
@@ -79,6 +100,8 @@ class HomeViewController: UIViewController {
     
     private func setupViews() {
         setupNavBar()
+        setupBackground()
+        
         setupSearch()
         setupResult()
         setupError()
@@ -96,7 +119,12 @@ class HomeViewController: UIViewController {
                 switch status {
                 case .success(let model):
                     self.searchView?.setup(delegate: self)
-                    self.resultView?.setup(with: HomeResultView.Model(breweriesList: model?.breweriesList))
+                    self.resultView?.setup(
+                        with: HomeResultView.Model(breweriesList: model?.breweriesList),
+                        selectCellAction: { breweryModel in
+                            self.setupDetails(breweryModel: breweryModel as? BreweryData)
+                        }
+                    )
                     self.stopLoading()
                 case .error(let model):
                     self.screenError?.setup(with: model)
@@ -124,8 +152,8 @@ extension HomeViewController {
         navigationItem.title = TreinamentoBreweryBeesLocalizable.homeNavigationTitle.localized
         
         navigationController?.navigationBar.barTintColor = Constants.navigationBarColor
-        navigationController?.navigationBar.tintColor = Constants.navigationBarElementsColor
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Constants.navigationBarElementsColor]
+        navigationController?.navigationBar.tintColor = Constants.mainThemeColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Constants.mainThemeColor]
         
         let optionBeer = UIBarButtonItem(image: Images.beerYellow, style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem = optionBeer
@@ -139,17 +167,42 @@ extension HomeViewController {
     }
 }
 
+// MARK: - Setup Background Views
+
+extension HomeViewController {
+    private func setupBackground() {
+        view.addSubview(backgroundGrayView)
+        backgroundGrayView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        backgroundGrayView.addSubview(topCircleView)
+        
+        let screenWidth = (UIScreen.main.bounds.width) + (Constants.cirqueSpacing * CGFloat(Constants.valueDivisor))
+        
+        topCircleView.snp.makeConstraints { make in
+            make.height.equalTo(screenWidth)
+            make.leading.equalToSuperview().inset(-Constants.cirqueSpacing)
+            make.trailing.equalToSuperview().inset(-Constants.cirqueSpacing)
+            make.bottom.equalTo(backgroundGrayView.snp.top).inset(Constants.searchViewHeight)
+            make.centerX.equalToSuperview()
+        }
+        
+        topCircleView.layer.cornerRadius = screenWidth / CGFloat(Constants.valueDivisor)
+    }
+}
+
 // MARK: - Setup Views
 
 extension HomeViewController {
     private func setupSearch() {
         guard let searchView = searchView else { return }
         
-        view.addSubview(searchView)
+        backgroundGrayView.addSubview(searchView)
         searchView.snp.makeConstraints { make in
             make.height.equalTo(Constants.searchViewHeight)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.equalToSuperview()
+            make.top.leading.trailing.equalToSuperview()
         }
     }
     
@@ -157,7 +210,7 @@ extension HomeViewController {
         guard let resultView = resultView, let searchViewBottom = searchView?.snp.bottom
         else { return }
         
-        view.addSubview(resultView)
+        backgroundGrayView.addSubview(resultView)
         resultView.snp.makeConstraints { make in
             make.top.equalTo(searchViewBottom)
             make.leading.trailing.bottom.equalToSuperview()
@@ -166,11 +219,25 @@ extension HomeViewController {
     
     private func setupError() {
         guard let screenError = screenError else { return }
-        view.addSubview(screenError)
+        backgroundGrayView.addSubview(screenError)
         screenError.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(Constants.defaultSpacing)
+            $0.top.equalToSuperview().inset(Constants.defaultSpacing)
             $0.leading.trailing.equalToSuperview().inset(Constants.defaultSpacing)
             $0.bottom.equalToSuperview().inset(Constants.errorBottomSpacing)
+        }
+    }
+    
+    private func setupDetails(breweryModel: BreweryData?) {
+        viewModel?.prepareNextFlow(data: breweryModel) { [weak self] detailsModel in
+            guard let self = self else { return }
+            self.detailsView = HomePopupDetailsView()
+            self.detailsView?.setup(with: detailsModel)
+        }
+        
+        guard let detailsView = detailsView else { return }
+        backgroundGrayView.addSubview(detailsView)
+        detailsView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
 }

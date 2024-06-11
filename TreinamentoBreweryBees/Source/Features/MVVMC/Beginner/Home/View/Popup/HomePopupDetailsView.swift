@@ -212,7 +212,7 @@ class HomePopupDetailsView: UIView {
         model = nil
     }
     
-    func setup(with model: HomePopupDetailsView.Model) {
+    func setup(with model: HomePopupDetailsView.Model?) {
         self.model = model
         
         buildComponents()
@@ -221,8 +221,6 @@ class HomePopupDetailsView: UIView {
     // MARK: - Private methods
     
     private func buildComponents() {
-        guard let model = model else { return }
-        
         setupShadowView()
         setupMainView()
     }

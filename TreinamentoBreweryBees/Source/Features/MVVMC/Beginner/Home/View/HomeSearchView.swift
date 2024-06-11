@@ -39,7 +39,6 @@ class HomeSearchView: UIView {
     
     private enum Constants {
         static let shadowColor: UIColor = .lightGray.withAlphaComponent(0.3)
-        static let backViewColor = UIColor(asset: BreweryBeesAssets.Colors.beesSoftSilverColor)
         static let mainViewColor = UIColor(asset: BreweryBeesAssets.Colors.beesThemeColor)
         static let searchBarRadius: CGFloat = 2
         static let shadowSearchBarRadius: CGFloat = .measurement(.nano)
@@ -53,7 +52,6 @@ class HomeSearchView: UIView {
         static let searchDescriptionColor: UIColor = .black
         static let searchDescriptionHeight: CGFloat = .measurement(.initialMedium)
         static let searchContainerHeight: CGFloat = .measurement(.xBig)
-        static let cirqueSpacing: CGFloat =  120
     }
     
     // MARK: - Views
@@ -131,32 +129,13 @@ class HomeSearchView: UIView {
     // MARK: - Private methods
     
     private func buildComponents() {
-        buildMain()
         buildTitle()
         buildSearchBar()
     }
     
-    private func buildMain() {
-        self.clipsToBounds = true
-        self.backgroundColor = Constants.backViewColor
-        self.addSubview(backgroundView)
-        
-        let screenWidth = (UIScreen.main.bounds.width) + (Constants.cirqueSpacing * CGFloat(Constants.valueTwo))
-        
-        backgroundView.snp.makeConstraints {
-            $0.height.equalTo(screenWidth)
-            $0.leading.equalToSuperview().inset(-Constants.cirqueSpacing)
-            $0.trailing.equalToSuperview().inset(-Constants.cirqueSpacing)
-            $0.bottom.equalToSuperview()
-            $0.centerX.equalToSuperview()
-        }
-        
-        backgroundView.layer.cornerRadius = screenWidth / CGFloat(Constants.valueTwo)
-    }
-    
     private func buildTitle() {
         titleLabel.text = model?.titleText
-        self.addSubview(titleLabel)
+        addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(Constants.spacingTop)
             $0.height.equalTo(Constants.titleContainerHeight)
@@ -165,7 +144,7 @@ class HomeSearchView: UIView {
     }
     
     private func buildSearchBar() {
-        self.addSubview(searchBarShadow)
+        addSubview(searchBarShadow)
         searchBarShadow.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(Constants.spacingElements)
             $0.height.equalTo(Constants.searchContainerHeight)

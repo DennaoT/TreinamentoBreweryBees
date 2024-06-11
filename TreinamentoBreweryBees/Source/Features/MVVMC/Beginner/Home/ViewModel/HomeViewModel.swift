@@ -15,7 +15,7 @@ protocol HomeViewModelProtocol {
     func fetchHomeData()
     func updateCellsImagesIfNeeded(completion: @escaping IdentifierImagesHandler)
     
-    func performURL(urlString: String?, flow: UrlTypeFlow)
+    func prepareNextFlow(data: BreweryData?, completion: @escaping (HomePopupDetailsView.Model?) -> Void)
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -68,8 +68,14 @@ class HomeViewModel: HomeViewModelProtocol {
         }
     }
     
-    func performURL(urlString: String?, flow: UrlTypeFlow = .open) {
-        parentCoordinator?.manageUrl(url: urlString, flow: flow)
+    func prepareNextFlow(data: BreweryData?, completion: @escaping (HomePopupDetailsView.Model?) -> Void) {
+        let detailsModel = HomePopupDetailsView.Model(breweryData: data) {
+            //Ação quando clicado no botão de AVALIAR
+            print("Click botão  - AVALIAR -")
+        } urlAction: { [weak self] urlString, flow in
+            self?.parentCoordinator?.manageUrl(url: urlString, flow: flow)
+        }
+        completion(detailsModel)
     }
 }
 

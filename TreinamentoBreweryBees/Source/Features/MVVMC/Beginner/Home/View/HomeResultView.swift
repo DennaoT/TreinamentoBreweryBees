@@ -39,7 +39,6 @@ class HomeResultView: UIView {
     }
     
     private enum Constants {
-        static let mainViewColor = UIColor(asset: BreweryBeesAssets.Colors.beesSoftSilverColor)
         static let stackWidthPerc: CGFloat = 0.9
         static let titleColor: UIColor = .black
         static let titleHeight: CGFloat = 23
@@ -108,6 +107,7 @@ class HomeResultView: UIView {
     
     private var breweriesCells: [BreweryCellView] = []
     private var resultScreen: ResultScreenType = .emptySearch
+    private var selectCellAction: ModelHandler?
     private var model: HomeResultView.Model?
     
     // MARK: - Public methods
@@ -126,9 +126,10 @@ class HomeResultView: UIView {
         model = nil
     }
     
-    func setup(with model: HomeResultView.Model?) {
+    func setup(with model: HomeResultView.Model?, selectCellAction: ModelHandler? = nil) {
         guard let model = model else { return }
         self.model = model
+        self.selectCellAction = selectCellAction
         
         buildComponents()
     }
@@ -161,8 +162,6 @@ class HomeResultView: UIView {
     
     private func buildComponents() {
         guard let flowType = model?.resultFlowType else { return }
-        
-        backgroundColor = Constants.mainViewColor
         
         titleLabel.text = TreinamentoBreweryBeesLocalizable.homeResultsTitle_EmptySearch.localized
         addSubview(titleLabel)
@@ -326,7 +325,9 @@ class HomeResultView: UIView {
             
             if nameMatches || descriptionMatches || addressMatches || typeMatches || websiteMatches {
                 let breweryCell = BreweryCellView()
-                breweryCell.setup(with: breweryData)
+                breweryCell.setup(with: breweryData) { [weak self] in
+                    self?.selectCellAction?(breweryData)
+                }
                 breweriesCells.append(breweryCell)
             }
         }
