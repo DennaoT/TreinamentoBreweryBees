@@ -21,6 +21,8 @@ class HomeViewController: UIViewController {
         static let errorBottomSpacing: CGFloat = 50
         static let cirqueSpacing: CGFloat =  120
         static let valueDivisor: Int = 2
+        static let detailsViewIsModal: Bool = true
+        static let detailsViewTopSpacing: CGFloat = .measurement(.large)
     }
     
     private enum Images {
@@ -230,14 +232,45 @@ extension HomeViewController {
     private func setupDetails(breweryModel: BreweryData?) {
         viewModel?.prepareNextFlow(data: breweryModel) { [weak self] detailsModel in
             guard let self = self else { return }
+            detailsView = HomePopupDetailsView()
+            detailsView?.setup(with: detailsModel, isModal: Constants.detailsViewIsModal)
+        }
+        
+        guard let detailsView = detailsView else { return }
+        
+        backgroundGrayView.addSubview(detailsView)
+        
+        guard Constants.detailsViewIsModal else { return }
+        
+        UIView.transition(with: self.backgroundGrayView, duration: 0.5, options: .layoutSubviews, animations: {
+            detailsView.snp.makeConstraints { make in
+                if Constants.detailsViewIsModal {
+                    make.top.equalToSuperview().offset(Constants.detailsViewTopSpacing)
+                    make.centerX.equalToSuperview()
+                } else {
+                    make.edges.equalToSuperview()
+                }
+            }
+            self.backgroundGrayView.layoutIfNeeded()
+        })
+    }
+    
+    private func OLDsetupDetails(breweryModel: BreweryData?) {
+        viewModel?.prepareNextFlow(data: breweryModel) { [weak self] detailsModel in
+            guard let self = self else { return }
             self.detailsView = HomePopupDetailsView()
-            self.detailsView?.setup(with: detailsModel)
+            self.detailsView?.setup(with: detailsModel, isModal: Constants.detailsViewIsModal)
         }
         
         guard let detailsView = detailsView else { return }
         backgroundGrayView.addSubview(detailsView)
         detailsView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            if Constants.detailsViewIsModal {
+                make.centerX.equalToSuperview()
+                make.top.equalToSuperview().offset(Constants.detailsViewTopSpacing)
+            } else {
+                make.edges.equalToSuperview()
+            }
         }
     }
 }

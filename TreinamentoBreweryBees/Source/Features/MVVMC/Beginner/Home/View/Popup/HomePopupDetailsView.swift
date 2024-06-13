@@ -31,17 +31,25 @@ class HomePopupDetailsView: UIView {
     // MARK: - Enums
     
     private enum Constants {
-        static let shadowColor: UIColor = .lightGray.withAlphaComponent(0.3)
-        static let shadowRadius: CGFloat = .measurement(.nano)
+        static let shadowColor: UIColor = .black.withAlphaComponent(0.2)
+        static let shadowRadius: CGFloat = .measurement(.initialMedium)
         static let mainViewColor: UIColor = .white
+        static let mainLeading : CGFloat = 3
+        static let mainTrailing : CGFloat = 2.2
+        static let mainBottom: CGFloat = 4.1
+        static let smallSpacing: CGFloat = .measurement(.nano)
         static let defaultSpacing: CGFloat = .measurement(.small)
-        static let titleHeight: CGFloat = .measurement(.small)
+        static let nameTitleHeight: CGFloat = .measurement(.big)
+        static let topicTitleHeight: CGFloat = .measurement(.initialMedium)
+        static let ratingHeight: CGFloat = .measurement(.smaller)
         static let titleNumOfLines: Int = 2
         static let alreadyRatedTitleColor: UIColor = .init(hex: "#03AD00")
         static let verticalSpacing: CGFloat = .measurement(.big)
-        static let breweryIconSize: CGFloat = .measurement(.xLarge)
+        static let breweryIconSize: CGFloat = .measurement(.giga)
         static let buttonEvaluateColor = UIColor(asset: BreweryBeesAssets.Colors.beesThemeColor)
         static let buttonEvaluateRadius: CGFloat = .measurement(.extraSmall)
+        static let modalHeight: CGFloat = UIScreen.main.bounds.height * 0.7
+        static let modalWidth: CGFloat = UIScreen.main.bounds.width - ((16 - (mainLeading + mainTrailing)) * 2)
     }
     
     // MARK: - Views
@@ -57,7 +65,8 @@ class HomePopupDetailsView: UIView {
         let stackView = UIStackView()
         stackView.alignment = .center
         stackView.axis = .vertical
-        stackView.spacing = Constants.defaultSpacing
+        stackView.distribution = .fillProportionally
+        stackView.spacing = Constants.smallSpacing
         return stackView
     }()
     
@@ -87,7 +96,7 @@ class HomePopupDetailsView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
-        label.font = .boldSystemFont(ofSize: Constants.titleHeight)
+        label.font = .boldSystemFont(ofSize: Constants.nameTitleHeight)
         label.textAlignment = .left
         label.contentMode = .scaleAspectFit
         label.numberOfLines = Constants.titleNumOfLines
@@ -100,7 +109,7 @@ class HomePopupDetailsView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .lightGray
-        label.font = .boldSystemFont(ofSize: Constants.titleHeight)
+        label.font = .systemFont(ofSize: Constants.ratingHeight, weight: .thin)
         label.textAlignment = .left
         label.contentMode = .scaleAspectFit
         label.numberOfLines = .zero
@@ -110,13 +119,13 @@ class HomePopupDetailsView: UIView {
     private lazy var establishmentTitle: UILabel = {
         .getTitleSectionValues(
             text: TreinamentoBreweryBeesLocalizable.breweryDetails_EstablishmentTitle.localized,
-            height: Constants.titleHeight
+            height: Constants.topicTitleHeight
         )
     }()
     
     private lazy var establishmentValue: UILabel = {
         .getTitleSectionValues(
-            height: Constants.titleHeight,
+            height: Constants.topicTitleHeight,
             isBold: false,
             alignment: .right
         )
@@ -125,13 +134,13 @@ class HomePopupDetailsView: UIView {
     private lazy var websiteTitle: UILabel = {
         .getTitleSectionValues(
             text: TreinamentoBreweryBeesLocalizable.breweryDetails_WebsiteTitle.localized,
-            height: Constants.titleHeight
+            height: Constants.topicTitleHeight
         )
     }()
     
     private lazy var websiteValue: UILabel = {
         .getTitleSectionValues(
-            height: Constants.titleHeight,
+            height: Constants.topicTitleHeight,
             isBold: false,
             alignment: .right
         )
@@ -140,13 +149,13 @@ class HomePopupDetailsView: UIView {
     private lazy var addressTitle: UILabel = {
         .getTitleSectionValues(
             text: TreinamentoBreweryBeesLocalizable.breweryDetails_AddressTitle.localized,
-            height: Constants.titleHeight
+            height: Constants.topicTitleHeight
         )
     }()
     
     private lazy var addressValue: UILabel = {
         .getTitleSectionValues(
-            height: Constants.titleHeight,
+            height: Constants.topicTitleHeight,
             isBold: false,
             alignment: .right
         )
@@ -162,7 +171,7 @@ class HomePopupDetailsView: UIView {
     private lazy var mapsTitle: UILabel = {
         .getTitleSectionValues(
             text: TreinamentoBreweryBeesLocalizable.breweryDetails_MapsTextLink.localized,
-            height: Constants.titleHeight
+            height: Constants.topicTitleHeight
         )
     }()
     
@@ -178,7 +187,7 @@ class HomePopupDetailsView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.alreadyRatedTitleColor
-        label.font = .boldSystemFont(ofSize: Constants.titleHeight)
+        label.font = .boldSystemFont(ofSize: Constants.topicTitleHeight)
         label.textAlignment = .center
         label.contentMode = .scaleAspectFit
         label.numberOfLines = .zero
@@ -196,6 +205,7 @@ class HomePopupDetailsView: UIView {
     
     // MARK: - Properties
     
+    private var isModal: Bool = false
     private var model: HomePopupDetailsView.Model?
     
     // MARK: - Public methods
@@ -212,8 +222,9 @@ class HomePopupDetailsView: UIView {
         model = nil
     }
     
-    func setup(with model: HomePopupDetailsView.Model?) {
+    func setup(with model: HomePopupDetailsView.Model?, isModal: Bool = false) {
         self.model = model
+        self.isModal = isModal
         
         buildComponents()
     }
@@ -223,19 +234,32 @@ class HomePopupDetailsView: UIView {
     private func buildComponents() {
         setupShadowView()
         setupMainView()
+        setupTopSection()
+        setupMiddleSection()
+        setupBottomSection()
     }
     
     private func setupShadowView() {
         backgroundColor = Constants.shadowColor
-        layer.cornerRadius = Constants.shadowRadius
+        layer.cornerRadius = isModal ? Constants.shadowRadius : .zero
+        
+        guard isModal else { return }
+        
+        mainView.layer.cornerRadius = Constants.shadowRadius
+        
+        snp.makeConstraints { make in
+            make.height.equalTo(Constants.modalHeight)
+            make.width.equalTo(Constants.modalWidth)
+        }
     }
     
     private func setupMainView() {
         addSubview(mainView)
         mainView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(1.5)
-            make.bottom.equalToSuperview().inset(3.5)
+            make.leading.equalToSuperview().inset(Constants.mainLeading)
+            make.trailing.equalToSuperview().inset(Constants.mainTrailing)
+            make.bottom.equalToSuperview().inset(Constants.mainBottom)
         }
     }
     
@@ -253,6 +277,7 @@ class HomePopupDetailsView: UIView {
         breweryIcon.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(22)
             make.leading.equalToSuperview().inset(32)
+            make.size.equalTo(Constants.breweryIconSize)
         }
         
         mainView.addSubview(topCornerStack)
@@ -288,7 +313,12 @@ class HomePopupDetailsView: UIView {
               let addressText = model?.breweryData?.address
         else { return }
         
-        addSubview(middleStack)
+        mainView.addSubview(middleStack)
+        
+        middleStack.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(Constants.defaultSpacing)
+            make.top.equalTo(topCornerStack.snp.bottom).offset(Constants.defaultSpacing)
+        }
         
         establishmentValue.text = establishmentText
         createEachMiddleSection(topic: establishmentTitle, value: establishmentValue)
@@ -307,22 +337,24 @@ class HomePopupDetailsView: UIView {
     ) {
         let seactionView = UIView()
         seactionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        middleStack.addArrangedSubview(seactionView)
         seactionView.snp.makeConstraints { make in
             make.height.equalTo(insertMap ? (32.0 * 2.8) : 32.0)
+            make.leading.trailing.equalToSuperview()
         }
-        middleStack.addArrangedSubview(seactionView)
+        
         seactionView.addSubviews(topic, value)
         topic.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview()
-            make.width.equalTo(70.0)
+            make.width.equalTo(90.0)
         }
         value.snp.makeConstraints { make in
             make.trailing.top.bottom.equalToSuperview()
-            make.leading.equalTo(topic.snp.trailing).inset(8.0)
+            make.leading.equalTo(topic.snp.trailing).offset(8.0)
         }
         
-        guard insertMap,
-              let mapsAction = model?.urlAction
+        guard insertMap
         else {
             middleStack.addArrangedSubview(.getLineDivisor())
             return
@@ -337,7 +369,7 @@ class HomePopupDetailsView: UIView {
         mapsTitle.snp.makeConstraints { make in
             make.top.equalTo(value.snp.bottom).inset(4.0)
             make.trailing.bottom.equalToSuperview()
-            make.leading.equalTo(topic.snp.trailing).inset(8.0)
+            make.leading.equalTo(topic.snp.trailing).offset(8.0)
         }
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(setupWebsiteURL(_:)))
@@ -419,7 +451,7 @@ extension UILabel {
         label.textColor = .black
         label.font = isBold ?
             .boldSystemFont(ofSize: height) : 
-            .systemFont(ofSize: height)
+            .systemFont(ofSize: height, weight: .thin)
         label.textAlignment = alignment
         label.contentMode = .scaleAspectFit
         label.numberOfLines = 2
