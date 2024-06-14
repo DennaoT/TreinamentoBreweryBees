@@ -26,7 +26,7 @@ class HomeViewModel: HomeViewModelProtocol {
     
     // MARK: - Private Properties
     
-    private weak var parentCoordinator: HomeCoordinatorDelegate?
+    private var parentCoordinator: HomeCoordinatorDelegate?
     
     // MARK: - Public Methods
     
@@ -72,9 +72,14 @@ class HomeViewModel: HomeViewModelProtocol {
         let detailsModel = HomePopupDetailsView.Model(breweryData: data) {
             //Ação quando clicado no botão de AVALIAR
             print("Click botão  - AVALIAR -")
+        } mapsAction: { [weak self] location in
+            guard let self = self else { return }
+            self.parentCoordinator?.performMaps(location: location)
         } urlAction: { [weak self] urlString, flow in
-            self?.parentCoordinator?.manageUrl(url: urlString, flow: flow)
+            guard let self = self else { return }
+            self.parentCoordinator?.performUrl(url: urlString, flow: flow)
         }
+        
         completion(detailsModel)
     }
 }

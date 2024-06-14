@@ -68,6 +68,8 @@
 "breweryDetails_AddressTitle" = "Endereço";
 "breweryDetails_MapsTextLink" = "Ver no mapa";
 "breweryDetails_RateButton" = "AVALIAR CERVEJARIA";
+"breweryDetails_RateQuantity" = "%@ avaliações";
+"breweryDetails_RateQuantityMoreThan" = "+ de %@ avaliações";
 "breweryDetails_AlreadyRated" = "Você já avaliou essa cervejaria!";
 
 // MARK: - Email

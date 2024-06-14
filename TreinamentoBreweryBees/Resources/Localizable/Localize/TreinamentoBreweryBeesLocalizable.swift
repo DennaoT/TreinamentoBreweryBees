@@ -70,6 +70,8 @@ public enum TreinamentoBreweryBeesLocalizable: String {
     case breweryDetails_AddressTitle
     case breweryDetails_MapsTextLink
     case breweryDetails_RateButton
+    case breweryDetails_RateQuantity
+    case breweryDetails_RateQuantityMoreThan
     case breweryDetails_AlreadyRated
     
     // MARK: - Email

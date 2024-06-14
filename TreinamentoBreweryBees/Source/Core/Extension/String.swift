@@ -58,7 +58,7 @@ public extension String {
     }
     
     static func getFormatURL(_ fullURL: String?, removeSufix: Bool = false) -> String? {
-        let prefixesToRemove = ["https://", "http://", "www/"]
+        let prefixesToRemove = ["https://", "http://", "www/", "www."]
 
         var host = fullURL
         for prefix in prefixesToRemove {

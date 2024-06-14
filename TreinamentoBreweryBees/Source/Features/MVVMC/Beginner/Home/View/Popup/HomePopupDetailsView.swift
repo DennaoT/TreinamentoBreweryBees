@@ -10,20 +10,26 @@ import SnapKit
 
 class HomePopupDetailsView: UIView {
     
+    // MARK: - Action Handler
+    private typealias QuantityRating = (roundedNumber: CGFloat, isMultipleOfHundred: Bool)
+    
     // MARK: - Model
     
     struct Model {
         let breweryData: BreweryData?
         let evaluateAction: ActionHandler?
+        let mapsAction: StringActionHandler?
         let urlAction: UrlActionHandler?
         
         public init(
             breweryData: BreweryData?,
             evaluateAction: ActionHandler? = nil,
+            mapsAction: StringActionHandler? = nil,
             urlAction: UrlActionHandler? = nil
         ) {
             self.breweryData = breweryData
             self.evaluateAction = evaluateAction
+            self.mapsAction = mapsAction
             self.urlAction = urlAction
         }
     }
@@ -34,17 +40,18 @@ class HomePopupDetailsView: UIView {
         static let shadowColor: UIColor = .black.withAlphaComponent(0.2)
         static let shadowRadius: CGFloat = .measurement(.initialMedium)
         static let mainViewColor: UIColor = .white
+        static let quantityTextColor: UIColor = .init(hex: "#A5A5A5")
         static let mainLeading : CGFloat = 3
         static let mainTrailing : CGFloat = 2.2
         static let mainBottom: CGFloat = 4.1
         static let smallSpacing: CGFloat = .measurement(.nano)
         static let defaultSpacing: CGFloat = .measurement(.small)
-        static let nameTitleHeight: CGFloat = .measurement(.big)
+        static let nameTitleHeight: CGFloat = 28.0
         static let topicTitleHeight: CGFloat = .measurement(.initialMedium)
         static let ratingHeight: CGFloat = .measurement(.smaller)
         static let titleNumOfLines: Int = 2
         static let alreadyRatedTitleColor: UIColor = .init(hex: "#03AD00")
-        static let verticalSpacing: CGFloat = .measurement(.big)
+        static let verticalSpacing: CGFloat = .measurement(.large)
         static let breweryIconSize: CGFloat = .measurement(.giga)
         static let buttonEvaluateColor = UIColor(asset: BreweryBeesAssets.Colors.beesThemeColor)
         static let buttonEvaluateRadius: CGFloat = .measurement(.extraSmall)
@@ -108,7 +115,7 @@ class HomePopupDetailsView: UIView {
     private lazy var quantityRating: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .lightGray
+        label.textColor = Constants.quantityTextColor
         label.font = .systemFont(ofSize: Constants.ratingHeight, weight: .thin)
         label.textAlignment = .left
         label.contentMode = .scaleAspectFit
@@ -139,11 +146,18 @@ class HomePopupDetailsView: UIView {
     }()
     
     private lazy var websiteValue: UILabel = {
-        .getTitleSectionValues(
+        let label: UILabel
+        label = .getTitleSectionValues(
             height: Constants.topicTitleHeight,
             isBold: false,
             alignment: .right
         )
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(actionWebsiteURL(_:)))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
+        
+        return label
     }()
     
     private lazy var addressTitle: UILabel = {
@@ -165,14 +179,26 @@ class HomePopupDetailsView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(asset: BreweryBeesAssets.Icons.beesMapIcon)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(actionMaps))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tap)
+        
         return imageView
     }()
     
     private lazy var mapsTitle: UILabel = {
-        .getTitleSectionValues(
+        let label: UILabel
+        label = .getTitleSectionValues(
             text: TreinamentoBreweryBeesLocalizable.breweryDetails_MapsTextLink.localized,
             height: Constants.topicTitleHeight
         )
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(actionMaps))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
+        
+        return label
     }()
     
     private lazy var alreadyRatedIcon: UIImageView = {
@@ -200,6 +226,7 @@ class HomePopupDetailsView: UIView {
         button.backgroundColor = Constants.buttonEvaluateColor
         button.layer.cornerRadius = Constants.buttonEvaluateRadius
         button.setTitle(TreinamentoBreweryBeesLocalizable.breweryDetails_RateButton.localized, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         return button
     }()
     
@@ -265,7 +292,8 @@ class HomePopupDetailsView: UIView {
     
     private func setupTopSection() {
         guard let breweryTitle = model?.breweryData?.name,
-              let numRating = model?.breweryData?.rating.quantityRating
+              let numRating = model?.breweryData?.rating.quantityRating,
+              let numRating = Double(numRating)
         else { return }
         
         breweryIcon.setup(
@@ -287,7 +315,13 @@ class HomePopupDetailsView: UIView {
         }
         
         titleLabel.text = breweryTitle
-        quantityRating.text = numRating
+        
+        let displayQuantityRating: QuantityRating = roundRatingNumberAndCheck(CGFloat(numRating))
+        
+        quantityRating.text =
+        displayQuantityRating.isMultipleOfHundred
+        ? String(format: TreinamentoBreweryBeesLocalizable.breweryDetails_RateQuantity.localized, numRating)
+        : String(format: TreinamentoBreweryBeesLocalizable.breweryDetails_RateQuantityMoreThan.localized, String(describing: displayQuantityRating.roundedNumber.formatted()))
         
         topCornerStack.addArrangedSubviews(titleLabel, ratingView, quantityRating)
         
@@ -317,13 +351,13 @@ class HomePopupDetailsView: UIView {
         
         middleStack.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(Constants.defaultSpacing)
-            make.top.equalTo(topCornerStack.snp.bottom).offset(Constants.defaultSpacing)
+            make.top.equalTo(topCornerStack.snp.bottom).offset(Constants.verticalSpacing).priority(.medium)
         }
         
         establishmentValue.text = establishmentText
         createEachMiddleSection(topic: establishmentTitle, value: establishmentValue)
         
-        websiteValue.text = websiteText
+        websiteValue.text = .getFormatURL(websiteText, removeSufix: true)
         createEachMiddleSection(topic: websiteTitle, value: websiteValue)
         
         addressValue.text = addressText
@@ -340,61 +374,53 @@ class HomePopupDetailsView: UIView {
         
         middleStack.addArrangedSubview(seactionView)
         seactionView.snp.makeConstraints { make in
-            make.height.equalTo(insertMap ? (32.0 * 2.8) : 32.0)
+            make.height.equalTo(insertMap ? (32.0 * 3) : 32.0)
             make.leading.trailing.equalToSuperview()
         }
         
         seactionView.addSubviews(topic, value)
         topic.snp.makeConstraints { make in
-            make.leading.top.bottom.equalToSuperview()
+            make.leading.top.equalToSuperview()
             make.width.equalTo(90.0)
+            //make.height.equalTo(32.0)
         }
         value.snp.makeConstraints { make in
-            make.trailing.top.bottom.equalToSuperview()
+            make.trailing.top.equalToSuperview()
             make.leading.equalTo(topic.snp.trailing).offset(8.0)
         }
         
-        guard insertMap
-        else {
-            middleStack.addArrangedSubview(.getLineDivisor())
-            return
+        let lineDivisor: UIView = .getLineDivisor()
+        middleStack.addArrangedSubview(lineDivisor)
+        lineDivisor.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
         }
+        
+        guard insertMap else { return }
         
         seactionView.addSubviews(mapsIcon, mapsTitle)
         mapsIcon.snp.makeConstraints { make in
-            make.top.equalTo(value.snp.bottom).inset(4.0)
+            make.height.equalTo(28.0)
             make.leading.bottom.equalToSuperview()
-            make.width.equalTo(70.0)
+            make.width.equalTo(28.0)
         }
         mapsTitle.snp.makeConstraints { make in
-            make.top.equalTo(value.snp.bottom).inset(4.0)
-            make.trailing.bottom.equalToSuperview()
-            make.leading.equalTo(topic.snp.trailing).offset(8.0)
+            make.height.equalTo(28.0)
+            make.bottom.equalToSuperview()
+            make.leading.equalTo(mapsIcon.snp.trailing).offset(8.0)
         }
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(setupWebsiteURL(_:)))
-        mapsIcon.isUserInteractionEnabled = true
-        mapsTitle.isUserInteractionEnabled = true
-        mapsIcon.addGestureRecognizer(tap)
-        mapsTitle.addGestureRecognizer(tap)
-        
-        middleStack.addArrangedSubview(.getLineDivisor())
     }
     
     private func setupBottomSection() {
         guard let breweryData = model?.breweryData,
               breweryData.rating.userHasAlreadyRated
         else {
-            evaluateButton.addTarget(self, action: #selector(buttonEvaluate), for: .touchUpInside)
+            evaluateButton.addTarget(self, action: #selector(actionButtonEvaluate), for: .touchUpInside)
             mainView.addSubview(evaluateButton)
             
             evaluateButton.snp.makeConstraints { make in
-                if let lastViewBottom = mainView.subviews.last?.snp.bottom {
-                    make.top.equalTo(lastViewBottom)
-                    make.leading.trailing.bottom.equalToSuperview()
-                    make.height.equalTo(70)
-                    make.width.equalTo(260)
-                }
+                make.height.equalTo(52)
+                make.leading.trailing.equalToSuperview().inset(40)
+                make.bottom.equalToSuperview().inset(28)
             }
             return
         }
@@ -413,13 +439,13 @@ class HomePopupDetailsView: UIView {
                 make.trailing.bottom.equalToSuperview()
                 make.height.equalTo(alreadyRatedIcon.snp.height)
                 make.leading.equalTo(alreadyRatedIcon.snp.trailing)
-//                make.width.equalTo(220)
+                //                make.width.equalTo(220)
             }
         }
     }
     
     @objc
-    private func setupWebsiteURL(_ sender: UITapGestureRecognizer) {
+    private func actionWebsiteURL(_ sender: UITapGestureRecognizer) {
         guard sender.numberOfTouchesRequired == 1,
               let action = model?.urlAction
         else { return }
@@ -432,11 +458,35 @@ class HomePopupDetailsView: UIView {
     }
     
     @objc
-    private func buttonEvaluate() {
+    private func actionMaps() {
+        guard let action = model?.mapsAction,
+              let dataModel = model?.breweryData
+        else { return }
+        action(dataModel.address)
+    }
+    
+    @objc
+    private func actionButtonEvaluate() {
         guard let action = model?.evaluateAction else { return }
         action()
     }
- }
+}
+
+extension HomePopupDetailsView {
+    private func roundRatingNumberAndCheck(_ number: CGFloat) -> QuantityRating {
+        if number.truncatingRemainder(dividingBy: 100) == 0 {
+            return (number, true)
+        }
+        
+        if number <= 100 {
+            return (number, false)
+        }
+        
+        let hundreds = Int(number) / 100
+        
+        return (CGFloat(hundreds * 100), false)
+    }
+}
 
 extension UILabel {
     static func getTitleSectionValues(
@@ -450,7 +500,7 @@ extension UILabel {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.font = isBold ?
-            .boldSystemFont(ofSize: height) : 
+            .boldSystemFont(ofSize: height) :
             .systemFont(ofSize: height, weight: .thin)
         label.textAlignment = alignment
         label.contentMode = .scaleAspectFit

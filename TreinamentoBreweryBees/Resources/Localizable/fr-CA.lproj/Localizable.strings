@@ -67,6 +67,8 @@
 "breweryDetails_AddressTitle" = "Adresse";
 "breweryDetails_MapsTextLink" = "Voir sur la carte";
 "breweryDetails_RateButton" = "ÉVALUER LA BRASSERIE";
+"breweryDetails_RateQuantity" = "%@ avis";
+"breweryDetails_RateQuantityMoreThan" = "Plus de %@ avis";
 "breweryDetails_AlreadyRated" = "Vous avez déjà évalué cette brasserie !";
 
 // MARK: - Email

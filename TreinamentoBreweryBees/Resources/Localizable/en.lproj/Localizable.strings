@@ -67,6 +67,8 @@
 "breweryDetails_AddressTitle" = "Address";
 "breweryDetails_MapsTextLink" = "View on Map";
 "breweryDetails_RateButton" = "RATE BREWERY";
+"breweryDetails_RateQuantity" = "%@ reviews";
+"breweryDetails_RateQuantityMoreThan" = "More than %@ reviews";
 "breweryDetails_AlreadyRated" = "You have already rated this brewery!";
 
 // MARK: - Email

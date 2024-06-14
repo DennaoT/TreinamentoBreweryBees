@@ -8,18 +8,13 @@
 import UIKit
 
 protocol HomeCoordinatorDelegate: AnyObject {
-    func openNextFlow(_ breweryData: BreweryData?)
-    func manageUrl(url urlString: String?, flow: UrlTypeFlow)
-    func finishFlowHome()
+    func performUrl(url urlString: String?, flow: UrlTypeFlow)
+    func performMaps(location: String)
     func openError(tryAgainAction: @escaping ActionHandler)
 }
 
 extension HomeCoordinator: HomeCoordinatorDelegate {
-    func openNextFlow(_ breweryData: BreweryData?) {
-        //Next Coordinator
-    }
-    
-    func manageUrl(url urlString: String?, flow: UrlTypeFlow) {
+    func performUrl(url urlString: String?, flow: UrlTypeFlow) {
         guard let urlString = urlString,
               let url = URL(string: urlString),
               UIApplication.shared.canOpenURL(url) 
@@ -33,8 +28,9 @@ extension HomeCoordinator: HomeCoordinatorDelegate {
         }
     }
     
-    func finishFlowHome() {
-        //Pop current Coordinator
+    func performMaps(location: String) {
+        //Open Apple Maps with current location
+        print("performMaps with location: \(location)")
     }
     
     func openError(tryAgainAction: @escaping ActionHandler) {
