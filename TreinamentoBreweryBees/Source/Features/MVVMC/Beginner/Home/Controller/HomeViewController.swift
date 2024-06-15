@@ -151,21 +151,45 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     private func setupNavBar() {
-        navigationItem.title = TreinamentoBreweryBeesLocalizable.homeNavigationTitle.localized
-        
         navigationController?.navigationBar.barTintColor = Constants.navigationBarColor
         navigationController?.navigationBar.tintColor = Constants.mainThemeColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Constants.mainThemeColor]
         
-        let optionBeer = UIBarButtonItem(image: Images.beerYellow, style: .plain, target: self, action: #selector(backButtonTapped))
-        navigationItem.leftBarButtonItem = optionBeer
+        let rightIcon = UIBarButtonItem(image: Images.circleMenu, style: .plain, target: self, action: #selector(menuOptionTapped))
+        navigationItem.rightBarButtonItem = rightIcon
         
-        let optionMenuList = UIBarButtonItem(image: Images.circleMenu, style: .plain, target: self, action: #selector(backButtonTapped))
-        navigationItem.rightBarButtonItem = optionMenuList
+        setupNavHome()
     }
     
-    @objc private func backButtonTapped() {
-        navigationController?.popViewController(animated: true)
+    private func setupNavHome() {
+        navigationItem.title?.removeAll()
+        
+        let leftIcon = UIBarButtonItem(image: Images.beerYellow, style: .plain, target: self, action: #selector(beerOptionTapped))
+        navigationItem.leftBarButtonItem = leftIcon
+    }
+    
+    private func setupNavDetails() {
+        navigationItem.title = TreinamentoBreweryBeesLocalizable.homeNavigationTitle.localized
+        
+        let leftIcon = UIBarButtonItem(image: Images.arrowLeft, style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationItem.leftBarButtonItem = leftIcon
+    }
+    
+    @objc
+    private func beerOptionTapped() {
+        //Do something
+    }
+    
+    @objc
+    private func menuOptionTapped() {
+        //Do something
+    }
+    
+    @objc
+    private func backButtonTapped() {
+        detailsView?.removeFromSuperview()
+        detailsView = nil
+        setupNavHome()
     }
 }
 
@@ -239,6 +263,7 @@ extension HomeViewController {
         guard let detailsView = detailsView else { return }
         
         backgroundGrayView.addSubview(detailsView)
+        setupNavDetails()
         
         guard Constants.detailsViewIsModal else { return }
         
@@ -253,25 +278,6 @@ extension HomeViewController {
             }
             self.backgroundGrayView.layoutIfNeeded()
         })
-    }
-    
-    private func OLDsetupDetails(breweryModel: BreweryData?) {
-        viewModel?.prepareNextFlow(data: breweryModel) { [weak self] detailsModel in
-            guard let self = self else { return }
-            self.detailsView = HomePopupDetailsView()
-            self.detailsView?.setup(with: detailsModel, isModal: Constants.detailsViewIsModal)
-        }
-        
-        guard let detailsView = detailsView else { return }
-        backgroundGrayView.addSubview(detailsView)
-        detailsView.snp.makeConstraints { make in
-            if Constants.detailsViewIsModal {
-                make.centerX.equalToSuperview()
-                make.top.equalToSuperview().offset(Constants.detailsViewTopSpacing)
-            } else {
-                make.edges.equalToSuperview()
-            }
-        }
     }
 }
 

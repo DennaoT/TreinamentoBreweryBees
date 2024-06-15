@@ -10,7 +10,7 @@ import SnapKit
 
 class HomePopupDetailsView: UIView {
     
-    // MARK: - Action Handler
+    // MARK: - Typealias
     private typealias QuantityRating = (roundedNumber: CGFloat, isMultipleOfHundred: Bool)
     
     // MARK: - Model
@@ -44,11 +44,21 @@ class HomePopupDetailsView: UIView {
         static let mainLeading : CGFloat = 3
         static let mainTrailing : CGFloat = 2.2
         static let mainBottom: CGFloat = 4.1
+        static let topStackSpacing: CGFloat = 22
         static let smallSpacing: CGFloat = .measurement(.nano)
+        static let mediumSpacing: CGFloat = .measurement(.extraSmall)
         static let defaultSpacing: CGFloat = .measurement(.small)
-        static let nameTitleHeight: CGFloat = 28.0
+        static let largeSpacing: CGFloat = .measurement(.big)
+        static let bigSpacing: CGFloat = .measurement(.xBig)
+        static let sectionHeight: CGFloat = 32
+        static let sectionHeightMultiplier: CGFloat = 3
+        static let defaultComponentHeight: CGFloat = 28.0
+        static let buttonEvaluateHeight: CGFloat = 52.0
+        static let ratingHeight: CGFloat = 30.0
+        static let ratingWidth: CGFloat = 150.0
+        static let topicWidth: CGFloat = 90.0
         static let topicTitleHeight: CGFloat = .measurement(.initialMedium)
-        static let ratingHeight: CGFloat = .measurement(.smaller)
+        static let ratingQuantityHeight: CGFloat = .measurement(.smaller)
         static let titleNumOfLines: Int = 2
         static let alreadyRatedTitleColor: UIColor = .init(hex: "#03AD00")
         static let verticalSpacing: CGFloat = .measurement(.large)
@@ -103,7 +113,7 @@ class HomePopupDetailsView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
-        label.font = .boldSystemFont(ofSize: Constants.nameTitleHeight)
+        label.font = .boldSystemFont(ofSize: Constants.defaultComponentHeight)
         label.textAlignment = .left
         label.contentMode = .scaleAspectFit
         label.numberOfLines = Constants.titleNumOfLines
@@ -116,7 +126,7 @@ class HomePopupDetailsView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.quantityTextColor
-        label.font = .systemFont(ofSize: Constants.ratingHeight, weight: .thin)
+        label.font = .systemFont(ofSize: Constants.ratingQuantityHeight, weight: .thin)
         label.textAlignment = .left
         label.contentMode = .scaleAspectFit
         label.numberOfLines = .zero
@@ -212,6 +222,7 @@ class HomePopupDetailsView: UIView {
     private lazy var alreadyRatedTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = TreinamentoBreweryBeesLocalizable.breweryDetails_AlreadyRated.localized
         label.textColor = Constants.alreadyRatedTitleColor
         label.font = .boldSystemFont(ofSize: Constants.topicTitleHeight)
         label.textAlignment = .center
@@ -303,15 +314,15 @@ class HomePopupDetailsView: UIView {
         )
         mainView.addSubview(breweryIcon)
         breweryIcon.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(22)
-            make.leading.equalToSuperview().inset(32)
+            make.top.equalToSuperview().inset(Constants.topStackSpacing)
+            make.leading.equalToSuperview().inset(Constants.largeSpacing)
             make.size.equalTo(Constants.breweryIconSize)
         }
         
         mainView.addSubview(topCornerStack)
         topCornerStack.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(22)
-            make.trailing.equalToSuperview().inset(32)
+            make.top.equalToSuperview().inset(Constants.topStackSpacing)
+            make.trailing.equalToSuperview().inset(Constants.largeSpacing)
         }
         
         titleLabel.text = breweryTitle
@@ -326,8 +337,8 @@ class HomePopupDetailsView: UIView {
         topCornerStack.addArrangedSubviews(titleLabel, ratingView, quantityRating)
         
         ratingView.snp.makeConstraints { make in
-            make.height.equalTo(30)
-            make.width.equalTo(150) /// `150`
+            make.height.equalTo(Constants.ratingHeight)
+            make.width.equalTo(Constants.ratingWidth)
         }
         
         ratingView.setup(
@@ -335,7 +346,7 @@ class HomePopupDetailsView: UIView {
                 model?.breweryData?.rating.value,
                 showLeftNumber:
                         .showLeftNumber(
-                            sizeOfNumberLabel: 30
+                            sizeOfNumberLabel: Constants.ratingHeight
                         )
             )
         )
@@ -374,19 +385,18 @@ class HomePopupDetailsView: UIView {
         
         middleStack.addArrangedSubview(seactionView)
         seactionView.snp.makeConstraints { make in
-            make.height.equalTo(insertMap ? (32.0 * 3) : 32.0)
+            make.height.equalTo(insertMap ? (Constants.sectionHeight * Constants.sectionHeightMultiplier) : Constants.sectionHeight)
             make.leading.trailing.equalToSuperview()
         }
         
         seactionView.addSubviews(topic, value)
         topic.snp.makeConstraints { make in
             make.leading.top.equalToSuperview()
-            make.width.equalTo(90.0)
-            //make.height.equalTo(32.0)
+            make.width.equalTo(Constants.topicWidth)
         }
         value.snp.makeConstraints { make in
             make.trailing.top.equalToSuperview()
-            make.leading.equalTo(topic.snp.trailing).offset(8.0)
+            make.leading.equalTo(topic.snp.trailing).offset(Constants.mediumSpacing)
         }
         
         let lineDivisor: UIView = .getLineDivisor()
@@ -399,14 +409,14 @@ class HomePopupDetailsView: UIView {
         
         seactionView.addSubviews(mapsIcon, mapsTitle)
         mapsIcon.snp.makeConstraints { make in
-            make.height.equalTo(28.0)
+            make.height.equalTo(Constants.defaultComponentHeight)
             make.leading.bottom.equalToSuperview()
-            make.width.equalTo(28.0)
+            make.width.equalTo(Constants.defaultComponentHeight)
         }
         mapsTitle.snp.makeConstraints { make in
-            make.height.equalTo(28.0)
+            make.height.equalTo(Constants.defaultComponentHeight)
             make.bottom.equalToSuperview()
-            make.leading.equalTo(mapsIcon.snp.trailing).offset(8.0)
+            make.leading.equalTo(mapsIcon.snp.trailing).offset(Constants.mediumSpacing)
         }
     }
     
@@ -418,29 +428,24 @@ class HomePopupDetailsView: UIView {
             mainView.addSubview(evaluateButton)
             
             evaluateButton.snp.makeConstraints { make in
-                make.height.equalTo(52)
-                make.leading.trailing.equalToSuperview().inset(40)
-                make.bottom.equalToSuperview().inset(28)
+                make.height.equalTo(Constants.buttonEvaluateHeight)
+                make.leading.trailing.equalToSuperview().inset(Constants.bigSpacing)
+                make.bottom.equalToSuperview().inset(Constants.defaultComponentHeight)
             }
             return
         }
         
         mainView.addSubviews(alreadyRatedIcon, alreadyRatedTitle)
         
-        if let lastViewBottom = mainView.subviews.last?.snp.bottom {
-            alreadyRatedIcon.snp.makeConstraints { make in
-                make.top.equalTo(lastViewBottom).inset(16)
-                make.leading.bottom.equalToSuperview()
-                make.size.equalTo(Constants.breweryIconSize)
-            }
-            
-            alreadyRatedTitle.snp.makeConstraints { make in
-                make.top.equalTo(alreadyRatedIcon.snp.top)
-                make.trailing.bottom.equalToSuperview()
-                make.height.equalTo(alreadyRatedIcon.snp.height)
-                make.leading.equalTo(alreadyRatedIcon.snp.trailing)
-                //                make.width.equalTo(220)
-            }
+        alreadyRatedIcon.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(Constants.defaultSpacing)
+            make.bottom.equalToSuperview().inset(Constants.largeSpacing)
+            make.size.equalTo(Constants.breweryIconSize)
+        }
+        
+        alreadyRatedTitle.snp.makeConstraints { make in
+            make.trailing.bottom.equalToSuperview().inset(Constants.largeSpacing)
+            make.leading.equalTo(alreadyRatedIcon.snp.trailing).offset(Constants.largeSpacing)
         }
     }
     
