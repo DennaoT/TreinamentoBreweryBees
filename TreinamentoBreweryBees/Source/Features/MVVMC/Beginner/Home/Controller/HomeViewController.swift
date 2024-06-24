@@ -254,11 +254,13 @@ extension HomeViewController {
     }
     
     private func setupDetails(breweryModel: BreweryData?) {
-        viewModel?.prepareNextFlow(data: breweryModel) { [weak self] detailsModel in
+        viewModel?.prepareNextFlow(data: breweryModel, completion: { [weak self] detailsModel in
             guard let self = self else { return }
             detailsView = HomePopupDetailsView()
             detailsView?.setup(with: detailsModel, isModal: Constants.detailsViewIsModal)
-        }
+        }, showEvaluateModal: { [weak self] in
+            self?.showEvaluateModal()
+        })
         
         guard let detailsView = detailsView else { return }
         
@@ -278,6 +280,10 @@ extension HomeViewController {
             }
             self.backgroundGrayView.layoutIfNeeded()
         })
+    }
+    
+    private func showEvaluateModal() {
+        
     }
 }
 

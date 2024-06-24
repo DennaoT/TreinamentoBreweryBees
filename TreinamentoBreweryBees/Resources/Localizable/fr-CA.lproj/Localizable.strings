@@ -80,6 +80,8 @@
 
 "breweryRatingTitle" = "Évaluez la brasserie %@";
 "breweryButtonTitle" = "ENREGISTRER";
+"emailExample" = "nom@email.com";
+"emailNotVerified" = "Veuillez entrer un e-mail valide";
 "successTitle" = "À votre santé !";
 "successDescription" = "Votre évaluation a été ajoutée avec succès !";
 "errorTitle" = "Quelque chose s'est mal passé !";

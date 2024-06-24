@@ -81,6 +81,8 @@
 
 "breweryRatingTitle" = "Avalie a cervejaria %@";
 "breweryButtonTitle" = "SALVAR";
+"emailExample" = "nome@email.com";
+"emailNotVerified" = "Favor inserir um e-mail válido";
 "successTitle" = "Um brinde!";
 "successDescription" = "Sua avaliação foi adicionada com sucesso!";
 "errorTitle" = "Algo deu errado!";

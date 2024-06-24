@@ -80,6 +80,8 @@
 
 "breweryRatingTitle" = "Rate Brewery %@";
 "breweryButtonTitle" = "SAVE";
+"emailExample" = "name@email.com";
+"emailNotVerified" = "Please enter a valid email";
 "successTitle" = "Cheers!";
 "successDescription" = "Your rating has been successfully added!";
 "errorTitle" = "Something went wrong!";

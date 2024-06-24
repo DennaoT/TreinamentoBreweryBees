@@ -83,6 +83,8 @@ public enum TreinamentoBreweryBeesLocalizable: String {
     
     case breweryRatingTitle
     case breweryButtonTitle
+    case emailExample
+    case emailNotVerified
     case successTitle
     case successDescription
     case errorTitle

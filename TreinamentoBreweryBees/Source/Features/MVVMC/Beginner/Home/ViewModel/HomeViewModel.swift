@@ -13,9 +13,10 @@ protocol HomeViewModelProtocol {
     var breweryModel: Dynamic<HomeInfoStatus<BreweryListData?, GenericErrorView.Model?>> { get set }
     
     func fetchHomeData()
+    func updateBreweryEvaluation(newEvaluation: String)
     func updateCellsImagesIfNeeded(completion: @escaping IdentifierImagesHandler)
     
-    func prepareNextFlow(data: BreweryData?, completion: @escaping (HomePopupDetailsView.Model?) -> Void)
+    func prepareNextFlow(data: BreweryData?, completion: @escaping (HomePopupDetailsView.Model?) -> Void, showEvaluateModal: ActionHandler?)
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -48,6 +49,10 @@ class HomeViewModel: HomeViewModelProtocol {
         }
     }
     
+    func updateBreweryEvaluation(newEvaluation: String) {
+        
+    }
+    
     func updateCellsImagesIfNeeded(completion: @escaping IdentifierImagesHandler) {
         var imagesToUpdate: [IdentifierImage] = []
         
@@ -68,10 +73,9 @@ class HomeViewModel: HomeViewModelProtocol {
         }
     }
     
-    func prepareNextFlow(data: BreweryData?, completion: @escaping (HomePopupDetailsView.Model?) -> Void) {
+    func prepareNextFlow(data: BreweryData?, completion: @escaping (HomePopupDetailsView.Model?) -> Void, showEvaluateModal: ActionHandler?) {
         let detailsModel = HomePopupDetailsView.Model(breweryData: data) {
-            //Ação quando clicado no botão de AVALIAR
-            print("Click botão  - AVALIAR -")
+            showEvaluateModal?()
         } mapsAction: { [weak self] location in
             guard let self = self else { return }
             self.parentCoordinator?.performMaps(location: location)

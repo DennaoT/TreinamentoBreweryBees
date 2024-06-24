@@ -115,6 +115,8 @@ class RatingView: UIView {
     
     private func setupToEvaluate() {
         for starImage in starsRating {
+            starImage.image = .getRatedStar(.measurement(.zero))
+            
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectStar(_:)))
             tapGesture.numberOfTapsRequired = 1
             starImage.isUserInteractionEnabled = true
