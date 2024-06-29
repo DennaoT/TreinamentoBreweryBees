@@ -13,7 +13,7 @@ protocol HomeViewModelProtocol {
     var breweryModel: Dynamic<HomeInfoStatus<BreweryListData?, GenericErrorView.Model?>> { get set }
     
     func fetchHomeData()
-    func updateBreweryEvaluation(id: String, newEvaluation: String)
+    func updateBreweryEvaluation(id: String, newEvaluation: String, completion: @escaping VerifyHandler)
     func updateCellsImagesIfNeeded(completion: @escaping IdentifierImagesHandler)
     func verifyEmail(email: String) -> Bool
     
@@ -50,8 +50,9 @@ class HomeViewModel: HomeViewModelProtocol {
         }
     }
     
-    func updateBreweryEvaluation(id: String, newEvaluation: String) {
-        
+    func updateBreweryEvaluation(id: String, newEvaluation: String, completion: @escaping VerifyHandler) {
+        print("Id: \(id)  //  newEvaluation: \(newEvaluation)")
+        completion(.random())
     }
     
     func updateCellsImagesIfNeeded(completion: @escaping IdentifierImagesHandler) {

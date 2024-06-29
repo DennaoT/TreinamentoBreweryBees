@@ -56,7 +56,7 @@ class HomeViewController: UIViewController {
         .getUnfocusedView(isUserInteractionEnabled: true)
     }()
     
-    private var evaluateModal: HomePopupRatingView?
+    private var evaluateModal: HomeModalView?
     private var detailsView: HomePopupDetailsView?
     private var searchView: HomeSearchView?
     private var resultView: HomeResultView?
@@ -291,28 +291,40 @@ extension HomeViewController {
     }
     
     private func showEvaluateModal(breweryModel: BreweryData?) {
-        evaluateModal = HomePopupRatingView()
-        let popupModel = HomePopupRatingView.Model(
+        let dismissAction: ActionHandler = { [weak self] in
+            self?.dismissEvaluateModal()
+        }
+        
+        let resultModalAction: VerifyHandler = { [weak self] state in
+            self?.evaluateModal?.setup(
+                type: state ? .ratingSuccess : .ratingFailed,
+                dismissAction: dismissAction
+            )
+        }
+        
+        let evaluateAction: StringsActionHandler = { [weak self] values in
+            guard let id = values.first,
+                  let newEvaluation = values.last
+            else { return }
+            self?.viewModel?.updateBreweryEvaluation(
+                id: id,
+                newEvaluation: newEvaluation,
+                completion: resultModalAction
+            )
+        }
+        
+        let verifyEmailAction: VerifyStringHandler = { [weak self] value in
+            self?.viewModel?.verifyEmail(email: value) ?? false
+        }
+        
+        let popupModel = HomeModalView.Model(
             breweryData: breweryModel,
-            evaluateAction: { [weak self] values in
-                guard let id = values.first,
-                      let newEvaluation = values.last
-                else { return }
-                self?.dismissEvaluateModal()
-                self?.viewModel?.updateBreweryEvaluation(
-                    id: id,
-                    newEvaluation: newEvaluation
-                )
-            },
-            verifyEmail: { [weak self] value in
-                self?.viewModel?.verifyEmail(email: value) ?? false
-            },
-            dismissAction: { [weak self] in
-                self?.dismissEvaluateModal()
-            },
+            evaluateAction: evaluateAction,
+            verifyEmail: verifyEmailAction,
             hasDefaultHeight: true
         )
         
+        evaluateModal = HomeModalView(type: .rating(model: popupModel), dismissAction: dismissAction)
         guard let evaluateModal = evaluateModal else { return }
         
         view.addSubview(unfocusedView)
@@ -323,7 +335,6 @@ extension HomeViewController {
         unfocusedView.addSubview(evaluateModal)
         evaluateModal.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(Constants.defaultModalHeight)
             make.top.equalTo(unfocusedView.snp.bottom)
         }
         
@@ -334,9 +345,7 @@ extension HomeViewController {
                 make.leading.trailing.bottom.equalToSuperview()
                 make.height.equalTo(Constants.defaultModalHeight)
             }
-            evaluateModal.setup(with: popupModel)
             self.view.layoutIfNeeded()
-            
         }
     }
     

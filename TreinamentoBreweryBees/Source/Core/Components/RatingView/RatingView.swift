@@ -114,9 +114,8 @@ class RatingView: UIView {
     // MARK: - Setup To Evaluate - screen type
     
     private func setupToEvaluate() {
+        resetStarts()
         for starImage in starsRating {
-            starImage.image = .getRatedStar(.measurement(.zero))
-            
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectStar(_:)))
             tapGesture.numberOfTapsRequired = 1
             starImage.isUserInteractionEnabled = true
@@ -140,16 +139,17 @@ class RatingView: UIView {
 extension RatingView {
     @objc private func selectStar(_ gesture: UITapGestureRecognizer) {
         guard let selectedStar = gesture.view as? UIImageView,
-              let finalIndex = starsRating.firstIndex(of: selectedStar),
-              let valuationValue = valuationValue
+              var starIndex = starsRating.firstIndex(of: selectedStar)
         else { return }
         
-        for index in 0...finalIndex {
-            starsRating[index].image = .getRatedStar(valuationValue)
+        resetStarts()
+        starIndex += 1
+        for index in 0..<starIndex {
+            starsRating[index].image = .getRatedStar(CGFloat(starIndex - index))
         }
         
         if let action = evaluateAction {
-            action(String(describing: valuationValue))
+            action(String(describing: starIndex))
         }
     }
     
@@ -164,6 +164,12 @@ extension RatingView {
         mainStackView.insertArrangedSubview(numberText, at: .zero)
         numberText.snp.makeConstraints { make in
             make.height.equalToSuperview()
+        }
+    }
+    
+    private func resetStarts() {
+        for starImage in starsRating {
+            starImage.image = .getRatedStar(.measurement(.zero))
         }
     }
 }

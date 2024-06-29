@@ -53,7 +53,7 @@
 		C9197D261FF6D8CC53EB7E42 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118985213C545ADC14CEA55D /* HomeViewModel.swift */; };
 		CF55003CC67DDF125A0E376D /* GenericErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875A233D306347C3E3EB0E51 /* GenericErrorView.swift */; };
 		D07805A8A504AB118D52E646 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FBB27A64869F51F92B381 /* String.swift */; };
-		D084C9053853EEBCB1536ACC /* HomePopupRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E792FA0D45BB23E4183E05 /* HomePopupRatingView.swift */; };
+		D084C9053853EEBCB1536ACC /* HomeModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E792FA0D45BB23E4183E05 /* HomeModalView.swift */; };
 		D14BD79D4EFEBB4D799206B0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC0B81E42C8713E3ADBEF13 /* HomeCoordinator.swift */; };
 		D632D77075F8BB96E1034903 /* MockBreweryBeesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCDD5D56C9A2C13579B4367 /* MockBreweryBeesService.swift */; };
 		DD54A267F1C12EB4B8D1337B /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507E44661F1663B4E4F2CE9 /* RatingView.swift */; };
@@ -91,7 +91,7 @@
 		0BE24A3B2C077B0D00F68900 /* ImageDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadOperation.swift; sourceTree = "<group>"; };
 		111E7A4935DD85A2416E1900 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		118985213C545ADC14CEA55D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		19E792FA0D45BB23E4183E05 /* HomePopupRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopupRatingView.swift; sourceTree = "<group>"; };
+		19E792FA0D45BB23E4183E05 /* HomeModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModalView.swift; sourceTree = "<group>"; };
 		1DC0B81E42C8713E3ADBEF13 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		2B7E1B9383BCDCA55CB593E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C3F70FE70B05E6029B7E57E /* Pods-TreinamentoBreweryBees.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreinamentoBreweryBees.release.xcconfig"; path = "Target Support Files/Pods-TreinamentoBreweryBees/Pods-TreinamentoBreweryBees.release.xcconfig"; sourceTree = "<group>"; };
@@ -529,7 +529,7 @@
 			isa = PBXGroup;
 			children = (
 				35D752A6161C40F1CCC03643 /* HomePopupDetailsView.swift */,
-				19E792FA0D45BB23E4183E05 /* HomePopupRatingView.swift */,
+				19E792FA0D45BB23E4183E05 /* HomeModalView.swift */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -885,7 +885,7 @@
 				48192FDC590BD8D0E496A0A8 /* HomeError.swift in Sources */,
 				F16CC9476E22C00D4AF749F4 /* HomeModel.swift in Sources */,
 				C519698E63B522AF71294CDA /* HomePopupDetailsView.swift in Sources */,
-				D084C9053853EEBCB1536ACC /* HomePopupRatingView.swift in Sources */,
+				D084C9053853EEBCB1536ACC /* HomeModalView.swift in Sources */,
 				76CAA0CAAD7A50E3EE172313 /* HomeResultView.swift in Sources */,
 				8DC32CAFE73404C86BE1BD04 /* HomeSearchView.swift in Sources */,
 				87723A37F0F4D5ACDB873A45 /* HomeViewController.swift in Sources */,

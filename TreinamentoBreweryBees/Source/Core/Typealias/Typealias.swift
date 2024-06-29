@@ -16,6 +16,9 @@ public typealias StringActionHandler = (_ value: String) -> Void
 // MARK: - Verify Text Handler
 public typealias VerifyStringHandler = (_ value: String) -> Bool
 
+// MARK: - Verify Strings Handler
+public typealias VerifyHandler = (_ state: Bool) -> Void
+
 // MARK: - Strings Handler
 public typealias StringsActionHandler = (_ values: String...) -> Void
 

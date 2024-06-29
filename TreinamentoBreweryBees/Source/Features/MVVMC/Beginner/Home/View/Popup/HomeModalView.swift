@@ -1,5 +1,5 @@
 //
-//  HomePopupRatingView.swift
+//  HomeModalView.swift
 //  TreinamentoBreweryBees
 //
 //  Created by Dennis Torres on 15/04/24.
@@ -8,13 +8,20 @@
 import UIKit
 import SnapKit
 
-class HomePopupRatingView: UIView {
+class HomeModalView: UIView {
+    
+    // MARK: - Type
+    
+    enum PopupType {
+        case rating(model: HomeModalView.Model)
+        case ratingSuccess
+        case ratingFailed
+    }
     
     // MARK: - Model
     
     struct Model {
         var hasDefaultHeight: Bool = false
-        var dismissAction: ActionHandler?
         var verifyEmail: VerifyStringHandler?
         var evaluateAction: StringsActionHandler?
         let breweryData: BreweryData?
@@ -23,13 +30,11 @@ class HomePopupRatingView: UIView {
             breweryData: BreweryData?,
             evaluateAction: StringsActionHandler? = nil,
             verifyEmail: VerifyStringHandler? = nil,
-            dismissAction: ActionHandler? = nil,
             hasDefaultHeight: Bool = false
         ) {
             self.breweryData = breweryData
             self.evaluateAction = evaluateAction
             self.verifyEmail = verifyEmail
-            self.dismissAction = dismissAction
             self.hasDefaultHeight = hasDefaultHeight
         }
     }
@@ -45,7 +50,9 @@ class HomePopupRatingView: UIView {
         static let ratingHeight: CGFloat = 50.0
         static let ratingWidth: CGFloat = 240.0
         static let closeIconSize: CGFloat = 22.0
-        static let titleHeight: CGFloat = 28.0
+        static let resultIconSize: CGFloat = 80.0
+        static let resultLabelHeight: CGFloat = 18.0
+        static let titleHeight: CGFloat = 25.0
         static let titleNumOfLines: Int = 2
         static let textFieldHeight: CGFloat = 20.0
         static let lineDivisorHeight: CGFloat = 2.0
@@ -140,11 +147,29 @@ class HomePopupRatingView: UIView {
         return button
     }()
     
+    private lazy var resultIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    private lazy var resultDescription: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: Constants.resultLabelHeight, weight: .semibold)
+        label.textAlignment = .center
+        label.contentMode = .scaleAspectFit
+        label.numberOfLines = Constants.titleNumOfLines
+        return label
+    }()
+    
     // MARK: - Properties
     
     private var rateValue: String?
     private var isEmailValid: Bool = false
-    private var model: HomePopupRatingView.Model?
+    private var dismissAction: ActionHandler?
+    private var modelType: PopupType?
     
     // MARK: - Public methods
     
@@ -152,16 +177,24 @@ class HomePopupRatingView: UIView {
         super.init(frame: .zero)
     }
     
+    convenience init(type: PopupType, dismissAction: ActionHandler? = nil) {
+        self.init()
+        setup(type: type, dismissAction: dismissAction)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     deinit {
-        model = nil
+        rateValue = nil
+        dismissAction = nil
+        modelType = nil
     }
     
-    func setup(with model: HomePopupRatingView.Model) {
-        self.model = model
+    func setup(type: PopupType, dismissAction: ActionHandler? = nil) {
+        self.modelType = type
+        self.dismissAction = dismissAction
         
         buildComponents()
     }
@@ -172,25 +205,46 @@ class HomePopupRatingView: UIView {
         backgroundColor = Constants.mainViewColor
         isUserInteractionEnabled = true
         
+        resetViews()
         setupElements()
         setupHierarchy()
         setupConstraints()
     }
     
+    private func resetViews() {
+        textFieldStack.removeAllArrangedSubviews()
+        mainStackView.removeAllArrangedSubviews()
+        removeSubviews()
+    }
+    
     private func setupElements() {
-        guard let breweryName = model?.breweryData?.name else { return }
-        
+        guard let modelType = modelType else { return }
         setupCloseAction()
         
-        titleLabel.text = String(
-            format: TreinamentoBreweryBeesLocalizable.breweryRatingTitle.localized,
-            breweryName
-        )
-        
-        ratingView.setup(.toEvaluate(evaluateAction: { [weak self] value in
-            self?.rateValue = value
-        }))
-        ratingView.isUserInteractionEnabled = true
+        switch modelType {
+        case .rating(let model):
+            guard let titleText = model.breweryData?.name else { return }
+            titleLabel.text = String(
+                format: TreinamentoBreweryBeesLocalizable.breweryRatingTitle.localized,
+                titleText
+            )
+            ratingView.setup(.toEvaluate(evaluateAction: { [weak self] value in
+                self?.rateValue = value
+                self?.enableSaveButton()
+            }))
+            ratingView.isUserInteractionEnabled = true
+        case .ratingSuccess:
+            titleLabel.text = TreinamentoBreweryBeesLocalizable.successTitle.localized
+            resultIcon.image = UIImage(asset: BreweryBeesAssets.Icons.beesSuccessBeerIcon)
+            resultDescription.text = TreinamentoBreweryBeesLocalizable.successDescription.localized
+            resultDescription.textColor = .green
+            
+        case .ratingFailed:
+            titleLabel.text = TreinamentoBreweryBeesLocalizable.errorTitle.localized
+            resultIcon.image = UIImage(asset: BreweryBeesAssets.Icons.beesFailedBeerIcon)
+            resultDescription.text = TreinamentoBreweryBeesLocalizable.errorDescription.localized
+            resultDescription.textColor = .red
+        }
     }
     
     private func setupCloseAction() {
@@ -201,8 +255,17 @@ class HomePopupRatingView: UIView {
     
     private func setupHierarchy() {
         addSubviews(closeIcon, mainStackView)
+        mainStackView.addArrangedSubview(titleLabel)
+        
+        guard case .rating(_) = modelType else {
+            mainStackView.addArrangedSubviews(
+                resultIcon,
+                resultDescription
+            )
+            return
+        }
+        
         mainStackView.addArrangedSubviews(
-            titleLabel,
             ratingView,
             textFieldStack,
             saveButton
@@ -216,7 +279,8 @@ class HomePopupRatingView: UIView {
     }
     
     private func setupConstraints() {
-        if model?.hasDefaultHeight ?? false {
+        if case .rating(let model) = modelType,
+           model.hasDefaultHeight {
             snp.makeConstraints { make in
                 make.height.equalTo(Constants.modalHeight)
             }
@@ -230,6 +294,13 @@ class HomePopupRatingView: UIView {
         mainStackView.snp.makeConstraints { make in
             make.top.equalTo(closeIcon.snp.bottom).offset(Constants.defaultSpacing)
             make.leading.trailing.equalToSuperview()
+        }
+        
+        guard case .rating(_) = modelType else {
+            resultIcon.snp.makeConstraints { make in
+                make.size.equalTo(Constants.resultIconSize)
+            }
+            return
         }
         
         textFieldStack.snp.makeConstraints { make in
@@ -253,20 +324,23 @@ class HomePopupRatingView: UIView {
     
     @objc
     private func actionCloseButton() {
-        model?.dismissAction?()
+        dismissAction?()
     }
     
     @objc
     private func actionSaveButton() {
-        guard let breweryId = model?.breweryData?.identifier,
+        guard case .rating(let model) = modelType,
+              let breweryId = model.breweryData?.identifier,
               let rateValue = rateValue
         else { return }
         
-        model?.evaluateAction?(breweryId, rateValue)
+        model.evaluateAction?(breweryId, rateValue)
     }
     
     private func updateTextField(text: String) {
-        isEmailValid = model?.verifyEmail?(text) ?? false
+        guard case .rating(let model) = modelType else { return }
+        
+        isEmailValid = model.verifyEmail?(text) ?? false
         
         invalidEmailLabel.text = !isEmailValid
         ? TreinamentoBreweryBeesLocalizable.emailNotVerified.localized
@@ -275,9 +349,7 @@ class HomePopupRatingView: UIView {
     }
     
     private func enableSaveButton() {
-        guard !saveButton.isEnabled
-                && rateValue != nil
-                && isEmailValid
+        guard rateValue != nil && isEmailValid
         else {
             saveButton.isEnabled = false
             saveButton.backgroundColor = Constants.buttonEvaluateColor?.withAlphaComponent(0.3)
@@ -289,7 +361,7 @@ class HomePopupRatingView: UIView {
     }
 }
 
-extension HomePopupRatingView: UITextFieldDelegate {
+extension HomeModalView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
         let newText = (text as NSString).replacingCharacters(in: range, with: string)
