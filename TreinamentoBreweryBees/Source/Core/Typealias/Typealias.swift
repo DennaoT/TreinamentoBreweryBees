@@ -13,6 +13,12 @@ public typealias ActionHandler = () -> Void
 // MARK: - Text Link Handler
 public typealias StringActionHandler = (_ value: String) -> Void
 
+// MARK: - Verify Text Handler
+public typealias VerifyStringHandler = (_ value: String) -> Bool
+
+// MARK: - Strings Handler
+public typealias StringsActionHandler = (_ values: String...) -> Void
+
 // MARK: - Model Handler
 public typealias ModelHandler = (_ model: Decodable) -> Void
 

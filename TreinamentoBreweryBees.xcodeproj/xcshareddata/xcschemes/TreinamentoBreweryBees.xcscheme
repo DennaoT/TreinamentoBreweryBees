@@ -43,15 +43,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CD9340CAADD230E58E7A7C22"
-            BuildableName = "TreinamentoBreweryBees.app"
-            BlueprintName = "TreinamentoBreweryBees"
-            ReferencedContainer = "container:TreinamentoBreweryBees.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"

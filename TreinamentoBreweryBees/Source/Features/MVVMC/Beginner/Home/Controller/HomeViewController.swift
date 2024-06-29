@@ -21,6 +21,8 @@ class HomeViewController: UIViewController {
         static let errorBottomSpacing: CGFloat = 50
         static let cirqueSpacing: CGFloat =  120
         static let valueDivisor: Int = 2
+        static let defaultAnimationTime: CGFloat = 0.4
+        static let defaultModalHeight: CGFloat = 420.0
         static let detailsViewIsModal: Bool = true
         static let detailsViewTopSpacing: CGFloat = .measurement(.large)
     }
@@ -50,6 +52,11 @@ class HomeViewController: UIViewController {
         return backgroundView
     }()
     
+    private lazy var unfocusedView: UIView = {
+        .getUnfocusedView(isUserInteractionEnabled: true)
+    }()
+    
+    private var evaluateModal: HomePopupRatingView?
     private var detailsView: HomePopupDetailsView?
     private var searchView: HomeSearchView?
     private var resultView: HomeResultView?
@@ -91,6 +98,7 @@ class HomeViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
+        evaluateModal = nil
         detailsView = nil
         screenError = nil
         searchView = nil
@@ -259,7 +267,7 @@ extension HomeViewController {
             detailsView = HomePopupDetailsView()
             detailsView?.setup(with: detailsModel, isModal: Constants.detailsViewIsModal)
         }, showEvaluateModal: { [weak self] in
-            self?.showEvaluateModal()
+            self?.showEvaluateModal(breweryModel: breweryModel)
         })
         
         guard let detailsView = detailsView else { return }
@@ -269,7 +277,7 @@ extension HomeViewController {
         
         guard Constants.detailsViewIsModal else { return }
         
-        UIView.transition(with: self.backgroundGrayView, duration: 0.5, options: .layoutSubviews, animations: {
+        UIView.transition(with: self.backgroundGrayView, duration: Constants.defaultAnimationTime, options: .layoutSubviews, animations: {
             detailsView.snp.makeConstraints { make in
                 if Constants.detailsViewIsModal {
                     make.top.equalToSuperview().offset(Constants.detailsViewTopSpacing)
@@ -282,8 +290,60 @@ extension HomeViewController {
         })
     }
     
-    private func showEvaluateModal() {
+    private func showEvaluateModal(breweryModel: BreweryData?) {
+        evaluateModal = HomePopupRatingView()
+        let popupModel = HomePopupRatingView.Model(
+            breweryData: breweryModel,
+            evaluateAction: { [weak self] values in
+                guard let id = values.first,
+                      let newEvaluation = values.last
+                else { return }
+                self?.dismissEvaluateModal()
+                self?.viewModel?.updateBreweryEvaluation(
+                    id: id,
+                    newEvaluation: newEvaluation
+                )
+            },
+            verifyEmail: { [weak self] value in
+                self?.viewModel?.verifyEmail(email: value) ?? false
+            },
+            dismissAction: { [weak self] in
+                self?.dismissEvaluateModal()
+            },
+            hasDefaultHeight: true
+        )
         
+        guard let evaluateModal = evaluateModal else { return }
+        
+        view.addSubview(unfocusedView)
+        unfocusedView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        unfocusedView.addSubview(evaluateModal)
+        evaluateModal.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(Constants.defaultModalHeight)
+            make.top.equalTo(unfocusedView.snp.bottom)
+        }
+        
+        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: Constants.defaultAnimationTime) {
+            evaluateModal.snp.remakeConstraints { make in
+                make.leading.trailing.bottom.equalToSuperview()
+                make.height.equalTo(Constants.defaultModalHeight)
+            }
+            evaluateModal.setup(with: popupModel)
+            self.view.layoutIfNeeded()
+            
+        }
+    }
+    
+    private func dismissEvaluateModal() {
+        evaluateModal?.removeFromSuperview()
+        evaluateModal = nil
+        unfocusedView.removeFromSuperview()
     }
 }
 

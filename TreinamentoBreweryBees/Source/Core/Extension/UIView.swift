@@ -19,6 +19,14 @@ extension UIView {
         return lineDivisor
     }
     
+    static func getUnfocusedView(isUserInteractionEnabled: Bool = false) -> UIView {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .black.withAlphaComponent(0.45)
+        view.isUserInteractionEnabled = isUserInteractionEnabled
+        return view
+    }
+    
     func addSubviews(_ views: UIView...) {
         views.forEach { subview in
             addSubview(subview)
